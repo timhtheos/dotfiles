@@ -2,6 +2,7 @@
 *
 
 # Take exeptions
+!README.md
 !.gitignore
 !.vimrc
 !.zshrc

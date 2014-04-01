@@ -1,4 +1,4 @@
-rcs
+RCs
 ===
 
 RCs and conf files
@@ -7,6 +7,9 @@ RCs and conf files
 This repository is personal, but not private.
 
 
-.tmux.conf
-.vimrc
-.zshrc
+
+- .tmux.conf
+
+- .vimrc
+
+- .zshrc
