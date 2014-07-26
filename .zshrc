@@ -23,7 +23,13 @@ alias define='sdcv "$1"'
 #echo "Did you know that:"; whatis $(ls /bin | shuf -n 1)
 
 # the same source as above only that this one is for cowsay
-alias bored='cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1 | cut -d. -f1) $(whatis $(ls /bin) 2>/dev/null | shuf -n 1)'
+alias boredPlain='cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1 | cut -d. -f1) $(whatis $(ls /bin) 2>/dev/null | shuf -n 1)'
+alias bored='boredPlain | toilet -F gay -f term'
+
+# terminal clock
+alias tclock='while true; do tput clear; date +"                                                                                                         %l : %M : %S %p" | figlet -c | toilet -F gay -f term; sleep 1; done'
+
+
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
