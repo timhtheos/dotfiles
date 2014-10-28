@@ -1,43 +1,46 @@
-"
 " Herein I use Vundle, vundle settings, and my personal settings
-"
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
+" Vundle runtime path, and initialize
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
-" alternatively, pass a path where Vundle should install bundles
+
+" ALT: pass a path where Vundle should install bundles
 "let path = '~/some/path/here'
 "call vundle#rc(path)
 
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
+" lorem ipsum
+Bundle 'vim-scripts/loremipsum'
+
+" vimwiki
+Bundle 'vim-scripts/vimwiki.git'
+
 " from Github
 Bundle 'tpope/vim-fugitive'
+"Bundle 'sjl/splice' " alt to fugitive; previously called threesome
 Bundle 'Lokaltog/vim-easymotion'
-" temp disabled: Bundle 'tpope/vim-rails.git'
+"Bundle 'tpope/vim-rails.git'     " temp disabled
+"Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-" Bundle 'Lokaltog/vim-easymotion'
 
 " from Arnold's list
 Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
-" Bundle 'tpope/vim-fugitive'
-" nerdtree already in the list above
 Bundle 'trapd00r/neverland-vim-theme'
 Bundle 'shawncplus/phpcomplete.vim'
-" syntastic already in the list above
 Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
 Bundle 'SirVer/ultisnips'
 Bundle 'joonty/vdebug'
-Bundle 'bling/vim-airline'
+"Bundle 'bling/vim-airline'     " misalignment with powerline
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-commentary'
 Bundle 'dsdeiz/vim-drupal-snippets'
@@ -60,11 +63,11 @@ Bundle 'FuzzyFinder'
 "Bundle 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 "Bundle 'file:///home/gmarik/path/to/plugin'
-" ...
 
-filetype plugin indent on     " required
+"filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on " I enabled this due to vimwiki, 
+" otherwise, the above (filetype plugin indent on)
 "
 " Brief help
 " :BundleList          - list configured bundles
@@ -76,9 +79,20 @@ filetype plugin indent on     " required
 " NOTE: comments after Bundle commands are not allowed.
 " Put your stuff after this line
 
-"""""""""""""""""""""""""""""""""""
-" Vundle custom settings //tae
-"
+""""""""""
+" Powerline settings
+" src: http://reversiblean-reversiblean.rhcloud.com/install-vim-powerline/
+" NOTE for Vundle: This should go after filetype plugin indent on
+
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+set laststatus=2
+
+""""""""""
+" Vundle custom settings - tae
 
 " start nertTree automatically when vim is started when there is no file specified
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -98,10 +112,8 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
-
-""""""""""""""""""""""""""""""""""
-" Custom settings //tae
-"
+""""""""""
+" Custom settings - tae
 
 " most from https://github.com/justinforce/dotfiles/blob/master/files/vim/vimrc
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8  " saving and encoding
@@ -172,12 +184,3 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-" Powerline thing
-"set guifont=Inconsolata\ for\ Powerline:h15
-let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
-set termencoding=utf-8

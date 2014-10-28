@@ -15,7 +15,7 @@ ZSH_THEME="agnoster"
 
 # use mac osx's say command rather than ubuntu's espeak
 # added by tae
-alias say='echo "$1" | espeak -s 120 2>/dev/null'
+#alias say='echo "$1" | espeak -s 120 2>/dev/null'
 alias define='sdcv "$1"'
 
 # added by tae from
@@ -24,13 +24,11 @@ alias define='sdcv "$1"'
 #echo "Did you know that:"; whatis $(ls /bin | shuf -n 1)
 
 # the same source as above only that this one is for cowsay
-alias boredPlain='cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1 | cut -d. -f1) $(whatis $(ls /bin) 2>/dev/null | shuf -n 1)'
+#alias boredPlain='cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1 | cut -d. -f1) $(whatis $(ls /bin) 2>/dev/null | shuf -n 1)'
 alias bored='boredPlain | toilet -F gay -f term'
 
 # terminal clock
 alias tclock='while true; do tput clear; date +"                                                                                                         %l : %M : %S %p" | figlet -c | toilet -F gay -f term; sleep 1; done'
-
-
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -71,6 +69,11 @@ plugins=(z)
 
 source $ZSH/oh-my-zsh.sh
 
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+# fzf: fuzy finder
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # User configuration
 
 export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
@@ -88,4 +91,3 @@ export PATH="/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
