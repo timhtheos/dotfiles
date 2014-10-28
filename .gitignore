@@ -1,9 +1,0 @@
-# Ignore everything
-*
-
-# Take exeptions
-!README.md
-!.gitignore
-!.vimrc
-!.zshrc
-!.tmux.conf
