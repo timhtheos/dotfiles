@@ -1,12 +1,12 @@
 # Slate settings
 
 # bind
-bind 1:ctrl focus 'Google Chrome'
-bind 2:ctrl focus 'iTerm'
-bind 3:ctrl focus 'Skype'
-bind 4:ctrl focus 'Firefox'
-bind 9:ctrl focus 'Notes'
-bind 0:ctrl focus 'Finder'
+bind g:d,alt focus 'Google Chrome'
+bind i:d,alt focus 'iTerm'
+bind s:d,alt focus 'Skype'
+bind f:d,alt focus 'Firefox'
+bind n:d,alt focus 'Notes'
+bind d:d,alt focus 'dota_osx'
 
 # Window Hints
 bind esc:cmd hint
