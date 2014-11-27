@@ -1,12 +1,4 @@
-RCs
+dotfiles
 ===
 
-RCs and conf files
-
-
-This repository is personal, but not private.
-
-
-- .tmux.conf
-- .vimrc
-- .zshrc
+I use [rcm](https://github.com/thoughtbot/rcm) to manage my dotfiles.
