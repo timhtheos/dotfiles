@@ -1,15 +1,9 @@
-" Herein I use Vundle, vundle settings, and my personal settings
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " Vundle runtime path, and initialize
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
-
-" ALT: pass a path where Vundle should install bundles
-"let path = '~/some/path/here'
-"call vundle#rc(path)
+set rtp+=/Users/timothy/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
@@ -30,7 +24,6 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 
-" from Arnold's list
 Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
@@ -53,48 +46,42 @@ Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 Bundle 'mattn/emmet-vim'
 
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" scripts from http://vim-scripts.org/vim/scripts.html
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-" scripts not on GitHub
-"Bundle 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Bundle 'file:///home/gmarik/path/to/plugin'
 
-"filetype plugin indent on     " required
+Bundle 'L9'
+" scripts from http://vim-scripts.org/vim/scripts.html
+Bundle 'FuzzyFinder'
+
+" YouCompleteMe
+Bundle "Valloric/YouCompleteMe"
+
+" Powerline
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+call vundle#end()
+
+" filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
 filetype plugin on " I enabled this due to vimwiki, 
 " otherwise, the above (filetype plugin indent on)
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
 " Put your stuff after this line
 
-""""""""""
-" Powerline settings
-" src: http://reversiblean-reversiblean.rhcloud.com/install-vim-powerline/
-" NOTE for Vundle: This should go after filetype plugin indent on
 
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+"""""""
+" Vundle custom settings
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-set laststatus=2
-
-""""""""""
-" Vundle custom settings - tae
-
-" start nertTree automatically when vim is started when there is no file specified
+" start nertTree automatically when there's no file defined
 autocmd vimenter * if !argc() | NERDTree | endif
 
 " nerdtree ctrl n
@@ -112,34 +99,28 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
-""""""""""
-" Custom settings - tae
 
-" most from https://github.com/justinforce/dotfiles/blob/master/files/vim/vimrc
+"""""""
+" Other custom settings
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8  " saving and encoding
 set nobackup nowritebackup noswapfile autoread            " no backup or swap
 set hlsearch incsearch ignorecase smartcase               " search
 set wildmenu                                              " completion
 set backspace=indent,eol,start                            " sane backspace
-set ruler 						                                    " cursor position in status bar
-set number 						                                    " cursor absolute line #
-set scrolloff=10 					                                " window scroll allowance
-" show a vertical line at the 79th character, seens not working
-"set textwidth=20
-"set cursorline 						                              " highlight the current line
-"set cursorcolumn 					                              " highlight the current line
-"set laststatus=1 					                              " always show status bar
+set ruler 						  " cursor position in status bar
+set number 						  " cursor absolute line #
+set scrolloff=10 					  " window scroll allowance
 
 " wrap
-set nowrap						                                    " wrap
-"set wrap 						                                    " wrap, default i think
+set nowrap						  " default: wrap
+
 " map: nowrap, wrap, use <F9>
 function ToggleWrap()
-  if (&wrap == 1)
-    set nowrap
-  else
-    set wrap
-  endif
+	if (&wrap == 1)
+		set nowrap
+	else
+		set wrap
+	endif
 endfunction
 map <F9> :call ToggleWrap()<CR>
 map! <F9> ^[:call ToggleWrap()<CR>]
@@ -148,24 +129,18 @@ map! <F9> ^[:call ToggleWrap()<CR>]
 syntax on
 set background=dark
 set t_Co=256 " 256 colors in terminal
-"set guifont=Ubuntu\ Mono\ 11
 
 " indent
 let g:indent_guides_auto_colors = 1
-"hi IndentGuidesOdd ctermbg=blue
-"hi IndentGuidesEven ctermbg=darkgrey
 
-" main background color
+" main bg color
 "highlight Normal ctermfg=grey ctermbg=darkblue
 
-" line number background
-"highlight LineNr ctermbg=darkgrey
-"highlight LineNr ctermbg=grey ctermfg=darkgrey
+" line number bg
 highlight LineNr ctermbg=grey ctermfg=black
 
 " cursorline and cursorcolumn
 " these 2 lines seems to remove the white underline in cursorline
-"hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 hi CursorLine cterm=NONE ctermbg=darkred guibg=darkred guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 " map: show/hide cursorline/cursorcolumn
@@ -184,3 +159,20 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" fzf as vim plugin
+set rtp+=~/.fzf
+
+" Powerline conf
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
+" tagbar conf
+let g:tagbar_width=30
+" let g:tagbar_ctags_bin
+nmap <F8> :TagbarToggle<CR>
