@@ -1,0 +1,12 @@
+[core]
+	editor = vim
+[user]
+	name = "Timothy Escopete #local #osxy"
+	email = me@timothyae.com
+[grep]
+	extendRegexp = true
+	lineNumber = true
+[alias]
+	g = grep --break --heading --line-number
+[github]
+	user = timhtheos
