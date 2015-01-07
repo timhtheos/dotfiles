@@ -61,6 +61,9 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " gist-vim
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+let g:gist_clip_command = 'pbcopy'
+let g:gist_post_private = 1
+let g:gist_show_privates = 1
 
 call vundle#end()
 
