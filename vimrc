@@ -58,6 +58,10 @@ Bundle "Valloric/YouCompleteMe"
 " Powerline
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
+" gist-vim
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+
 call vundle#end()
 
 " filetype plugin indent on     " required
