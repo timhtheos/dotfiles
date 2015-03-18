@@ -65,6 +65,9 @@ let g:gist_clip_command = 'pbcopy'
 let g:gist_post_private = 1
 let g:gist_show_privates = 1
 
+" geeknote
+Bundle 'VitaliyRodnenko/geeknote'
+
 call vundle#end()
 
 " filetype plugin indent on     " required
