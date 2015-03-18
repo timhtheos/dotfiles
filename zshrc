@@ -11,7 +11,8 @@ setopt hist_ignore_dups
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 #ZSH_THEME="alanpeabody"
-ZSH_THEME="nanotechmod"
+#ZSH_THEME="nanotechmod"
+ZSH_THEME="timothy"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
