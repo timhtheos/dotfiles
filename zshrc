@@ -54,6 +54,8 @@ ZSH_THEME="timothy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 plugins=(z)
+plugins=(git-flow)
+plugins=(git-hubflow)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,6 +88,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# EV aliases
+alias composer="php /usr/bin/composer.phar"
+alias behat="php /vw/elephantventures/agency-environment/elephantventures/sites/all/tests/vendor/behat/behat/bin/behat"
 
 # fzf: fuzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
