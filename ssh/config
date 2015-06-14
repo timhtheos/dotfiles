@@ -1,7 +1,12 @@
+Host *
 ControlMaster auto
-ControlPath /tmp/ssh_mux_%h_%p_%r
+#ControlPath /tmp/ssh_mux_%h_%p_%r
+#ControlPath ~/.ssh/control-%r
+ControlPath /tmp/ssh_mux_%h
 ControlPersist 4h
 TCPKeepAlive no
 ServerAliveInterval 60
 ServerAliveCountMax 10
 GSSAPIAuthentication no
+
+
