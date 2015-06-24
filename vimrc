@@ -186,3 +186,6 @@ set termencoding=utf-8
 let g:tagbar_width=30
 " let g:tagbar_ctags_bin
 nmap <F8> :TagbarToggle<CR>
+
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
