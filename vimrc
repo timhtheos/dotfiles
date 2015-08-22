@@ -93,7 +93,7 @@ filetype plugin on " I enabled this due to vimwiki,
 " Vundle custom settings
 
 " start nertTree automatically when there's no file defined
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 
 " nerdtree ctrl n
 map <C-n> :NERDTreeToggle<CR>
