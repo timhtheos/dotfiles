@@ -58,6 +58,7 @@ Bundle "Valloric/YouCompleteMe"
 
 " Powerline
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" The above is disabled by July 10, 2015, Fri at 4 AM in favor of Vim Airline
 
 " gist-vim
 Bundle 'mattn/webapi-vim'
@@ -190,3 +191,28 @@ nmap <F8> :TagbarToggle<CR>
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
+
+" Escape key map
+":inoremap <esc> <Nop>
+":unmap <esc>
+":unmap! <esc>
+"inoremap jk <esc>l
+"inoremap jk <C-c>l
+inoremap jk <esc>
+" below taken from http://vim.wikia.com/wiki/Prevent_escape_from_moving_the_cursor_one_character_to_the_left
+let CursorColumnI = 0 "the cursor column position in INSERT
+autocmd InsertEnter * let CursorColumnI = col('.')
+autocmd CursorMovedI * let CursorColumnI = col('.')
+autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+
+" Disable arrow keys
+" ESC key cannot be disabled though
+" see http://stackoverflow.com/questions/8488232/how-to-disable-esc-and-cursor-keys-in-vim
+"inoremap <Left>  <NOP>
+"inoremap <Right> <NOP>
+"inoremap <Up>    <NOP>
+"inoremap <Down>  <NOP>
+"nnoremap <Left>  <NOP>
+"nnoremap <Right> <NOP>
+"nnoremap <Up>    <NOP>
+"nnoremap <Down>  <NOP>
