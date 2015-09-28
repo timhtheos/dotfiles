@@ -3,7 +3,7 @@
 ##
 
 # Ignore duplicate commands in history
-# For FZF
+# Foc FZF
 HIST_IGNORE_ALL_DUPS="true"
 setopt hist_ignore_dups
 
@@ -32,7 +32,7 @@ alias composer="php /usr/bin/composer.phar"
 alias behat="php /vw/elephantventures/agency-environment/elephantventures/sites/all/tests/vendor/behat/behat/bin/behat"
 
 # EV Exports
-source ~/.evrc
+#source ~/.evrc
 
 # Live clocks
 alias clock1='while true; do tput clear; date +"                                                                                                         %l : %M : %S %p" | figlet -c | toilet -F gay -f term; sleep 1; done'
