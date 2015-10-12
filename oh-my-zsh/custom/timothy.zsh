@@ -41,3 +41,9 @@ alias clock3='while true; do tput clear; date +" %l : %M : %S %p" | toilet -F me
 
 # Tmuxinator
 #source ~/.bin/tmuxinator.zsh
+
+# Add path
+export PATH=/Users/timothy/bin:$PATH
+
+# Alias composer.phar
+alias composer="php composer.phar"
