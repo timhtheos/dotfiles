@@ -1,5 +1,6 @@
 [core]
 	editor = vim
+	excludesfile = /Users/timothy/.gitignore_global
 [user]
 	name = "Timothy Escopete #local #osxy"
 	email = me@timothyae.com
