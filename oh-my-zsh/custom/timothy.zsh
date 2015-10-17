@@ -11,10 +11,10 @@ setopt hist_ignore_dups
 ZSH_THEME="timothy"
 
 # Plugins
-plugins=(git)
-plugins=(z)
-plugins=(git-flow)
-plugins=(git-hubflow)
+plugins=(
+  z
+#  vi-mode
+)
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -47,3 +47,6 @@ export PATH=/Users/timothy/bin:$PATH
 
 # Alias composer.phar
 alias composer="php composer.phar"
+
+# ZSH vi-mode map substitute for ESC
+bindkey -M viins 'jk' vi-cmd-mode
