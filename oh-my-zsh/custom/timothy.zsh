@@ -37,3 +37,17 @@ bindkey -M viins 'JK' vi-cmd-mode
 
 # Kill The Lag / delay when you hit ESC
 #export KEYTIMEOUT=1
+
+# Modal cursor color for vi's insert/normal modes.
+# Source: http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
+#zle-keymap-select () {
+#  echo -ne "\033]12;Grey\007"
+#  echo -ne "\033[4 q"
+#}
+#zle -N zle-keymap-select
+#zle-line-init () {
+#  zle -K viins
+#  echo -ne "\033]12;Gray\007"
+#  echo -ne "\033[4 q"
+#}
+#zle -N zle-line-init
