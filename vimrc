@@ -167,7 +167,7 @@ highlight CursorLine ctermbg=grey guibg=#2c2d27
 highlight CursorColumn ctermbg=white guibg=#2c2d27
 
 " set line marker on the 72nd, and bgcolor starting 81st (same color)
-let &colorcolumn="72,".join(range(81,999),",")
+let &colorcolumn="73,".join(range(81,81),",")
 
 " this is for tab to use spaces, herein 2 spaces
 set smartindent
