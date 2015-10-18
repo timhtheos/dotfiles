@@ -4,6 +4,7 @@
 # 1. Add live clock into the zsh prompt
 # 2. Add customized vi-mode indicator
 
+# vi-mode theme
 VI_MODE_NORMAL="%{$bg[yellow]%}%{$fg_bold[black]%} NORMAL %{$reset_color%}"
 VI_MODE_INSERT="%{$bg[red]%}%{$fg_bold[yellow]%} INSERT %{$reset_color%}" 
 
