@@ -10,12 +10,6 @@ setopt hist_ignore_dups
 # Theme
 ZSH_THEME="timothy"
 
-# Plugins
-plugins=(
-  z
-#  vi-mode
-)
-
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
