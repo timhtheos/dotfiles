@@ -2,15 +2,13 @@
 
 # Modifications:
 # 1. Add live clock into the zsh prompt
-#    from http://askubuntu.com/questions/360063/how-to-show-a-running-clock-in-terminal-before-the-command-prompt
+# 2. Add customized vi-mode indicator
 
-  #MODE_INDICATOR="%{$fg_bold[red]%}<%{$fg[red]%}<<%{$reset_color%}"
-  VI_MODE_INSERT="NORMAL"
-  VI_MODE_NORMAL="INSERT" 
+VI_MODE_NORMAL="%{$bg[yellow]%}%{$fg_bold[black]%} NORMAL %{$reset_color%}"
+VI_MODE_INSERT="%{$bg[red]%}%{$fg_bold[yellow]%} INSERT %{$reset_color%}" 
 
 function vi_mode_prompt_info() {
-  #echo "${${KEYMAP/vicmd/$MODE_INDICATOR}/(main|viins)/}"
-  echo "${${KEYMAP/vicmd/$VI_MODE_INSERT}/(main|viins)/$VI_MODE_NORMAL}"
+  echo "${${KEYMAP/vicmd/$VI_MODE_NORMAL}/(main|viins)/$VI_MODE_INSERT}"
 }
 
 PROMPT='%F{green}%2c%F{white} $(vi_mode_prompt_info) [%f '
@@ -26,5 +24,3 @@ TMOUT=1
 TRAPALRM() {
   zle reset-prompt  
 }
-
-
