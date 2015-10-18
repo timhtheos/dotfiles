@@ -211,11 +211,11 @@ autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) 
 " Disable arrow keys
 " ESC key cannot be disabled though
 " see http://stackoverflow.com/questions/8488232/how-to-disable-esc-and-cursor-keys-in-vim
-"inoremap <Left>  <NOP>
-"inoremap <Right> <NOP>
-"inoremap <Up>    <NOP>
-"inoremap <Down>  <NOP>
-"nnoremap <Left>  <NOP>
-"nnoremap <Right> <NOP>
-"nnoremap <Up>    <NOP>
-"nnoremap <Down>  <NOP>
+inoremap <Left>  <NOP>
+inoremap <Right> <NOP>
+inoremap <Up>    <NOP>
+inoremap <Down>  <NOP>
+nnoremap <Left>  <NOP>
+nnoremap <Right> <NOP>
+nnoremap <Up>    <NOP>
+nnoremap <Down>  <NOP>
