@@ -15,6 +15,8 @@ export UPDATE_ZSH_DAYS=30
 # CASE_SENSITIVE="true"
 
 # Plugins (Oh My ZSH)
+# For vi-mode on OSX, do not use Apple's git.
+# https://github.com/robbyrussell/oh-my-zsh/issues/2189
 plugins=(
   vi-mode
   z
