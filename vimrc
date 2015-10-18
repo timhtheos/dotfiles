@@ -1,15 +1,17 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" be iMproved
+" required
+set nocompatible
+filetype off
 
 " Leader to comma ,
 let mapleader = ","
 
 " Vundle runtime path, and initialize
-"set rtp+=/Users/timothy/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
+" let Vundle manage Vundle
+" required
 Bundle 'gmarik/vundle'
 
 " lorem ipsum
@@ -22,7 +24,9 @@ Bundle 'vim-scripts/vimwiki.git'
 Bundle 'tpope/vim-fugitive'
 "Bundle 'sjl/splice' " alt to fugitive; previously called threesome
 Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'tpope/vim-rails.git'     " temp disabled
+
+" Temp disabled
+"Bundle 'tpope/vim-rails.git'
 "Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'scrooloose/nerdtree'
@@ -37,7 +41,10 @@ Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
 Bundle 'SirVer/ultisnips'
 Bundle 'joonty/vdebug'
-"Bundle 'bling/vim-airline'     " misalignment with powerline
+
+" misaligned with powerline
+"Bundle 'bling/vim-airline'
+
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-commentary'
 Bundle 'dsdeiz/vim-drupal-snippets'
@@ -53,7 +60,8 @@ Bundle 'mattn/emmet-vim'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Bundle 'L9'
-" scripts from http://vim-scripts.org/vim/scripts.html
+
+" Scripts src: http://vim-scripts.org/vim/scripts.html
 Bundle 'FuzzyFinder'
 
 " YouCompleteMe
@@ -61,25 +69,26 @@ Bundle "Valloric/YouCompleteMe"
 
 " Powerline
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" The above is disabled by July 10, 2015, Fri at 4 AM in favor of Vim Airline
 
-" gist-vim
+" Gist-vim
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 let g:gist_clip_command = 'pbcopy'
 let g:gist_post_private = 1
 let g:gist_show_privates = 1
 
-" geeknote
+" Geeknote
 Bundle 'VitaliyRodnenko/geeknote'
 
 call vundle#end()
 
-" filetype plugin indent on     " required
+" Filetype plugin indent on
+" required
 " To ignore plugin indent changes, instead use:
-filetype plugin on " I enabled this due to vimwiki, 
-" otherwise, the above (filetype plugin indent on)
-"
+" Enabled for vimwiki
+filetype plugin on
+" Otherwise, the above (filetype plugin indent on)
+
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just
@@ -92,14 +101,13 @@ filetype plugin on " I enabled this due to vimwiki,
 " NOTE: comments after Bundle commands are not allowed.
 " Put your stuff after this line
 
-
-"""""""
+"""
 " Vundle custom settings
 
-" start nertTree automatically when there's no file defined
+" Start nertTree automatically when there's no file defined
 "autocmd vimenter * if !argc() | NERDTree | endif
 
-" nerdtree ctrl n
+" Nerdtree ctrl n
 map <C-n> :NERDTreeToggle<CR>
 
 " vim-easymotion s jk
@@ -154,8 +162,8 @@ let g:indent_guides_auto_colors = 1
 " line number bg
 highlight LineNr ctermbg=grey ctermfg=black
 
-" cursorline and cursorcolumn
-" these 2 lines seems to remove the white underline in cursorline
+" Cursorline and cursorcolumn
+" These 2 lines seems to remove the white underline in cursorline
 hi CursorLine cterm=NONE ctermbg=darkred guibg=darkred guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 " map: show/hide cursorline/cursorcolumn
@@ -169,13 +177,13 @@ highlight CursorColumn ctermbg=white guibg=#2c2d27
 " set line marker on the 72nd, and bgcolor starting 81st (same color)
 let &colorcolumn="73,".join(range(81,81),",")
 
-" this is for tab to use spaces, herein 2 spaces
+" Indentions and spacings
 set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" fzf as vim plugin
+" FZF as vim plugin
 set rtp+=~/.fzf
 
 " Powerline conf
