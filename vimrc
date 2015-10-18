@@ -6,6 +6,10 @@ filetype off
 " Leader to comma ,
 let mapleader = ","
 
+" Line numbers
+set number
+set relativenumber
+
 " Vundle runtime path, and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -107,6 +111,7 @@ filetype plugin on
 " Start nertTree automatically when there's no file defined
 "autocmd vimenter * if !argc() | NERDTree | endif
 
+
 " Nerdtree ctrl n
 map <C-n> :NERDTreeToggle<CR>
 
@@ -122,20 +127,15 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
-
-"""""""
 " Other custom settings
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8  " saving and encoding
 set nobackup nowritebackup noswapfile autoread            " no backup or swap
 set hlsearch incsearch ignorecase smartcase               " search
 set wildmenu                                              " completion
 set backspace=indent,eol,start                            " sane backspace
-set ruler 						  " cursor position in status bar
-set number 						  " cursor absolute line #
-set scrolloff=10 					  " window scroll allowance
-
-" wrap
-set nowrap						  " default: wrap
+set ruler 						                                    " cursor position in status bar
+set scrolloff=10 					                                " window scroll allowance
+set nowrap						                                    " default: wrap
 
 " map: nowrap, wrap, use <F9>
 function ToggleWrap()
@@ -148,31 +148,9 @@ endfunction
 map <F9> :call ToggleWrap()<CR>
 map! <F9> ^[:call ToggleWrap()<CR>]
 
-" appearance
-syntax on
-set background=dark
-set t_Co=256 " 256 colors in terminal
-
-" indent
-let g:indent_guides_auto_colors = 1
-
-" main bg color
-"highlight Normal ctermfg=grey ctermbg=darkblue
-
-" line number bg
-highlight LineNr ctermbg=grey ctermfg=black
-
-" Cursorline and cursorcolumn
-" These 2 lines seems to remove the white underline in cursorline
-hi CursorLine cterm=NONE ctermbg=darkred guibg=darkred guifg=white
-hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-" map: show/hide cursorline/cursorcolumn
-:nnoremap H :set cursorline! cursorcolumn!<CR>
-
-" ctermbg 235
-highlight ColorColumn ctermbg=blue guibg=#2c2d27
-highlight CursorLine ctermbg=grey guibg=#2c2d27
-highlight CursorColumn ctermbg=white guibg=#2c2d27
+" Cursorlines, cursorcolumns
+set cursorline
+set cursorcolumn
 
 " set line marker on the 72nd, and bgcolor starting 81st (same color)
 let &colorcolumn="73,".join(range(81,81),",")
@@ -195,23 +173,32 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
-" tagbar conf
+" Vim-colors-solarized settings
+" or: set t_Co=256
+let g:solarized_termcolors=256
+" or: syntax on
+syntax enable
+colorscheme solarized
+set background=dark
+
+" Tagbar conf
 let g:tagbar_width=30
 " let g:tagbar_ctags_bin
 nmap <F8> :TagbarToggle<CR>
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd ctermbg=none
+hi IndentGuidesEven ctermbg=blue
 
-" Escape key map
-":inoremap <esc> <Nop>
-":unmap <esc>
-":unmap! <esc>
-"inoremap jk <esc>l
-"inoremap jk <C-c>l
+" Escape keys: jk and JK
 inoremap jk <esc>
 inoremap JK <esc>
-" below taken from http://vim.wikia.com/wiki/Prevent_escape_from_moving_the_cursor_one_character_to_the_left
+
+" Do not move cursor position 1 character to the left from Insert mode to
+" Normal mode
+" Source: http://vim.wikia.com/wiki/Prevent_escape_from_moving_the_cursor_one_character_to_the_left
 let CursorColumnI = 0 "the cursor column position in INSERT
 autocmd InsertEnter * let CursorColumnI = col('.')
 autocmd CursorMovedI * let CursorColumnI = col('.')
@@ -255,9 +242,11 @@ endfunction
 " Yank to clipboard
 " Source: http://superuser.com/a/901526
 if has('clipboard')
-  if has('unnamedplus')  " When possible use + register for copy-paste
+  if has('unnamedplus')
+    " When possible use + register for copy-paste
     set clipboard=unnamed,unnamedplus
-  else         " On mac and Windows, use * register for copy-paste
+  else
+    " On mac and Windows, use * register for copy-paste
     set clipboard=unnamed
   endif
 endif
