@@ -227,3 +227,15 @@ nnoremap <Left>  <NOP>
 nnoremap <Right> <NOP>
 nnoremap <Up>    <NOP>
 nnoremap <Down>  <NOP>
+
+" Set cursor to blinking upright bar cursor in INSERT mode,
+" And, a blinking block in NORMAL mode
+" Source: https://www.reddit.com/r/vim/comments/2of45a/terminal_vim_changing_cursor_shape_on_linux/
+if &term == 'xterm-256color' || &term == 'screen-256color'
+  let &t_SI = "\<Esc>[5 q"
+  let &t_EI = "\<Esc>[1 q"
+endif
+if exists('$TMUX')
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+endif
