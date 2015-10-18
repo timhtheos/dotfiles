@@ -210,6 +210,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 "inoremap jk <esc>l
 "inoremap jk <C-c>l
 inoremap jk <esc>
+inoremap JK <esc>
 " below taken from http://vim.wikia.com/wiki/Prevent_escape_from_moving_the_cursor_one_character_to_the_left
 let CursorColumnI = 0 "the cursor column position in INSERT
 autocmd InsertEnter * let CursorColumnI = col('.')
