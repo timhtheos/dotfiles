@@ -1,6 +1,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" Leader to comma ,
+let mapleader = ","
+
 " Vundle runtime path, and initialize
 "set rtp+=/Users/timothy/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
