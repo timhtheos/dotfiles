@@ -45,3 +45,6 @@ alias composer="php composer.phar"
 # ZSH vi-mode map substitute for ESC
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'JK' vi-cmd-mode
+
+# Kill The Lag / delay when you hit ESC
+#export KEYTIMEOUT=1
