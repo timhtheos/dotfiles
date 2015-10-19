@@ -148,7 +148,7 @@ map! <F9> ^[:call ToggleWrap()<CR>]
 
 " Cursorlines, cursorcolumns
 set cursorline
-set cursorcolumn
+"set cursorcolumn
 
 " set line marker on the 72nd, and bgcolor starting 81st (same color)
 let &colorcolumn="73,".join(range(81,81),",")
