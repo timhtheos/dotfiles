@@ -31,7 +31,6 @@ Bundle 'Lokaltog/vim-easymotion'
 
 " Temp disabled
 "Bundle 'tpope/vim-rails.git'
-"Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -110,7 +109,6 @@ filetype plugin on
 
 " Start nertTree automatically when there's no file defined
 "autocmd vimenter * if !argc() | NERDTree | endif
-
 
 " Nerdtree ctrl n
 map <C-n> :NERDTreeToggle<CR>
