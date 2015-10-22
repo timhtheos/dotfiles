@@ -113,13 +113,15 @@ filetype plugin on
 " Nerdtree ctrl n
 map <C-n> :NERDTreeToggle<CR>
 
-" vim-easymotion s jk
+" Settings for vim-easymotion
+
+  " vim-easymotion s jk
 nmap s <Plug>(easymotion-s)
 "let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-" vim-easymotion n
+  " vim-easymotion n
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
@@ -135,7 +137,7 @@ set ruler 						                                    " cursor position in status 
 set scrolloff=10 					                                " window scroll allowance
 set nowrap						                                    " default: wrap
 
-" map: nowrap, wrap, use <F9>
+" Set wrap-nowrap toggle
 function ToggleWrap()
 	if (&wrap == 1)
 		set nowrap
@@ -146,11 +148,11 @@ endfunction
 map <F9> :call ToggleWrap()<CR>
 map! <F9> ^[:call ToggleWrap()<CR>]
 
-" Cursorlines, cursorcolumns
+" Set cursorlines and cursorcolumns
 set cursorline
 "set cursorcolumn
 
-" set line marker on the 72nd, and bgcolor starting 81st (same color)
+" Set vertical line markers on 72nd, and 81st
 let &colorcolumn="73,".join(range(81,81),",")
 
 " Indentions and spacings
@@ -158,6 +160,12 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd ctermbg=none
+hi IndentGuidesEven ctermbg=235
 
 " FZF as vim plugin
 set rtp+=~/.fzf
@@ -184,27 +192,14 @@ let g:tagbar_width=30
 " let g:tagbar_ctags_bin
 nmap <F8> :TagbarToggle<CR>
 
-" Indent Guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd ctermbg=none
-hi IndentGuidesEven ctermbg=235
-
 " Escape keys: jk and JK
 inoremap jk <esc>
 inoremap JK <esc>
 
-" Do not move cursor position 1 character to the left from Insert mode to
-" Normal mode
-" Source: http://vim.wikia.com/wiki/Prevent_escape_from_moving_the_cursor_one_character_to_the_left
-let CursorColumnI = 0 "the cursor column position in INSERT
-autocmd InsertEnter * let CursorColumnI = col('.')
-autocmd CursorMovedI * let CursorColumnI = col('.')
-autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+" Disable esc key in insert mode
+inoremap <esc> <nop>
 
 " Disable arrow keys
-" ESC key cannot be disabled though
-" see http://stackoverflow.com/questions/8488232/how-to-disable-esc-and-cursor-keys-in-vim
 inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
 inoremap <Up>    <NOP>
@@ -214,9 +209,13 @@ nnoremap <Right> <NOP>
 nnoremap <Up>    <NOP>
 nnoremap <Down>  <NOP>
 
-" Set cursor to blinking upright bar cursor in INSERT mode,
-" And, a blinking block in NORMAL mode
-" Source: https://www.reddit.com/r/vim/comments/2of45a/terminal_vim_changing_cursor_shape_on_linux/
+" Don't move cursor post 1 char to left from Insert to Normal mode
+let CursorColumnI = 0 "the cursor column position in INSERT
+autocmd InsertEnter * let CursorColumnI = col('.')
+autocmd CursorMovedI * let CursorColumnI = col('.')
+autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+
+" Set cursor to blinking upright bar cursor in INSERT mode
 if &term == 'xterm-256color' || &term == 'screen-256color'
   let &t_SI = "\<Esc>[5 q"
   let &t_EI = "\<Esc>[1 q"
@@ -227,7 +226,6 @@ if exists('$TMUX')
 endif
 
 " Set paste-mode automatic when pasting
-" There will be no need to :set paste when pasting multiple lines.
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
@@ -238,7 +236,6 @@ return ""
 endfunction
 
 " Yank to clipboard
-" Source: http://superuser.com/a/901526
 if has('clipboard')
   if has('unnamedplus')
     " When possible use + register for copy-paste
