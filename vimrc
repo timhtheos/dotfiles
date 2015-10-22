@@ -245,3 +245,7 @@ if has('clipboard')
     set clipboard=unnamed
   endif
 endif
+
+" Set spell checker
+set spell
+windo set spelllang=en_gb,en_us
