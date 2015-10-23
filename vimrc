@@ -1,12 +1,12 @@
-" be iMproved
+" Be iMproved
 " required
 set nocompatible
 filetype off
 
-" Leader to comma ,
+" Leader to comma
 let mapleader = ","
 
-" Line numbers
+" Set line numbers
 set number
 set relativenumber
 
@@ -14,17 +14,17 @@ set relativenumber
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle
+" Let Vundle manage Vundle
 " required
 Bundle 'gmarik/vundle'
 
 " lorem ipsum
 Bundle 'vim-scripts/loremipsum'
 
-" vimwiki
+" Vim wiki
 Bundle 'vim-scripts/vimwiki.git'
 
-" from Github
+" From Github
 Bundle 'tpope/vim-fugitive'
 "Bundle 'sjl/splice' " alt to fugitive; previously called threesome
 Bundle 'Lokaltog/vim-easymotion'
@@ -45,7 +45,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'SirVer/ultisnips'
 Bundle 'joonty/vdebug'
 
-" misaligned with powerline
+" Misaligned with powerline
 "Bundle 'bling/vim-airline'
 
 Bundle 'altercation/vim-colors-solarized'
@@ -67,13 +67,13 @@ Bundle 'L9'
 " Scripts src: http://vim-scripts.org/vim/scripts.html
 Bundle 'FuzzyFinder'
 
-" YouCompleteMe
+" You complete me 
 Bundle "Valloric/YouCompleteMe"
 
 " Powerline
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-" Gist-vim
+" Gist vim
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 let g:gist_clip_command = 'pbcopy'
@@ -83,6 +83,11 @@ let g:gist_show_privates = 1
 " Geeknote
 Bundle 'VitaliyRodnenko/geeknote'
 
+" Vim Notes
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-notes'
+
+" End vundle plugins
 call vundle#end()
 
 " Filetype plugin indent on
@@ -110,18 +115,16 @@ filetype plugin on
 " Start nertTree automatically when there's no file defined
 "autocmd vimenter * if !argc() | NERDTree | endif
 
-" Nerdtree ctrl n
+" Nerdtree map: ctrl n
 map <C-n> :NERDTreeToggle<CR>
 
-" Settings for vim-easymotion
-
-  " vim-easymotion s jk
+" Vim easy motion map: s jk
 nmap s <Plug>(easymotion-s)
 "let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-  " vim-easymotion n
+" Vim easy motion map: n
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
@@ -139,16 +142,16 @@ set nowrap						                                    " default: wrap
 
 " Set wrap-nowrap toggle
 function ToggleWrap()
-	if (&wrap == 1)
-		set nowrap
-	else
-		set wrap
-	endif
+  if (&wrap == 1)
+    set nowrap
+  else
+    set wrap
+  endif
 endfunction
 map <F9> :call ToggleWrap()<CR>
 map! <F9> ^[:call ToggleWrap()<CR>]
 
-" Set cursorlines and cursorcolumns
+" Set cursorlines, cursorcolumns
 set cursorline
 "set cursorcolumn
 
