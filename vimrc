@@ -246,6 +246,6 @@ if has('clipboard')
   endif
 endif
 
-" Set spell checker
+" Set spell checker, lang
 set spell
 windo set spelllang=en_gb,en_us
