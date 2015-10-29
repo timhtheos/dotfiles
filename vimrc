@@ -87,6 +87,9 @@ Bundle 'VitaliyRodnenko/geeknote'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-notes'
 
+" Vim twig
+Bundle 'evidens/vim-twig'
+
 " End vundle plugins
 call vundle#end()
 
