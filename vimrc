@@ -50,7 +50,6 @@ Bundle 'joonty/vdebug'
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-commentary'
-Bundle 'dsdeiz/vim-drupal-snippets'
 Bundle 'tpope/vim-endwise'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-markdown'
