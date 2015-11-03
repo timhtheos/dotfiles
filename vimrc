@@ -276,6 +276,7 @@ endif
 " Ctrl-P settings
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_prompt_mappings = { 'PrtExit()': ['<esc>', '<c-c>', '<c-g>'] }
+let g:ctrlp_working_path_mode = ''
 
 " Ctrl-P: Ignore .vendor, .git, .svn
 let g:ctrlp_custom_ignore = '\v[\/]\.(vendor|git|svn)$'
