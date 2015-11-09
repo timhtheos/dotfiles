@@ -6,7 +6,7 @@
 
 # vi-mode theme
 VI_MODE_NORMAL="%{$bg[yellow]%}%{$fg_bold[black]%} NORMAL %{$reset_color%}"
-VI_MODE_INSERT="%{$bg[red]%}%{$fg_bold[yellow]%} INSERT %{$reset_color%}" 
+VI_MODE_INSERT="%{$bg[white]%}%{$fg_bold[yellow]%} INSERT %{$reset_color%}" 
 
 function vi_mode_prompt_info() {
   echo "${${KEYMAP/vicmd/$VI_MODE_NORMAL}/(main|viins)/$VI_MODE_INSERT}"
