@@ -58,7 +58,7 @@ alias bored="fortune | cowsay -f $(ls /usr/local/Cellar/cowsay/3.03/share/cows |
 alias clock1='while true; do tput clear; date +"                                                                                                         %l : %M : %S %p" | figlet -c | toilet -F gay -f term; sleep 1; done'
 alias clock2='while true; do tput clear; date +" %l : %M : %S %p" | toilet -F gay -f smmono9; sleep 1; done'
 alias clock3='while true; do tput clear; date +" %l : %M : %S %p" | toilet -F metal -f smmono9; sleep 1; done'
-alias composer="php composer.phar"
+#alias composer="composer.phar"
 
 # Tmuxinator
 #source ~/.bin/tmuxinator.zsh
