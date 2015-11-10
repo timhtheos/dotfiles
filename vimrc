@@ -82,6 +82,9 @@ Bundle 'xolox/vim-notes'
 " Vim twig
 Bundle 'evidens/vim-twig'
 
+" Set colors in css, sass, and sass variables
+Bundle 'gorodinskiy/vim-coloresque'
+
 " End vundle plugins
 call vundle#end()
 
