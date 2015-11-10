@@ -61,7 +61,7 @@ alias clock3='while true; do tput clear; date +" %l : %M : %S %p" | toilet -F me
 #alias composer="composer.phar"
 
 # Tmuxinator
-#source ~/.bin/tmuxinator.zsh
+# source ~/bin/tmuxinator.zsh
 
 # ZSH vi-mode map substitute for ESC
 bindkey -M viins 'jk' vi-cmd-mode
