@@ -278,7 +278,8 @@ let g:ctrlp_prompt_mappings = { 'PrtExit()': ['<esc>', '<c-c>', '<c-g>'] }
 let g:ctrlp_working_path_mode = ''
 
 " Ctrl-P: Ignore .vendor, .git, .svn
-let g:ctrlp_custom_ignore = '\v[\/]\.(vendor|git|svn)$'
+"let g:ctrlp_custom_ignore = '\v[\/]\.(vendor|git|svn)$'
+let g:ctrlp_custom_ignore = '\v[\/](vendor)|(\.(git|svn))$'
 
 " Set backup file(s) of vim buffer(s)
 set backup
