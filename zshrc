@@ -24,6 +24,7 @@ plugins=(
 
 # Paths
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Paths: User bin to PATH
 export PATH=~/bin:$PATH
