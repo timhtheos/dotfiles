@@ -168,22 +168,23 @@ set expandtab
 " FZF as vim plugin
 set rtp+=~/.fzf
 
-" Powerline conf
+" Powerline settings
+" Either set t_Co here or in vim colors solarized
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
-set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
 " Vim-colors-solarized settings
-" or: set t_Co=256
-let g:solarized_termcolors=256
-" or: syntax on
+" Either set t_Co or g:solarized_termcolors
+" Either set syntax enable or syntax on
+set t_Co=256
+"let g:solarized_termcolors=256
 syntax enable
-colorscheme solarized
 set background=dark
+colorscheme solarized
 
 " Tagbar conf
 let g:tagbar_width=30
