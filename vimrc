@@ -85,6 +85,9 @@ Bundle 'evidens/vim-twig'
 " Set colors in css, sass, and sass variables
 Bundle 'gorodinskiy/vim-coloresque'
 
+" Vim gitgutter
+Bundle 'vim-gitgutter'
+
 " End vundle plugins
 call vundle#end()
 
@@ -283,3 +286,14 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
+
+" Settings for vim-gitgutter
+let g:gitgutter_override_sign_column_highlight = 0
+highlight SignColumn ctermbg=234
+
+" Vim-gitgutter: Disable all mappings for now
+let g:gitgutter_map_keys = 0
+
+" Vim-gitgutter: performance settings
+"let g:gitgutter_realtime = 0
+"let g:gitgutter_eager = 0
