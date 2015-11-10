@@ -15,3 +15,5 @@
 	log = diff-highlight | less
 	show = diff-highlight | less
 	diff = diff-highlight | showlinenum.awk | less
+[init]
+	templatedir = ~/.git-templates
