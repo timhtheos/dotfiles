@@ -29,16 +29,12 @@ Bundle 'tpope/vim-fugitive'
 "Bundle 'sjl/splice' " alt to fugitive; previously called threesome
 Bundle 'Lokaltog/vim-easymotion'
 
-" Temp disabled
-"Bundle 'tpope/vim-rails.git'
-
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 
 Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
-Bundle 'trapd00r/neverland-vim-theme'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
@@ -78,9 +74,6 @@ Bundle 'mattn/gist-vim'
 let g:gist_clip_command = 'pbcopy'
 let g:gist_post_private = 1
 let g:gist_show_privates = 1
-
-" Geeknote
-Bundle 'VitaliyRodnenko/geeknote'
 
 " Vim Notes
 Bundle 'xolox/vim-misc'
