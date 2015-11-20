@@ -85,7 +85,7 @@ bindkey -M viins 'JK' vi-cmd-mode
 #zle -N zle-line-init
 
 # The fuck
-eval "$(thefuck --alias)"
+#eval "$(thefuck --alias)"
 
 # Docker env exports
 source ~/.docker-exports
