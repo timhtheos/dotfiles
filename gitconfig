@@ -19,3 +19,5 @@
 	templatedir = ~/.git-templates
 [hub]
 	user = timhtheos
+[push]
+	default = current
