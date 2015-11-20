@@ -17,3 +17,5 @@
 	diff = diff-highlight | showlinenum.awk | less
 [init]
 	templatedir = ~/.git-templates
+[hub]
+	user = timhtheos
