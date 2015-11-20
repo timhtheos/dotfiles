@@ -83,3 +83,12 @@ bindkey -M viins 'JK' vi-cmd-mode
 #  echo -ne "\033[4 q"
 #}
 #zle -N zle-line-init
+
+# The fuck
+eval "$(thefuck --alias)"
+
+# Docker env exports
+source ~/.docker-exports
+
+# Github hub aliasing
+eval "$(hub alias -s)"
