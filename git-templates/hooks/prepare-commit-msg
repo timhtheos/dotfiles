@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# Git hook: prepare-commit-msg
+#
+# Prefix all commits with the ticket number if the current branch:
+#   (1) is a feature branch separated by either / or -
+#   (2) starts with "feature" and followed by the ticket number with
+#       this format:  PROJECT-NUMBER e.g. MCR-135
+#
+# Format of the pre-commit message produced:
+#   PROJECT-NUMBER: 
+#   e.g.  MCR-135:
+#
+# Author: timhtheos
+#
+
+# Get branch.
+branch=$(git symbolic-ref --short HEAD)
+
+# Convert branch' slashes and dashes to white spaces.
+branch=$(echo $branch | sed -e 's/-/ /g' | sed -e 's/\// /g')
+
+# Check if feature branch and has an integer ticket number.
+msg=0
+ticket=''
+if [ $(echo $branch | awk '{print $1}') == 'feature' ] && [[ $(echo $branch | awk '{print $3}') =~ ^-?[0-9]+$ ]]; then
+  project=$(echo $branch | awk '{print $2}')
+  ticket=$(echo $branch | awk '{print $3}')
+  msg=1
+fi
+
+# Get branch's project-ticket number.
+if [ $msg == 1 ]; then
+  ticket="$project-$ticket: "
+fi
+
+sed -i.bak "1s/^/$ticket/" "$1"
