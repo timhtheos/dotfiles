@@ -27,7 +27,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Paths: User bin to PATH
-export PATH=~/bin:$PATH
+export PATH=~/.bin:$PATH
 
 # Paths: RVM to PATH
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -61,7 +61,7 @@ alias clock3='while true; do tput clear; date +" %l : %M : %S %p" | toilet -F me
 #alias composer="composer.phar"
 
 # Tmuxinator
-# source ~/bin/tmuxinator.zsh
+# source ~/.bin/tmuxinator.zsh
 
 # ZSH vi-mode map substitute for ESC
 bindkey -M viins 'jk' vi-cmd-mode
