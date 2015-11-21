@@ -13,21 +13,24 @@
 #   3. github/hub
 #
 
+# Get git directory.
+git_dir=$(pwd)
+
 # Get branch.
-branch=$(git symbolic-ref --short HEAD)
+branch=$(git -C $git_dir symbolic-ref --short HEAD)
 
 # For some reason, we need to make sure that the current branch is pushed.
-git push origin $branch
+git -C $git_dir push origin $branch
 
 # Convert branch' slashes and dashes to white spaces.
-branch=$(echo $branch | sed -e 's/-/ /g' | sed -e 's/\// /g')
+branch_title=$(echo $branch | sed -e 's/-/ /g' | sed -e 's/\// /g')
 
 # Check if feature branch and has an integer ticket number.
 msg=0
 ticket=''
-if [ $(echo $branch | awk '{print $1}') == 'feature' ] && [[ $(echo $branch | awk '{print $3}') =~ ^-?[0-9]+$ ]]; then
-  project=$(echo $branch | awk '{print $2}')
-  ticket=$(echo $branch | awk '{print $3}')
+if [ $(echo $branch_title | awk '{print $1}') == 'feature' ] && [[ $(echo $branch_title | awk '{print $3}') =~ ^-?[0-9]+$ ]]; then
+  project=$(echo $branch_title | awk '{print $2}')
+  ticket=$(echo $branch_title | awk '{print $3}')
   msg=1
 fi
 
@@ -55,19 +58,26 @@ if [ $msg == 1 ]; then
   echo "[//]: # (To cancel creating this PR, you may remove this line or alter this message.)" >> $tpl
   echo "" >> $tpl
   echo "[//]: # (This PR has been created using github/hub.)" >> $tpl
-  echo "[//]: # (Template source: https://github.com/timhtheos/dotfiles/blob/master/bin/git-pr)"
+  echo "[//]: # (Template source: https://github.com/timhtheos/dotfiles/blob/master/bin/git-pr)" >> $tpl
   echo "" >> $tpl
 
   # Edit prepared PR message.
   $(echo $EDITOR) $tpl
+  echo ""
 
   # Execute hub pull request if possible.
   if grep -q "To cancel creating this PR, you may remove this line or alter this message." "$tpl"; then
-    if [ -z "$1" ]; then
-      hub pull-request -F $tpl b origin:$1
+    if ! [ -z "$1" ]; then
+
+      # Get origin's handle the dirty way, I know.
+      origin=$(git -C $git_dir config remote.origin.url | sed -e 's/github.com:/ /g' | awk '{print $2}' | sed -e 's/\// /' | awk '{print $1}')
+
+      hub pull-request -F $tpl -b $origin:$1 -h $origin:$branch
     else
       hub pull-request -F $tpl
     fi
+  else
+    echo "Creating a pull request has been canceled."
   fi
 
 fi
