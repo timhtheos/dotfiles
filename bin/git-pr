@@ -80,4 +80,7 @@ if [ $msg == 1 ]; then
     echo "Creating a pull request has been canceled."
   fi
 
+  # Whatever the outcome is, we remove the tpl file.
+  rm $tpl 2> /dev/null
+
 fi
