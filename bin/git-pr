@@ -1,6 +1,9 @@
 #!/bin/bash
 #
-# Git hook: prepare-pr-msg
+# Github hub prepare-pr-msg
+# 
+# To execute:
+#   git pr
 #
 
 # Get branch.
@@ -21,11 +24,23 @@ fi
 # Get branch's project-ticket number.
 if [ $msg == 1 ]; then
   ticket="$project-$ticket: "
-  echo "[$ticket]  "
-  echo "Jira"
-  echo "-----"
-  echo "https://prometprojects.atlassian.net/browse/$ticket"
-  echo "Detail(s)"
-  echo "-----"
-  echo ""
+  
+  # Generate tmp template file.
+  tpl="~/tmp/prepare_pr_msg_$(hexdump -n 16 -v -e '/1 "%02X"' /dev/urandom).md"
+  touch $tpl
+
+  # Generate tpl contents.
+  echo "[$ticket]  " >> $tpl
+  echo "Jira" >> $tpl
+  echo "-----" >> $tpl
+  echo "https://prometprojects.atlassian.net/browse/$ticket" >> $tpl
+  echo "Detail(s)" >> $tpl
+  echo "-----" >> $tpl
+  echo "" >> $tpl
+
+  # Edit prepared PR message.
+  $(echo $EDITOR) $tpl
+
+  # Execute hub pull-request.
+  hub pull-request -F $tpl
 fi
