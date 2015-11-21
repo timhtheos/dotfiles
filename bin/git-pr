@@ -52,6 +52,8 @@ if [ $msg == 1 ]; then
   echo "[//]: # (The succeeding lines shall comprise of the PR description.)" >> $tpl
   echo "[//]: # (All lines that looks like this one shall be ignored, and are comments.)" >> $tpl
   echo "" >> $tpl
+  echo "[//]: # (To cancel creating this PR, you may remove this line or alter this message.)" >> $tpl
+  echo "" >> $tpl
   echo "[//]: # (This PR has been created using github/hub.)" >> $tpl
   echo "[//]: # (Template source: https://github.com/timhtheos/dotfiles/blob/master/bin/git-pr)"
   echo "" >> $tpl
@@ -59,6 +61,13 @@ if [ $msg == 1 ]; then
   # Edit prepared PR message.
   $(echo $EDITOR) $tpl
 
-  # Execute hub pull-request.
-  hub pull-request -F $tpl
+  # Execute hub pull request if possible.
+  if grep -q "To cancel creating this PR, you may remove this line or alter this message." "$tpl"; then
+    if [ -z "$1" ]; then
+      hub pull-request -F $tpl b origin:$1
+    else
+      hub pull-request -F $tpl
+    fi
+  fi
+
 fi
