@@ -3,9 +3,11 @@
 # Github hub prepare-pr-msg
 # 
 # To execute:
-#   git pr
-# instead of:
+#   git pr [base-branch]
+# instead of hub's:
 #   git pull-request
+#
+# *base-branch: the branch in the remote repository to create PR against.
 #
 # Dependencies:
 #   1. git
