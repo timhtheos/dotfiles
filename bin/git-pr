@@ -23,19 +23,27 @@ fi
 
 # Get branch's project-ticket number.
 if [ $msg == 1 ]; then
-  ticket="$project-$ticket: "
+  ticket="$project-$ticket"
   
   # Generate tmp template file.
-  tpl="~/tmp/prepare_pr_msg_$(hexdump -n 16 -v -e '/1 "%02X"' /dev/urandom).md"
+  tpl="/tmp/prepare_pr_msg_$(hexdump -n 16 -v -e '/1 "%02X"' /dev/urandom).md"
   touch $tpl
 
   # Generate tpl contents.
   echo "[$ticket]  " >> $tpl
-  echo "Jira" >> $tpl
-  echo "-----" >> $tpl
+  echo "" >> $tpl
+  echo "## Jira" >> $tpl
   echo "https://prometprojects.atlassian.net/browse/$ticket" >> $tpl
-  echo "Detail(s)" >> $tpl
-  echo "-----" >> $tpl
+  echo "" >> $tpl
+  echo "## Details" >> $tpl
+  echo "" >> $tpl
+  echo "" >> $tpl
+  echo "[//]: # (The first line shall be the PR title.)" >> $tpl
+  echo "[//]: # (The succeeding lines shall comprise of the PR description.)" >> $tpl
+  echo "[//]: # (All lines that looks like this one shall be ignored, and are comments.)" >> $tpl
+  echo "" >> $tpl
+  echo "[//]: # (This PR has been created using github/hub.)" >> $tpl
+  echo "[//]: # (Template source: https://github.com/timhtheos/dotfiles/blob/master/bin/git-pr)"
   echo "" >> $tpl
 
   # Edit prepared PR message.
