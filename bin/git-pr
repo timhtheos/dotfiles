@@ -4,10 +4,15 @@
 # 
 # To execute:
 #   git pr
+# instead of:
+#   git pull-request
 #
 
 # Get branch.
 branch=$(git symbolic-ref --short HEAD)
+
+# For some reason, we need to make sure that the current branch is pushed.
+git push origin $branch
 
 # Convert branch' slashes and dashes to white spaces.
 branch=$(echo $branch | sed -e 's/-/ /g' | sed -e 's/\// /g')
