@@ -1,0 +1,88 @@
+#!/bin/bash
+#
+# Github hub prepare-pr-msg
+# 
+# To execute:
+#   git pr [base-branch]
+# instead of hub's:
+#   git pull-request
+#
+# *base-branch: the branch in the remote repository to create PR against.
+#
+# Dependencies:
+#   1. git
+#   2. github
+#   3. github/hub
+#
+
+# Get git directory.
+git_dir=$(pwd)
+
+# Get branch.
+branch=$(git -C $git_dir symbolic-ref --short HEAD)
+
+# For some reason, we need to make sure that the current branch is pushed.
+git -C $git_dir push origin $branch
+
+# Convert branch' slashes and dashes to white spaces.
+branch_title=$(echo $branch | sed -e 's/-/ /g' | sed -e 's/\// /g')
+
+# Check if feature branch and has an integer ticket number.
+msg=0
+ticket=''
+if [ $(echo $branch_title | awk '{print $1}') == 'feature' ] && [[ $(echo $branch_title | awk '{print $3}') =~ ^-?[0-9]+$ ]]; then
+  project=$(echo $branch_title | awk '{print $2}')
+  ticket=$(echo $branch_title | awk '{print $3}')
+  msg=1
+fi
+
+# Get branch's project-ticket number.
+if [ $msg == 1 ]; then
+  ticket="$project-$ticket"
+  
+  # Generate tmp template file.
+  tpl="/tmp/prepare_pr_msg_$(hexdump -n 16 -v -e '/1 "%02X"' /dev/urandom).md"
+  touch $tpl
+
+  # Generate tpl contents.
+  echo "[$ticket]  " >> $tpl
+  echo "" >> $tpl
+  echo "## Jira" >> $tpl
+  echo "https://prometprojects.atlassian.net/browse/$ticket" >> $tpl
+  echo "" >> $tpl
+  echo "## Details" >> $tpl
+  echo "" >> $tpl
+  echo "" >> $tpl
+  echo "[//]: # (The first line shall be the PR title.)" >> $tpl
+  echo "[//]: # (The succeeding lines shall comprise of the PR description.)" >> $tpl
+  echo "[//]: # (All lines that looks like this one shall be ignored, and are comments.)" >> $tpl
+  echo "" >> $tpl
+  echo "[//]: # (To cancel creating this PR, you may remove this line or alter this message.)" >> $tpl
+  echo "" >> $tpl
+  echo "[//]: # (This PR has been created using github/hub.)" >> $tpl
+  echo "[//]: # (Template source: https://github.com/timhtheos/dotfiles/blob/master/bin/git-pr)" >> $tpl
+  echo "" >> $tpl
+
+  # Edit prepared PR message.
+  $(echo $EDITOR) $tpl
+  echo ""
+
+  # Execute hub pull request if possible.
+  if grep -q "To cancel creating this PR, you may remove this line or alter this message." "$tpl"; then
+    if ! [ -z "$1" ]; then
+
+      # Get origin's handle the dirty way, I know.
+      origin=$(git -C $git_dir config remote.origin.url | sed -e 's/github.com:/ /g' | awk '{print $2}' | sed -e 's/\// /' | awk '{print $1}')
+
+      hub pull-request -F $tpl -b $origin:$1 -h $origin:$branch
+    else
+      hub pull-request -F $tpl
+    fi
+  else
+    echo "Creating a pull request has been canceled."
+  fi
+
+  # Whatever the outcome is, we remove the tpl file.
+  rm $tpl 2> /dev/null
+
+fi
