@@ -1,18 +1,46 @@
 #!/bin/bash
 #
-# Github hub prepare-pr-msg
-# 
-# To execute:
-#   git pr [base-branch]
-# instead of hub's:
-#   git pull-request
+# git pr
 #
-# *base-branch: the branch in the remote repository to create PR against.
+# This extends github/hub's hub pull-request by a pre-defined dynamic
+# template with the following:
+#   1. ticket number in the pr title
+#   2. ticket link in pr description
+#   3. pr details in pr description
+#
+# All configurations can be set into ~/.gitconfig file.  The following
+# are available that can be set:
+#   [pr "all"]
+#     titlePrefix =
+#     titleSuffix =
+#     linkTitle =
+#     linkPrefix =
+#     linkSuffix =
+#
+# To execute:
+#   git pr
+#   git pr [remote-base[:remote-head]] [remote-base-branch]
+#
+#   remote-base - remote to merge into (default = origin)
+#   remote-head - remote to merge from (default = same as remote-base)
+#   remote-base-branch - remote branch to merge into (defaults to the
+#     default branch in the remote-base repository)
 #
 # Dependencies:
 #   1. git
-#   2. github
-#   3. github/hub
+#   2. github/hub
+#
+# Notes: This only works:
+#   1. with github repositories.
+#   2. on feature branches with the following format:
+#        feature/PROJECT-NUMBER-some-description-here
+#        feature-PROJECT-NUMBER-some-description-here
+#
+# And, also works on both:
+#   1. gitflow workflow
+#   2. gitfork workflow
+#
+# Author: timhtheos
 #
 
 # Get git directory.
@@ -21,23 +49,74 @@ git_dir=$(pwd)
 # Get branch.
 branch=$(git -C $git_dir symbolic-ref --short HEAD)
 
-# For some reason, we need to make sure that the current branch is pushed.
-git -C $git_dir push origin $branch
+# Get params if defined.
+if [[ ! -z "$1" ]]; then
+  pr_remote=$1
+fi
+
+if [[ ! -z "$2" ]]; then
+  pr_branch=$2
+fi
+
+# Define default remote head.
+pr_remote_head="origin"
+
+# Test remote and base branch.
+if [[ ! -z "$pr_remote" ]]; then
+  pr_remote_base=$pr_remote
+  pr_remote_head=$pr_remote
+
+  # Parse remote base and head, and override pr_remote_base, _head.
+  if [[ -n $(echo "$pr_remote" | grep ":") ]]; then
+    pr_remote_spaced=$(echo $pr_remote | sed -e 's/:/ /g')
+    pr_remote_base=$(echo $pr_remote_spaced | awk '{print $1}')
+    pr_remote_head=$(echo $pr_remote_spaced | awk '{print $2}')
+  fi
+
+  # Test if remote-base exists, otherwise exit.
+  if [[ ! -n $(git -C $git_dir config remote.$pr_remote_base.url) ]]; then
+    echo ""
+    echo "The remote \"$pr_remote_base\" does not exist."
+    exit
+  else
+
+    # Get remote's (base) github handle the dirty way, I know.
+    remote_base=$(git -C $git_dir config remote.$pr_remote_base.url | sed -e 's/github.com:/ /g' | awk '{print $2}' | sed -e 's/\// /' | awk '{print $1}')
+
+    # Test if the base branch exists in the remote repository, otherwise exit.
+    if [[ ! -z "$pr_branch" ]] && [[ ! -n $(git branch -r | grep $pr_remote_base/$pr_branch) ]]; then
+      echo ""
+      echo "The remote branch \"$pr_branch\" does not exist."
+      exit
+    fi
+
+  fi
+
+  # Test if remote-head exists, otherwise exit.
+  if [[ ! -n $(git -C $git_dir config remote.$pr_remote_head.url) ]]; then
+    echo ""
+    echo "The remote \"$pr_remote_head\" does not exist."
+    exit
+  else
+
+    # Get remote's (head) github handle the dirty way, I know.
+    remote_head=$(git -C $git_dir config remote.$pr_remote_head.url | sed -e 's/github.com:/ /g' | awk '{print $2}' | sed -e 's/\// /' | awk '{print $1}')
+  fi
+
+fi
+
+# For some reason, we need to make sure that the current branch is pushed to remote-head.
+git -C $git_dir push $pr_remote_head $branch
 
 # Convert branch' slashes and dashes to white spaces.
 branch_title=$(echo $branch | sed -e 's/-/ /g' | sed -e 's/\// /g')
 
-# Check if feature branch and has an integer ticket number.
-msg=0
-ticket=''
-if [ $(echo $branch_title | awk '{print $1}') == 'feature' ] && [[ $(echo $branch_title | awk '{print $3}') =~ ^-?[0-9]+$ ]]; then
+# Process template only in feature branches.
+if [[ $(echo $branch_title | awk '{print $1}') == 'feature' ]] && [[ $(echo $branch_title | awk '{print $3}') =~ ^-?[0-9]+$ ]]; then
+
+  # Get project, ticket number.
   project=$(echo $branch_title | awk '{print $2}')
   ticket=$(echo $branch_title | awk '{print $3}')
-  msg=1
-fi
-
-# Get branch's project-ticket number.
-if [ $msg == 1 ]; then
   ticket="$project-$ticket"
   
   # Generate tmp template file.
@@ -45,10 +124,10 @@ if [ $msg == 1 ]; then
   touch $tpl
 
   # Generate tpl contents.
-  echo "[$ticket]  " >> $tpl
+  echo $(git -C $git_dir config pr.all.titlePrefix)$ticket$(git -C $git_dir config pr.all.titleSuffix)"  " >> $tpl
   echo "" >> $tpl
-  echo "## Jira" >> $tpl
-  echo "https://prometprojects.atlassian.net/browse/$ticket" >> $tpl
+  echo "## "$(git -C $git_dir config pr.all.linkTitle) >> $tpl
+  echo $(git -C $git_dir config pr.all.linkPrefix)$ticket$(git -C $git_dir config pr.all.linkSuffix) >> $tpl
   echo "" >> $tpl
   echo "## Details" >> $tpl
   echo "" >> $tpl
@@ -63,18 +142,19 @@ if [ $msg == 1 ]; then
   echo "[//]: # (Template source: https://github.com/timhtheos/dotfiles/blob/master/bin/git-pr)" >> $tpl
   echo "" >> $tpl
 
-  # Edit prepared PR message.
-  $(echo $EDITOR) $tpl
+  # Edit prepared PR message by user's choice of editor.
+  # If $EDITOR is not set in shell, use vi.
+  if [[ ! -z $EDITOR ]]; then
+    $(echo $EDITOR) $tpl
+  else
+    nano $tpl
+  fi
   echo ""
 
   # Execute hub pull request if possible.
   if grep -q "To cancel creating this PR, you may remove this line or alter this message." "$tpl"; then
-    if ! [ -z "$1" ]; then
-
-      # Get origin's handle the dirty way, I know.
-      origin=$(git -C $git_dir config remote.origin.url | sed -e 's/github.com:/ /g' | awk '{print $2}' | sed -e 's/\// /' | awk '{print $1}')
-
-      hub pull-request -F $tpl -b $origin:$1 -h $origin:$branch
+    if ! [ -z "$pr_remote" ]; then
+      hub pull-request -F $tpl -b $remote_base:$pr_branch -h $remote_head:$branch
     else
       hub pull-request -F $tpl
     fi
