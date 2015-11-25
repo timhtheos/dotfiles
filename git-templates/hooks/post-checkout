@@ -61,6 +61,6 @@ if [[ $checkout_type == "1" ]]; then
   # Log time-in and time-out; one line per log entry.
   # @todo: Bug log only in a feature branch.
   echo "+$(date +%s)" >> $tlf_prev
-  echo "-$(date +%s)" >> $tlf_prev
+  echo "-$(date +%s)" >> $tlf_next
   
 fi
