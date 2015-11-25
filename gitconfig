@@ -21,3 +21,9 @@
 	user = timhtheos
 [push]
 	default = current
+[pr "all"]
+  titlePrefix = [
+  titleSuffix = ]
+  linkTitle = Jira
+	linkPrefix = https://prometprojects.atlassian.net/browse/
+  linkSuffix =
