@@ -62,5 +62,5 @@ if [[ $checkout_type == "1" ]]; then
   # @todo: Bug log only in a feature branch.
   echo "+$(date +%s)" >> $tlf_prev
   echo "-$(date +%s)" >> $tlf_next
-  
+
 fi
