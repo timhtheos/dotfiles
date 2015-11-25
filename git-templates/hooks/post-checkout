@@ -1,0 +1,79 @@
+#!/bin/bash
+# 
+# Git hook: post-checkout
+#
+# This hook is generally executed after a checkout has been made, either
+# a branch checkout or a file checkout (that can be determined the 34d
+# parameter passed into this hook.
+#
+# Param passed:
+# 1. the ref of the previous HEAD
+# 2. the ref of the new HEAD
+# 3. a flag indicating whether the checkout was a branch checkout
+#      (changing branches, flag=1) or a file checkout (retrieving a file
+#      from the index, flag=0)
+#
+# Author: timhtheos
+#
+# Specific purpose:
+# Time logging estimate spent on a branch.
+#
+# @todo: log only in feature branches separated by either or combination
+#   of slashes or dashes.
+#
+
+# Get params.
+head_prev=$1
+head_next=$2
+checkout_type=$3
+
+# Go to git root.
+cd $(git rev-parse --show-toplevel)
+
+# Get previous and next branches.
+if [[ "$head_prev" == "$head_next" ]]; then
+
+  # The dirty way, if heads are of the same hash.
+  branch_next=$(git symbolic-ref --short HEAD)
+  branch_prev=$(git reflog | grep {0} | awk '{print $6}')
+else
+
+  # Get previous and next branches.
+  branch_prev=$(echo $head_prev | xargs git name-rev --name-only)
+  branch_next=$(echo $head_next | xargs git name-rev --name-only)
+fi
+
+# Set time log directory.
+tld=".git/feature-logs"
+
+# Set time log files.
+tlf_prev=$tld/$branch_prev
+tlf_next=$tld/$branch_next
+
+# We only execute this hook if checkout type is a branch checkout.
+if [[ $checkout_type == "1" ]]; then
+
+  # Create time log directory if not present.
+  if [[ ! -e "$tld" ]]; then
+    mkdir $tld
+  fi
+
+  # Create time log file if not present.
+  if [[ ! -e "$tlf_prev" ]]; then
+    touch $tlf_prev
+  fi
+
+  if [[ ! -e "$tlf_next" ]]; then
+    touch $tlf_next
+  fi
+  
+  # Log time-in and time-out; one line per log entry.
+  if [[ $(echo $branch_prev | sed -e 's/-/ /g' | sed -e 's/\// /g' | awk '{print $1}') == 'feature' ]]; then
+    echo "+$(date +%s)" >> $tlf_prev
+  fi
+
+  if [[ $(echo $branch_next | sed -e 's/-/ /g' | sed -e 's/\// /g' | awk '{print $1}') == 'feature' ]]; then
+    echo "-$(date +%s)" >> $tlf_next
+  fi
+
+fi
