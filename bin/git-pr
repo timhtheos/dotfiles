@@ -143,7 +143,7 @@ if [[ $(echo $branch_title | awk '{print $1}') == 'feature' ]] && [[ $(echo $bra
   echo "" >> $tpl
 
   # Edit prepared PR message by user's choice of editor.
-  # If $EDITOR is not set in shell, use vi.
+  # If $EDITOR is not set in shell, use nano.
   if [[ ! -z $EDITOR ]]; then
     $(echo $EDITOR) $tpl
   else
