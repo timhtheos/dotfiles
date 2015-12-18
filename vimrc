@@ -8,7 +8,8 @@ let mapleader = ","
 
 " Set line numbers
 set number
-set relativenumber
+" set relativenumber
+
 
 " Vundle runtime path, and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
