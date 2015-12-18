@@ -83,6 +83,9 @@ Bundle 'gorodinskiy/vim-coloresque'
 " Vim gitgutter
 Bundle 'vim-gitgutter'
 
+" VimAwesome: Lightline
+Bundle 'itchyny/lightline.vim'
+
 " End vundle plugins
 call vundle#end()
 
@@ -282,3 +285,5 @@ let g:gitgutter_map_keys = 0
 " Vim-gitgutter: performance settings
 "let g:gitgutter_realtime = 0
 "let g:gitgutter_eager = 0
+
+hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
