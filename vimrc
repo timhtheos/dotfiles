@@ -42,9 +42,6 @@ Bundle 'majutsushi/tagbar'
 Bundle 'SirVer/ultisnips'
 Bundle 'joonty/vdebug'
 
-" Misaligned with powerline
-"Bundle 'bling/vim-airline'
-
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
@@ -65,9 +62,6 @@ Bundle 'FuzzyFinder'
 
 " You complete me 
 Bundle "Valloric/YouCompleteMe"
-
-" Powerline
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Gist vim
 Bundle 'mattn/webapi-vim'
@@ -168,15 +162,6 @@ set expandtab
 
 " FZF as vim plugin
 set rtp+=~/.fzf
-
-" Powerline settings
-" Either set t_Co here or in vim colors solarized
-set guifont=Inconsolata\ for\ Powerline:h15
-let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
-set termencoding=utf-8
 
 " Vim-colors-solarized settings
 " Either set t_Co or g:solarized_termcolors
