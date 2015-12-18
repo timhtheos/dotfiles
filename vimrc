@@ -10,6 +10,8 @@ let mapleader = ","
 set number
 " set relativenumber
 
+" Show tabline.
+set showtabline=2
 
 " Vundle runtime path, and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
