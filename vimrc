@@ -116,9 +116,6 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Vim easy motion map: s jk
 nmap s <Plug>(easymotion-s)
-"let g:EasyMotion_smartcase = 1
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
 
 " Vim easy motion map: n
 map  / <Plug>(easymotion-sn)
