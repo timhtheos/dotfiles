@@ -289,3 +289,7 @@ let g:gitgutter_map_keys = 0
 "let g:gitgutter_eager = 0
 
 hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+
+" Set filetypes.
+autocmd BufNewFile,BufRead *.install set ft=php
+autocmd BufNewFile,BufRead *.md set ft=markdown
