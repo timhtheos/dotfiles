@@ -22,8 +22,8 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%f"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}*%f"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-TMOUT=1
+# TMOUT=1
 
-TRAPALRM() {
-  zle reset-prompt  
-}
+# TRAPALRM() {
+#   zle reset-prompt  
+# }
