@@ -93,7 +93,7 @@ source ~/.docker-exports
 # Github hub aliasing
 eval "$(hub alias -s)"
 
-# Start mpd automatically if not yet running.
-if [[ -z "$(pgrep mpd)" ]]; then
-  mpd
-fi
+# # Start mpd automatically if not yet running.
+# if [[ -z "$(pgrep mpd)" ]]; then
+#   mpd
+# fi
