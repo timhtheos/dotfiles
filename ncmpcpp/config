@@ -28,3 +28,5 @@ user_interface = "alternative" (classic/alternative)
 header_visibility = "yes"
 
 display_volume_level = "yes"
+
+execute_on_song_change = ~/.bin/ncmpcpp.sh
