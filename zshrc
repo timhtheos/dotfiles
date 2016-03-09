@@ -20,6 +20,8 @@ export UPDATE_ZSH_DAYS=30
 plugins=(
   vi-mode
   z
+  history-substring-search
+  rvm
 )
 
 # Paths
@@ -97,3 +99,12 @@ eval "$(hub alias -s)"
 # if [[ -z "$(pgrep mpd)" ]]; then
 #   mpd
 # fi
+
+# Teamocil zsh autocompletion.
+compctl -g '~/.teamocil/*(:t:r)' teamocil
+
+# Mopidy.
+export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
+
+# Homebrew api token.
+export HOMEBREW_GITHUB_API_TOKEN='b9a3635b81f2a573d94ca3ffdb8c6bdd41bdbede'
