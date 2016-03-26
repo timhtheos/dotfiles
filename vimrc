@@ -168,8 +168,8 @@ set rtp+=~/.fzf
 " Vim-colors-solarized settings
 " Either set t_Co or g:solarized_termcolors
 " Either set syntax enable or syntax on
-set t_Co=256
-"let g:solarized_termcolors=256
+" set t_Co=256
+let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized
