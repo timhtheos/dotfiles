@@ -1,29 +1,31 @@
-# This theme is originally named as nanotechmod
+#!/usr/bin/env zsh
+# ------------------------------------------------------------------------------
+#          FILE: timothy.zsh-theme
+#   DESCRIPTION: A custom zsh theme.
+#        AUTHOR: Timothy A. Escopete (me[at]timothyae.com)
+#       VERSION: 1.0.0
+#       DEPENDS: ZSH
+# ------------------------------------------------------------------------------
 
-# Modifications:
-# 1. Add live clock into the zsh prompt
-# 2. Add customized vi-mode indicator
-
-# vi-mode theme
-VI_MODE_NORMAL="%{$bg[yellow]%}%{$fg_bold[black]%} NORMAL %{$reset_color%}"
-VI_MODE_INSERT="%{$bg[white]%}%{$fg_bold[black]%} INSERT %{$reset_color%}" 
+VI_MODE_NORMAL="%{$fg_bold[white]%}vi-mode%{$reset_color%}"
+VI_MODE_INSERT="" 
 
 function vi_mode_prompt_info() {
   echo "${${KEYMAP/vicmd/$VI_MODE_NORMAL}/(main|viins)/$VI_MODE_INSERT}"
 }
 
 PROMPT='
-%F{green}%n@localhost:$('pwd') %F{white}
-$(vi_mode_prompt_info) [%f '
-RPROMPT='$(git_prompt_info) %F{white}] %F{green}%D{%L:%M:%S} %F{yellow}%D{%p}%f '
+%F{green}%n@%m:$('pwd') %F{white}
+$%f '
+RPROMPT='$(git_prompt_info) $(vi_mode_prompt_info) %F{green}%D{%L:%M:%S} %F{yellow}%D{%p}%f'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}*%f"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-# TMOUT=1
+TMOUT=1
 
-# TRAPALRM() {
-#   zle reset-prompt  
-# }
+TRAPALRM() {
+  zle reset-prompt  
+}
