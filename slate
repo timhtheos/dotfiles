@@ -1,17 +1,22 @@
-# Slate settings
+# Slate settings.
 
-# App Bindings
-bind g:space,ctrl focus 'Google Chrome'
-bind i:space,ctrl focus 'iTerm'
-bind s:space,ctrl focus 'Skype'
-bind f:space,ctrl focus 'Firefox'
-bind n:space,ctrl focus 'Notes'
-bind d:space,ctrl focus 'dota_osx'
-#bind p:space,ctrl focus 'PhpStorm'     # I am not using this anymore
-bind l:space,ctrl focus 'Slack'
-bind e:space,ctrl focus 'Steam'         # We can't use t because it's conflicting with vimuim
-bind r:space,ctrl focus 'Finder'
+# App Bindings.
+bind g:a,ctrl focus 'Google Chrome'
+bind f:a,ctrl focus 'Firefox'
 
-# Window Hints
+bind i:a,ctrl focus 'iTerm'
+
+bind r:a,ctrl focus 'Finder'
+bind n:a,ctrl focus 'Notes'
+
+bind t:a,ctrl focus 'Tubbler'
+
+bind s:a,ctrl focus 'Skype'
+bind h:a,ctrl focus 'HipChat'
+bind l:a,ctrl focus 'Slack'
+
+bind d:a,ctrl focus 'dota_osx'
+bind e:a,ctrl focus 'Steam'         # We can't use t because it's conflicting with vimuim
+
+# Window Hints.
 bind esc:cmd hint
-
