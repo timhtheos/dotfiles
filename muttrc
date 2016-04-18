@@ -1,0 +1,27 @@
+# A basic .muttrc for use with Google Apps mail and Gmail.
+set imap_user = "me@timothyae.com"
+set imap_pass = "`security find-generic-password -a me@timothyae.com -D generic\ password -gw`"
+set smtp_url  = "smtp://smtp.gmail.com:465/"
+set smtp_pass = "`security find-generic-password -a me@timothyae.com -D generic\ password -gw`"
+set from      = "me@timothyae.com"
+set realname  = "Timothy Escopete"
+
+# Boilerplate config.
+set folder                = "imaps://imap.gmail.com:993"
+set spoolfile             = "+INBOX"
+set imap_check_subscribed
+set hostname              = gmail.com
+set editor                = "vim"
+set mail_check            = 30 #seconds between mail checks
+set timeout               = 300
+set imap_keepalive        = 300
+set postponed             = "+[Gmail]/Drafts"
+set record                = "+[Gmail]/Sent Mail"
+set header_cache          = ~/.mutt/cache/headers
+set message_cachedir      = ~/.mutt/cache/bodies
+set certificate_file      = ~/.mutt/certificates
+set mailcap_path          = ~/.mutt/mailcap
+set move                  = no
+set include
+set sort                  = 'threads'
+set auto_tag              = yes
