@@ -48,6 +48,6 @@ set envelope_from
 set smtp_authenticators = 'gssapi:login'
 
 source ~/.mutt-bindings.muttrc
-# source ~/.mutt/sidebar.muttrc
+source ~/.mutt-sidebar.muttrc
 
 source ~/.mutt-colors-solarized-dark-256.muttrc
