@@ -1,14 +1,15 @@
 # A basic .muttrc for use with Google Apps mail and Gmail.
 set imap_user = "me@timothyae.com"
 set imap_pass = "`security find-generic-password -a me@timothyae.com -D generic\ password -gw`"
-set smtp_url  = "smtp://smtp.gmail.com:465/"
+set smtp_url  = "smtp://me@timothyae.com@smtp.gmail.com:587/"
 set smtp_pass = "`security find-generic-password -a me@timothyae.com -D generic\ password -gw`"
 set from      = "me@timothyae.com"
 set realname  = "Timothy Escopete"
 
 # Boilerplate config.
-set folder                = "imaps://imap.gmail.com:993"
-set spoolfile             = "+INBOX"
+set folder                = "imaps://me@timothyae.com@imap.gmail.com:993" # I doubt for the incusion of the username here
+# set spoolfile           = "+INBOX"
+set spoolfile             = "+Inbox"
 set imap_check_subscribed
 set hostname              = gmail.com
 set editor                = "vim"
@@ -22,6 +23,31 @@ set message_cachedir      = ~/.mutt/cache/bodies
 set certificate_file      = ~/.mutt/certificates
 set mailcap_path          = ~/.mutt/mailcap
 set move                  = no
-set include
-set sort                  = 'threads'
 set auto_tag              = yes
+
+# Additional config.
+set ssl_force_tls = yes
+set ssl_starttls  = no
+
+# Gmail-style threading.
+set sort     = 'threads'
+set sort_aux = reverse-last-date-received
+
+# Stop mutt showing the next msg at the end of the current msg body.
+set pager_stop
+
+# Quick reply.
+set fast_reply
+set include
+
+# Pre-fills the `From` address when replying to emails.
+set reverse_name 
+set envelope_from
+
+# Taken from https://github.com/Homebrew/legacy-homebrew/issues/33419
+set smtp_authenticators = 'gssapi:login'
+
+source ~/.mutt/bindings.muttrc
+source ~/.mutt/sidebar.muttrc
+
+source ~/.mutt/mutt-colors-solarized-dark-256.muttrc
