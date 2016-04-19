@@ -1,0 +1,16 @@
+# Mutt sidebar config.
+set sidebar_width   = 30
+set sidebar_visible = no
+set sidebar_sort    = yes
+
+# Sidebar bindings.
+# `sidebar-open` does not seem to function.
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+
+# Toggle visibility of the sidebar.
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+
+# vim: filetype=muttrc
