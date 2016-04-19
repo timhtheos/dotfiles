@@ -47,7 +47,7 @@ set envelope_from
 # Taken from https://github.com/Homebrew/legacy-homebrew/issues/33419
 set smtp_authenticators = 'gssapi:login'
 
-source ~/mutt-bindings.muttrc
-source ~/mutt-sidebar.muttrc
+source ~/.mutt-bindings.muttrc
+# source ~/.mutt/sidebar.muttrc
 
-source ~/mutt-colors-solarized-dark-256.muttrc
+source ~/.mutt-colors-solarized-dark-256.muttrc
