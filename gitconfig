@@ -2,7 +2,7 @@
 	editor = vim
 	excludesfile = ~/.gitignore_global
 [user]
-	name = "Timothy Escopete #local #osxy"
+	name = "Timothy Escopete #local #osxec"
 	email = me@timothyae.com
 [grep]
 	extendRegexp = true
