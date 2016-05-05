@@ -20,3 +20,9 @@ bind e:a,ctrl focus 'Steam'         # We can't use t because it's conflicting wi
 
 # Window Hints.
 bind esc:cmd hint
+
+# Undo.
+bind u:a,ctrl undo
+
+# App switcher.
+bind tab:cmd switch
