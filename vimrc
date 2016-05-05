@@ -80,9 +80,24 @@ Bundle 'xolox/vim-notes'
 Bundle 'evidens/vim-twig'
 
 " Set colors in css, sass, and sass variables
-Bundle 'gorodinskiy/vim-coloresque'
-
+" Bundle 'gorodinskiy/vim-coloresque'
+" Workaround for incorrect word caused by gorodinskiy/vim-coloresque.
+" Source: https://github.com/gorodinskiy/vim-coloresque/issues/22#issuecomment-47300121
+" :set isk-=-
+" :set isk-=#
+" :set isk-=.
+" The above doesn't work.
+" Source: https://github.com/gorodinskiy/vim-coloresque/pull/30/files
+" :setlocal iskeyword+=-
+" :setlocal iskeyword+=#
+" :setlocal iskeyword+=.
+" The above doesn't work, too.
+" Source: https://github.com/hauleth/vim-coloresque/commit/9d8fdd25f3b161e27331c1e5e5ba04d9d169e139
+" :setl isk+=-
+" :setl isk+=#
+" :setl isk+=.
 " Vim gitgutter
+
 Bundle 'vim-gitgutter'
 
 " VimAwesome: Lightline
