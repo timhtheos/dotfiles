@@ -32,8 +32,8 @@ Bundle 'tpope/vim-fugitive'
 "Bundle 'sjl/splice' " alt to fugitive; previously called threesome
 Bundle 'Lokaltog/vim-easymotion'
 
-Bundle 'scrooloose/nerdtree'
-"Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/nerdtree'
+" Bundle 'scrooloose/syntastic'
 
 Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
