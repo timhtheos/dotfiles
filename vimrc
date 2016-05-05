@@ -42,7 +42,7 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
 Bundle 'SirVer/ultisnips'
-Bundle 'joonty/vdebug'
+" Bundle 'joonty/vdebug'
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-commentary'
