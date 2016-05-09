@@ -230,3 +230,25 @@ kwmc bind prefix+shift-p space -p decrease all
 kwmc bind cmd-7 write \
 kwmc bind cmd-8 write {
 kwmc bind cmd-9 write }
+
+##
+# Custom settings overriding the above.
+##
+
+# Set default values for screen padding
+kwmc config padding 30 15 15 15
+
+# Give Focus To Window
+kwmc bind ctrl-h window -f west
+kwmc bind ctrl-l window -f east
+kwmc bind ctrl-j window -f south
+kwmc bind ctrl-k window -f north
+
+# Swap Focused Window
+kwmc bind ctrl+cmd-h window -s west
+kwmc bind ctrl+cmd-j window -s south
+kwmc bind ctrl+cmd-k window -s north
+kwmc bind ctrl+cmd-l window -s east
+
+# New splits become the left leaf-node
+kwmc config spawn right
