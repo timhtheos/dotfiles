@@ -4,7 +4,7 @@
 bind g:a,ctrl focus 'Google Chrome'
 bind f:a,ctrl focus 'Firefox'
 
-bind i:a,ctrl focus 'iTerm'
+bind i:a,ctrl focus 'iTerm2'
 
 bind r:a,ctrl focus 'Finder'
 bind n:a,ctrl focus 'Notes'
