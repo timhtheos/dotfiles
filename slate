@@ -15,7 +15,7 @@ bind s:a,ctrl focus 'Skype'
 bind h:a,ctrl focus 'HipChat'
 bind l:a,ctrl focus 'Slack'
 
-bind d:a,ctrl focus 'dota_osx'
+# bind d:a,ctrl focus 'dota_osx'    # This doesn't work anymore.
 bind e:a,ctrl focus 'Steam'         # We can't use t because it's conflicting with vimuim
 
 # Window Hints.
@@ -25,4 +25,4 @@ bind esc:cmd hint
 bind u:a,ctrl undo
 
 # App switcher.
-bind tab:cmd switch
+# bind tab:cmd switch               # At some point, the switcher runs from 2nd to the last item.
