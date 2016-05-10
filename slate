@@ -2,6 +2,7 @@
 
 # App Bindings.
 bind g:a,ctrl focus 'Google Chrome'
+bind c:a,ctrl focus 'Chromium'
 bind f:a,ctrl focus 'Firefox'
 
 bind i:a,ctrl focus 'iTerm2'
