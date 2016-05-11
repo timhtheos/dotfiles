@@ -239,16 +239,45 @@ kwmc bind cmd-9 write }
 kwmc config padding 30 15 15 15
 
 # Give Focus To Window
-kwmc bind ctrl-h window -f west
-kwmc bind ctrl-l window -f east
-kwmc bind ctrl-j window -f south
-kwmc bind ctrl-k window -f north
+kwmc bind cmd+ctrl-h window -f west
+kwmc bind cmd+ctrl-l window -f east
+kwmc bind cmd+ctrl-j window -f south
+kwmc bind cmd+ctrl-k window -f north
 
 # Swap Focused Window
-kwmc bind ctrl+cmd-h window -s west
-kwmc bind ctrl+cmd-j window -s south
-kwmc bind ctrl+cmd-k window -s north
-kwmc bind ctrl+cmd-l window -s east
+kwmc bind ctrl+cmd+shift-h window -s west
+kwmc bind ctrl+cmd+shift-j window -s south
+kwmc bind ctrl+cmd+shift-k window -s north
+kwmc bind ctrl+cmd+shift-l window -s east
 
 # New splits become the left leaf-node
 kwmc config spawn right
+
+# Exclude ctrl-l in app iTerm2.
+# For some reason, I can't get this to work.
+# kwmc bind ctrl-l /opt/homebrew-cask/Caskroom/iterm2/2.1.4/iTerm.app -e
+
+# Blacklist iterm2.
+# kwmc config float iTerm
+
+# Float the following apps.
+# kwmc config float HipChat
+# Or this one - confused.
+kwmc rule owner="HipChat"     properties={float="true"}
+kwmc rule owner="Notes"       properties={float="true"}
+kwmc rule owner="iTerm"       properties={float="true"}
+kwmc rule owner="Steam"       properties={float="true"}
+kwmc rule owner="Skitch"      properties={float="true"}
+kwmc rule owner="Photoshop"   properties={float="true"}
+kwmc rule owner="GoToMeeting" properties={float="true"}
+kwmc rule owner="Preview"     properties={float="true"}
+kwmc rule owner="Skype"       properties={float="true"}
+kwmc rule owner="App Store"   properties={float="true"}
+# kwmc rule owner="Finder"      properties={float="true"}
+kwmc rule owner="Xcode"       properties={float="true"}
+# Assign apps to a different screen if such exists.
+kwmc rule owner="iTerm" properties={display="1"}
+
+# Spaces.
+kwmc config space 1 3 tree Finder
+kwmc config space 1 3 name Finder
