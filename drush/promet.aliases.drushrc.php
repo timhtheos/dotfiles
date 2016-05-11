@@ -84,6 +84,16 @@ switch ([$env, $param1]) {
       'remote-user' => 'vagrant',
     );
   break;
+
+  // Promet Alias for dev environment.
+  case ['dev', $param1]:
+    $aliases[$project . '.' . $env] = array(
+      'root' => '/var/www/sites/' . $project . '.prometdev.com/www',
+      'uri' => $project . '.prometdev.com',
+      'remote-host' => $project . '.prometdev.com',
+      'remote-user' => 'timothy',
+    );
+  break;
 }
 
 // Common service ops.
