@@ -6,6 +6,9 @@
 // Get command.
 $command = $_SERVER['argv'];
 
+// Set environment.
+$env = 'local';
+
 // Get project.
 foreach ($command as $arg) {
   $test = explode('.', $arg);
@@ -26,7 +29,7 @@ $temp = explode(' ', $temp[1]);
 $param1 = $temp[1];
 
 // Prompt password is asking for authorize.
-if ($param1 == 'authorize') {
+if ($env == 'local' && $param1 == 'authorize') {
   drush_print('');
   drush_print('Make sure you turned on \'Remote Login\' in your System Preferences\' Sharing');
   drush_print('To turn it on, go to  \'System Preferences > Sharing\'  and mark checked the');
@@ -61,7 +64,7 @@ if ($param1 == 'authorize') {
     exit();
   }
 }
-else {
+else if ($env == 'local') {
   // Generic template to vagrant.
   $aliases[$project] = array(
     'root' => '/var/www/sites/' . $project . '.dev/www',
@@ -72,9 +75,11 @@ else {
 }
 
 // Authorize.
-$options['shell-aliases'] = array(
-  'authorize' => '!~/.drush/promet.aliases.sh ' . $project,
-);
+if ($env == 'local') {
+  $options['shell-aliases'] = array(
+    'authorize' => '!~/.drush/promet.aliases.sh ' . $project,
+  );
+}
 
 // Common service ops.
 /* $options['shell-aliases'] = array( */
