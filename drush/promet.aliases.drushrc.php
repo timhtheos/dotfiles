@@ -28,57 +28,59 @@ $temp = explode('@', $temp);
 $temp = explode(' ', $temp[1]);
 $param1 = $temp[1];
 
-// Prompt password is asking for authorize.
-if ($env == 'local' && $param1 == 'authorize') {
-  drush_print('');
-  drush_print('Make sure you turned on \'Remote Login\' in your System Preferences\' Sharing');
-  drush_print('To turn it on, go to  \'System Preferences > Sharing\'  and mark checked the');
-  drush_print('\'Remote Login\'.');
-  drush_print('');
-  drush_print('This is just a one time request, and \'Remote Login\' can be turned back off.');
-  drush_print('');
-  drush_print('If you are done, confirm it below.');
-  drush_print('');
-
-  $proceed = drush_choice(
-    array(
-      'yes' => 'Yes',
-    ),
-    'Do you want to proceed? '
-  );
-
-  if ($proceed == 'yes') {
+switch ([$env, $param1]) {
+  // Prompt password is asking for authorize.
+  case ['local', 'authorize']:
     drush_print('');
-    drush_print('Please supply the password for your host machine.');
+    drush_print('Make sure you turned on \'Remote Login\' in your System Preferences\' Sharing');
+    drush_print('To turn it on, go to  \'System Preferences > Sharing\'  and mark checked the');
+    drush_print('\'Remote Login\'.');
+    drush_print('');
+    drush_print('This is just a one time request, and \'Remote Login\' can be turned back off.');
+    drush_print('');
+    drush_print('If you are done, confirm it below.');
     drush_print('');
 
-    $aliases[$project] = array(
-      'root' => '/',
-      'uri' => '127.0.0.1',
-      'remote-host' => '127.0.0.1',
+    $proceed = drush_choice(
+      array(
+        'yes' => 'Yes',
+      ),
+      'Do you want to proceed? '
     );
-  }
-  else {
-    drush_print('');
-    drush_set_error('Aborted', 'Request aborted.');
-    exit();
-  }
-}
-else if ($env == 'local') {
-  // Generic template to vagrant.
-  $aliases[$project] = array(
-    'root' => '/var/www/sites/' . $project . '.dev/www',
-    'uri' => $project . '.dev',
-    'remote-host' => $project . '.dev',
-    'remote-user' => 'vagrant',
-  );
-}
 
-// Authorize.
-if ($env == 'local') {
-  $options['shell-aliases'] = array(
-    'authorize' => '!~/.drush/promet.aliases.sh ' . $project,
-  );
+    if ($proceed == 'yes') {
+      drush_print('');
+      drush_print('Please supply the password for your host machine.');
+      drush_print('');
+
+      $aliases[$project] = array(
+        'root' => '/',
+        'uri' => '127.0.0.1',
+        'remote-host' => '127.0.0.1',
+      );
+    }
+    else {
+      drush_print('');
+      drush_set_error('Aborted', 'Request aborted.');
+      exit();
+    }
+
+    // Shell authorize.
+    $options['shell-aliases'] = array(
+      'authorize' => '!~/.drush/promet.aliases.sh ' . $project,
+    );
+  break;
+
+  // If already authorized.
+  case ['local', $param1]:
+    // Generic template to vagrant.
+    $aliases[$project] = array(
+      'root' => '/var/www/sites/' . $project . '.dev/www',
+      'uri' => $project . '.dev',
+      'remote-host' => $project . '.dev',
+      'remote-user' => 'vagrant',
+    );
+  break;
 }
 
 // Common service ops.
