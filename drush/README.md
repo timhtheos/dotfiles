@@ -1,13 +1,5 @@
 # Promet's dynamic drush aliases
  
-    drush_print('Make sure you turned on \'Remote Login\' in your System Preferences\' Sharing');
-    drush_print('To turn it on, go to  \'System Preferences > Sharing\'  and mark checked the');
-    drush_print('\'Remote Login\'.');
-    drush_print('');
-    drush_print('This is just a one time request, and \'Remote Login\' can be turned back off.');
-    drush_print('');
-    drush_print('If you are done, confirm it below.');
-
 ## Parameters
 As used in drushrc file `promet.aliases.drushrc.php`.
 
@@ -63,12 +55,32 @@ Based on the given format above, here's the example for Martin County.
   drush @promet.martincounty.stage st
   ```
 
+## Dependencies
+Unfortunately, this requires the following:
+
+1. `expect` command.
+
+  Install using brew:
+
+  ```
+  brew install expect
+  ```
+
+  If installation failed, and it instructs you to tap something, please tap it, and re-install again.
+
+2. `Remote Login` turned-on.
+
+  Go to `System Preferences` > `Sharing` and mark checked the `Remote Login` found in the left side column.
+
+  This is important to authorize Promet's drush aliases to access your vagrant.  Noteworthy, that you may turn `Remote Login` off when you are done with `authorize`.
+
 ## Getting started
-1. Make sure that you have installed drush on your host machine.
-2. Make sure that you have ssh keypair on your host machine.
-3. Download all the files in this directory and put it inside your `~/.drush` directory on you host machine.
-4. Execute `drush cc drush` to clear drush.
-5. Test Promet's drush aliases by:
+1. Make sure you have `expect` command and `Remote Login` turned-on (see Dependencies).
+2. Make sure that you have installed drush on your host machine.
+3. Make sure that you have ssh keypair on your host machine.
+4. Download all the files in this directory and put it inside your `~/.drush` directory on you host machine.
+5. Execute `drush cc drush` to clear drush.
+6. Test Promet's drush aliases by:
   1. `vagrant up` any of Promet's project using `promet_wheezy*` box.
   2. For example, the project is Martin County, so the project name would be, `martincounty`. Run, `drush @promet.martincounty st`.  You should get:
 
