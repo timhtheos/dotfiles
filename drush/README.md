@@ -1,5 +1,13 @@
 # Promet's dynamic drush aliases
  
+    drush_print('Make sure you turned on \'Remote Login\' in your System Preferences\' Sharing');
+    drush_print('To turn it on, go to  \'System Preferences > Sharing\'  and mark checked the');
+    drush_print('\'Remote Login\'.');
+    drush_print('');
+    drush_print('This is just a one time request, and \'Remote Login\' can be turned back off.');
+    drush_print('');
+    drush_print('If you are done, confirm it below.');
+
 ## Parameters
 As used in drushrc file `promet.aliases.drushrc.php`.
 
