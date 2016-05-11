@@ -3,26 +3,17 @@
 ## Parameters
 As used in drushrc file `promet.aliases.drushrc.php`.
 
-```
-$env:
-```
-
+1. $env
   - This can be `local`, `dev`, or `stage`.
   - A null or empty value is considered `local` by default.
 
-```
-$project:
-```
-
+2. $project
   - Project name, e.g. martincounty.
   - Project name can be obtained from either:
     a. The value of `project` from your project's Vagrantfile, or
     b. Just trip away `.dev` from the url of your working local environment. For example, the local url for Martin County is `martincounty.dev`. The project name would then be `martincounty`.
 
-```
-$param1:
-```
-
+3. $param1
   - Promet's defined shell aliases to do commonly recognized shell commands inside the server.  For example, `authorize`.
 
 ## Format
@@ -129,4 +120,4 @@ drush @promet.martincounty sql-connect
 When there are no errors returned, your setup is good.
 
 ## Promet's custom shell aliases
-
+We have already used one, i.e., `authorized`.
