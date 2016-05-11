@@ -13,10 +13,6 @@ foreach ($command as $arg) {
 
   if ($test[0] == '@promet') {
     $project = $test[1];
-
-    if (isset($test[2])) {
-      $param1 = $test[2];
-    }
   }
 }
 
