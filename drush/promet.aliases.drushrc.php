@@ -49,24 +49,24 @@ switch ([$env, $param1]) {
   // Authorize user to access local vagrant.
   // (Not yet authorized.)
   case ['local', 'authorize']:
-    drush_print('');
-    drush_print('IMPORTANT: Please read "README.md" file\'s "Dependencies" before');
-    drush_print('you proceed.');
-    drush_print('');
-    drush_print('This is just a one time request. After you have authorized');
-    drush_print('yourself, you can use any drush commands to any Promet\'s');
-    drush_print('project in your local vagrant, prometdev, and prometstaging');
-    drush_print('using just your host machine.');
-    drush_print('');
-    drush_print('In addition, you can take advantage of performing server tasks');
-    drush_print('inside your vagrant, such as restarting apache2, nxing, mysql,');
-    drush_print('among others, as well as rebuilding your site with drush build');
-    drush_print('or install.sh, and even performing compass compile/watch.');
-    drush_print('');
-    drush_print('"He who never begins, will never end." - Italian Proverb');
-    drush_print('');
-    drush_print('If you are done with all the dependencies, confirm it below.');
-    drush_print('');
+    drush_print('
+IMPORTANT: Please read "README.md" file\'s "Dependencies" before
+you proceed.
+
+This is just a one time request. After you have authorized
+yourself, you can use any drush commands to any Promet\'s
+project in your local vagrant, prometdev, and prometstaging
+using just your host machine.
+
+In addition, you can take advantage of performing server tasks
+inside your vagrant, such as restarting apache2, nxing, mysql,
+among others, as well as rebuilding your site with drush build
+or install.sh, and even performing compass compile/watch.
+
+"He who never begins, will never end." - Italian Proverb
+
+If you are done with all the dependencies, confirm it below.
+');
 
     $proceed = drush_choice(
       array(
@@ -76,9 +76,9 @@ switch ([$env, $param1]) {
     );
 
     if ($proceed == 'yes') {
-      drush_print('');
-      drush_print('Please supply the password for your host machine.');
-      drush_print('');
+      drush_print('
+Please supply the password for your host machine.
+');
 
       // Set drush alias for host machine.
       $aliases[$project . '.' . $env] = array(
@@ -94,8 +94,8 @@ switch ([$env, $param1]) {
       $aliases[$project] = $aliases[$project . '.' . $env];
     }
     else {
-      drush_print('');
-      drush_set_error('Aborted', 'Request aborted.');
+      drush_print('
+Aborted', 'Request aborted.');
       exit();
     }
   break;
