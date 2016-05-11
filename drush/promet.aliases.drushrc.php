@@ -9,10 +9,10 @@
 // Get command.
 $command = $_SERVER['argv'];
 
-// Set environment.
+// Set default environment.
 $env = 'local';
 
-// Get project.
+// Get project and environment.
 foreach ($command as $arg) {
   $test = explode('.', $arg);
 
@@ -31,8 +31,23 @@ $temp = explode('@', $temp);
 $temp = explode(' ', $temp[1]);
 $param1 = $temp[1];
 
+// Array holder for environments.
+$envs = array(
+  'local' => '.dev',
+  'dev'   => '.prometdev.com',
+  'stage' => '.prometstaging.com'
+);
+
+// Define common alias to be altered later as per environment, if needed.
+$aliases[$project . '.' . $env] = array(
+  'root' => '/var/www/sites/' . $project . $envs[$env] . '/www',
+  'uri' => $project . $envs[$env],
+  'remote-host' => $project . $envs[$env],
+);
+
 switch ([$env, $param1]) {
-  // Prompt password is asking for authorize.
+  // Authorize user to access local vagrant.
+  // (Not yet authorized.)
   case ['local', 'authorize']:
     drush_print('');
     drush_print('Make sure you turned on \'Remote Login\' in your System Preferences\' Sharing');
@@ -56,51 +71,32 @@ switch ([$env, $param1]) {
       drush_print('Please supply the password for your host machine.');
       drush_print('');
 
-      $aliases[$project] = array(
+      // Set drush alias for host machine.
+      $aliases[$project . '.' . $env] = array(
         'root' => '/',
         'uri' => '127.0.0.1',
         'remote-host' => '127.0.0.1',
+
+        // Define shell alias `authorize`.
+        'shell-aliases' => array(
+          'authorize' => '!~/.drush/promet.aliases.sh ' . $project,
+        ),
       );
+      $aliases[$project] = $aliases[$project . '.' . $env];
     }
     else {
       drush_print('');
       drush_set_error('Aborted', 'Request aborted.');
       exit();
     }
-
-    // Shell authorize.
-    $options['shell-aliases'] = array(
-      'authorize' => '!~/.drush/promet.aliases.sh ' . $project,
-    );
   break;
 
-  // If already authorized.
+  // Perform drush commands inside vagrant from host machine.
+  // (Already authorized.)
   case ['local', $param1]:
-    // Generic template to vagrant.
-    $aliases[$project] = array(
-      'root' => '/var/www/sites/' . $project . '.dev/www',
-      'uri' => $project . '.dev',
-      'remote-host' => $project . '.dev',
-      'remote-user' => 'vagrant',
-    );
-  break;
-
-  // Promet drush alias for dev env.
-  case ['dev', $param1]:
-    $aliases[$project . '.' . $env] = array(
-      'root' => '/var/www/sites/' . $project . '.prometdev.com/www',
-      'uri' => $project . '.prometdev.com',
-      'remote-host' => $project . '.prometdev.com',
-    );
-  break;
-
-  // Promet drush alias for stage env.
-  case ['stage', $param1]:
-    $aliases[$project . '.' . $env] = array(
-      'root' => '/var/www/sites/' . $project . '.prometstaging.com/www',
-      'uri' => $project . '.prometstaging.com',
-      'remote-host' => $project . '.prometdev.com',
-    );
+    // Set drush alias for local.
+    $aliases[$project . '.' . $env]['remote-user'] = 'vagrant';
+    $aliases[$project] = $aliases[$project . '.' . $env];
   break;
 }
 
