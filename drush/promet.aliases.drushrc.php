@@ -12,6 +12,10 @@ foreach ($command as $arg) {
 
   if ($test[0] == '@promet') {
     $project = $test[1];
+
+    if (isset($test[2])) {
+      $env = $test[2];
+    }
   }
 }
 
@@ -71,3 +75,8 @@ else {
 $options['shell-aliases'] = array(
   'authorize' => '!~/.drush/promet.aliases.sh ' . $project,
 );
+
+// Common service ops.
+/* $options['shell-aliases'] = array( */
+/*   'service' => '!~/.drush/promet.aliases.service.sh ' . $project, */
+/* ); */
