@@ -112,7 +112,8 @@ git -C $git_dir push $pr_remote_head $branch
 branch_title=$(echo $branch | sed -e 's/-/ /g' | sed -e 's/\// /g')
 
 # Process template only in feature branches.
-if [[ $(echo $branch_title | awk '{print $1}') == 'feature' ]] && [[ $(echo $branch_title | awk '{print $3}') =~ ^-?[0-9]+$ ]]; then
+# if [[ $(echo $branch_title | awk '{print $1}') == 'feature' ]] && [[ $(echo $branch_title | awk '{print $3}') =~ ^-?[0-9]+$ ]]; then
+if [[ $(echo $branch_title | awk '{print $1}') == 'feature' ]] || [[ $(echo $branch_title | awk '{print $1}') == 'hotfix' ]]; then
 
   # Get project, ticket number.
   project=$(echo $branch_title | awk '{print $2}')
