@@ -1,7 +1,7 @@
 # Promet's dynamic drush aliases
  
 ## Parameters
-As used in this drushrc file.
+As used in drushrc file `promet.aliases.drushrc.php`.
 
 ```
 $env:
@@ -63,3 +63,70 @@ Based on the given format above, here's the example for Martin County.
   ```
   drush @promet.martincounty.stage st
   ```
+
+## Getting started
+1. Make sure that you have installed drush on your host machine.
+2. Make sure that you have ssh keypair on your host machine.
+3. Download all the files in this directory and put it inside your `~/.drush` directory on you host machine.
+4. Execute `drush cc drush` to clear drush.
+5. Test Promet's drush aliases by:
+  1. `vagrant up` any of Promet's project using `promet_wheezy*` box.
+  2. For example, the project is Martin County, so the project name would be, `martincounty`. Run, `drush @promet.martincounty st`.  You should get:
+
+    ```
+    Permission denied (publickey,password).
+    ```
+
+    That's just normal.  Please proceed to the next section to get authorized.
+
+## Getting authorized
+Getting authorized is a one time action per project/vagrant.  This doesn't need to be done every time.  But, doing this the 2nd time, after being authorized already, is just fine.
+
+Furthermore, this is only applicable to local environment where we use vagrant, and not to dev and stage environments.
+
+#### Format
+```
+drush @promet.{project} authorize
+```
+
+#### Example
+Still using Martin County's:
+
+```
+drush @promet.martincounty authorize
+```
+
+At first, you will be prompted and asked to turn on `Remote Login` in your `System Preferences > Sharing`.  When you are done, confirm the prompt by typing `1` and press the return key (enter).
+
+Then, you will be asked of your host machine's password.  This is the password when you logged-in to your machine.  This is the same password you enter when you do `sudo` on your terminal.
+
+Make sure that you get the following message:
+
+```
+Your host public key has been installed.
+```
+
+Doing this the 2nd time or multiple times, will give you the following message:
+
+```
+Your host public key is already authorized in Martin County.
+```
+
+In case you received the following message, please ask help from others.
+```
+SSH failed.  Your host public key has not been installed.
+```
+
+#### Test other drush commands
+After you have authorized yourself, test the following drush commands.
+
+```
+drush @promet.martincounty st
+drush @promet.martincounty cc all
+drush @promet.martincounty sql-connect
+```
+
+When there are no errors returned, your setup is good.
+
+## Promet's custom shell aliases
+
