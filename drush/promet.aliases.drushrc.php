@@ -15,8 +15,8 @@
  *  - Project name, e.g. martincounty.
  *  - Project name can be obtained from either:
  *      a) The value of `project` from your project's Vagrantfile, or
- *      b) Just trip away `.dev` from the url of your working local environment
- *           For example, the local url for Martin County is `martincounty.dev`
+ *      b) Just trip away `.dev` from the url of your working local environment.
+ *           For example, the local url for Martin County is `martincounty.dev`.
  *           The project name would then be `martincounty`.
  *
  * $param1:
