@@ -85,13 +85,21 @@ switch ([$env, $param1]) {
     );
   break;
 
-  // Promet Alias for dev environment.
+  // Promet drush alias for dev env.
   case ['dev', $param1]:
     $aliases[$project . '.' . $env] = array(
       'root' => '/var/www/sites/' . $project . '.prometdev.com/www',
       'uri' => $project . '.prometdev.com',
       'remote-host' => $project . '.prometdev.com',
-      'remote-user' => 'timothy',
+    );
+  break;
+
+  // Promet drush alias for stage env.
+  case ['stage', $param1]:
+    $aliases[$project . '.' . $env] = array(
+      'root' => '/var/www/sites/' . $project . '.prometstaging.com/www',
+      'uri' => $project . '.prometstaging.com',
+      'remote-host' => $project . '.prometdev.com',
     );
   break;
 }
