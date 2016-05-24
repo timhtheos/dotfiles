@@ -41,7 +41,7 @@ kwmc config tiling bsp
 kwmc config hotkeys on
 
 # Set prefix for Kwms hotkeys
-kwmc config prefix-key ctrl-s
+kwmc config prefix-key ctrl-g
 
 # Prefix is not applied globally
 kwmc config prefix-global off
@@ -253,16 +253,7 @@ kwmc bind ctrl+cmd+shift-l window -s east
 # New splits become the left leaf-node
 kwmc config spawn right
 
-# Exclude ctrl-l in app iTerm2.
-# For some reason, I can't get this to work.
-# kwmc bind ctrl-l /opt/homebrew-cask/Caskroom/iterm2/2.1.4/iTerm.app -e
-
-# Blacklist iterm2.
-# kwmc config float iTerm
-
-# Float the following apps.
-# kwmc config float HipChat
-# Or this one - confused.
+# Floated applications.
 kwmc rule owner="HipChat"     properties={float="true"}
 kwmc rule owner="Notes"       properties={float="true"}
 kwmc rule owner="iTerm"       properties={float="true"}
@@ -273,11 +264,18 @@ kwmc rule owner="GoToMeeting" properties={float="true"}
 kwmc rule owner="Preview"     properties={float="true"}
 kwmc rule owner="Skype"       properties={float="true"}
 kwmc rule owner="App Store"   properties={float="true"}
-# kwmc rule owner="Finder"      properties={float="true"}
+kwmc rule owner="Finder"      properties={float="true"}
 kwmc rule owner="Xcode"       properties={float="true"}
-# Assign apps to a different screen if such exists.
-kwmc rule owner="iTerm" properties={display="1"}
+kwmc rule owner="LibreOffice" properties={float="true"}
+
+# Assign apps to a different monitor if exists.
+kwmc rule owner="iTerm"       properties={display="1"}
+kwmc rule owner="soffice"     properties={display="1"}
 
 # Spaces.
+# I don't know how this works.
 kwmc config space 1 3 tree Finder
 kwmc config space 1 3 name Finder
+
+# Disable auto focus on mouse hover.
+kwmc config focus-follows-mouse off
