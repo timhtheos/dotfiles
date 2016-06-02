@@ -76,15 +76,9 @@ If you are done with all the dependencies, confirm it below.
     );
 
     if ($proceed == 'yes') {
-      drush_print('
-Please supply the password for your host machine.
-');
-
       // Set drush alias for host machine.
       $aliases[$project . '.' . $env] = array(
         'root' => '/',
-        'uri' => '127.0.0.1',
-        'remote-host' => '127.0.0.1',
 
         // Define shell alias `authorize`.
         'shell-aliases' => array(
