@@ -23,7 +23,8 @@ branch=$(echo $branch | sed -e 's/-/ /g' | sed -e 's/\// /g')
 # Check if feature branch and has an integer ticket number.
 msg=0
 ticket=''
-if [ $(echo $branch | awk '{print $1}') == 'feature' ] && [[ $(echo $branch | awk '{print $3}') =~ ^-?[0-9]+$ ]]; then
+#if [ $(echo $branch | awk '{print $1}') == 'feature' ] && [[ $(echo $branch | awk '{print $3}') =~ ^-?[0-9]+$ ]]; then
+if [ $(echo $branch | awk '{print $1}') == 'feature' ] || [ $(echo $branch | awk '{print $1}') == 'hotfix' ]; then
   project=$(echo $branch | awk '{print $2}')
   ticket=$(echo $branch | awk '{print $3}')
   msg=1
