@@ -17,6 +17,9 @@ set showtabline=2
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Add vundle.vim itself so that it does not uninstall itself when we do PluginClean.
+Bundle 'Vundle.vim'
+
 " Let Vundle manage Vundle
 " required
 Bundle 'gmarik/vundle'
