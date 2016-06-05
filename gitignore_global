@@ -2,3 +2,6 @@ build/ref/
 .DS_Store
 .idea
 www/www
+Vagrantfile
+adminer.php
+.vagrant
