@@ -253,24 +253,17 @@ kwmc bind ctrl+cmd+shift-l window -s east
 # New splits become the left leaf-node
 kwmc config spawn right
 
-# Floated applications.
-kwmc rule owner="HipChat"     properties={float="true"}
-kwmc rule owner="Notes"       properties={float="true"}
-kwmc rule owner="iTerm"       properties={float="true"}
-kwmc rule owner="Steam"       properties={float="true"}
-kwmc rule owner="Skitch"      properties={float="true"}
-kwmc rule owner="Photoshop"   properties={float="true"}
-kwmc rule owner="GoToMeeting" properties={float="true"}
-kwmc rule owner="Preview"     properties={float="true"}
-kwmc rule owner="Skype"       properties={float="true"}
-kwmc rule owner="App Store"   properties={float="true"}
-kwmc rule owner="Finder"      properties={float="true"}
-kwmc rule owner="Xcode"       properties={float="true"}
-kwmc rule owner="LibreOffice" properties={float="true"}
+# Float all applications.
+kwmc rule properties={float="true"}
+
+# Unfloat some applications.
+kwmc rule owner="Google Chrome" properties={float="false"}
+kwmc rule owner="Firefox"       properties={float="false"}
+kwmc rule owner="Chromium"      properties={float="false"}
 
 # Assign apps to a different monitor if exists.
-kwmc rule owner="iTerm"       properties={display="1"}
-kwmc rule owner="soffice"     properties={display="1"}
+kwmc rule owner="iTerm"         properties={display="1"}
+kwmc rule owner="soffice"       properties={display="1"}
 
 # Spaces.
 # I don't know how this works.
