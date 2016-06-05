@@ -1,110 +1,128 @@
-# Path to your oh-my-zsh installation.
+##
+# Set export path to Oh My Zsh installation.
 export ZSH=~/.oh-my-zsh
 
-# Path to theme (custom)
+##
+# Set zsh theme path.
 ZSH_THEME="timothy"
 
-# OMZSH update settings
-DISABLE_AUTO_UPDATE="false"
-export UPDATE_ZSH_DAYS=30
+##
+# Set Oh My Zsh miscellaneous settings.
+  # Set auto update.
+  DISABLE_AUTO_UPDATE="false"
 
-# Other settings
-# DISABLE_AUTO_TITLE="true"
-# ENABLE_CORRECTION="true"
-# ZSH_CUSTOM=/path/to/new-custom-folder
-# CASE_SENSITIVE="true"
+  # Set auto update frequency.
+  export UPDATE_ZSH_DAYS=30
 
-# Plugins (Oh My ZSH)
-# For vi-mode on OSX, do not use Apple's git.
-# https://github.com/robbyrussell/oh-my-zsh/issues/2189
+  # Set other settings.
+  # DISABLE_AUTO_TITLE="true"
+  # ENABLE_CORRECTION="true"
+  # ZSH_CUSTOM=/path/to/new-custom-folder
+  # CASE_SENSITIVE="true"
+
+##
+# Set Oh My Zsh plugins.
+# Note: For vi-mode on OSX, do not use Apple's git; instead use brew's git.
+# Reference: https://github.com/robbyrussell/oh-my-zsh/issues/2189
 plugins=(
   vi-mode
   z
   history-substring-search
   rvm
+  ruby
 )
 
-# Paths
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="$PATH:$HOME/.composer/vendor/bin"
+##
+# Export paths.
+  # Export composer path.
+  export PATH="$PATH:$HOME/.composer/vendor/bin"
+  
+  # Export local sbin.
+  export PATH="/usr/local/sbin:$PATH"
+  
+  # Export user/personal bin.
+  export PATH=~/.bin:$PATH
+  
+  # Export rvm bin.
+  export PATH="$PATH:$HOME/.rvm/bin"
+  
+  # Export user/personal git bin.
+  export PATH=~/.git-bin:$PATH
 
-# Paths: User bin to PATH
-export PATH=~/.bin:$PATH
+  # Set python path (for use in mopidy).
+  export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
 
-# Paths: RVM to PATH
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# This is here by default, nevermind
+##
+# Source Oh My Zsh.
 source $ZSH/oh-my-zsh.sh
 
+  # Map jk, JK to toggle vi-mode.
+  bindkey -M viins 'jk' vi-cmd-mode
+  bindkey -M viins 'JK' vi-cmd-mode
+
+  # Kill delay lag when ESC is hit.
+  # export KEYTIMEOUT=1
+
+  # Set color of modal cursor for vi's insert, normal modes.
+  # Source: http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
+  # zle-keymap-select () {
+  #   echo -ne "\033]12;Grey\007"
+  #   echo -ne "\033[4 q"
+  # }
+  # zle -N zle-keymap-select
+  # zle-line-init () {
+  #   zle -K viins
+  #   echo -ne "\033]12;Gray\007"
+  #   echo -ne "\033[4 q"
+  # }
+  # zle -N zle-line-init
+
+##
 # Set language environment 
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-#if [[ -n $SSH_CONNECTION ]]; then
-#  export EDITOR='vim'
-#else
-#  export EDITOR='mvim'
-#fi
+##
+# Set preferred editor.
 export EDITOR='vim'
 
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+##
+# Source, configure FZF.
+  # Source FZF.
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# FZF: Ignore duplicate commands in history
-HIST_IGNORE_ALL_DUPS="true"
-setopt hist_ignore_dups
+  # Ignore duplicate commands in FZF history.
+  HIST_IGNORE_ALL_DUPS="true"
+  setopt hist_ignore_dups
 
-# Aliases
+##
+# Set custom aliases.
 alias bored="fortune | cowsay -f $(ls /usr/local/Cellar/cowsay/3.03/share/cows | gshuf -n1)"
 alias clock1='while true; do tput clear; date +"                                                                                                         %l : %M : %S %p" | figlet -c | toilet -F gay -f term; sleep 1; done'
 alias clock2='while true; do tput clear; date +" %l : %M : %S %p" | toilet -F gay -f smmono9; sleep 1; done'
 alias clock3='while true; do tput clear; date +" %l : %M : %S %p" | toilet -F metal -f smmono9; sleep 1; done'
-#alias composer="composer.phar"
 
-# Tmuxinator
-# source ~/.bin/tmuxinator.zsh
+##
+# Set the fuck.
+# eval "$(thefuck --alias)"
 
-# ZSH vi-mode map substitute for ESC
-bindkey -M viins 'jk' vi-cmd-mode
-bindkey -M viins 'JK' vi-cmd-mode
-
-# Kill The Lag / delay when you hit ESC
-#export KEYTIMEOUT=1
-
-# Modal cursor color for vi's insert/normal modes.
-# Source: http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
-#zle-keymap-select () {
-#  echo -ne "\033]12;Grey\007"
-#  echo -ne "\033[4 q"
-#}
-#zle -N zle-keymap-select
-#zle-line-init () {
-#  zle -K viins
-#  echo -ne "\033]12;Gray\007"
-#  echo -ne "\033[4 q"
-#}
-#zle -N zle-line-init
-
-# The fuck
-#eval "$(thefuck --alias)"
-
-# Docker env exports
+##
+# Export docker environments.
 source ~/.docker-exports
 
-# Github hub aliasing
+##
+# Set github hub alias.
 eval "$(hub alias -s)"
 
-# # Start mpd automatically if not yet running.
+##
+# Start mpd automatically, if not yet running.
 # if [[ -z "$(pgrep mpd)" ]]; then
 #   mpd
 # fi
 
-# Teamocil zsh autocompletion.
+##
+# Set teamocil zsh autocompletion.
 compctl -g '~/.teamocil/*(:t:r)' teamocil
 
-# Mopidy.
-export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
-
-# Homebrew api token.
+##
+# Export brew github api token.
 export HOMEBREW_GITHUB_API_TOKEN='b9a3635b81f2a573d94ca3ffdb8c6bdd41bdbede'
