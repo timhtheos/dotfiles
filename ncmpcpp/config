@@ -5,7 +5,7 @@ mpd_connection_timeout = "5"
 
 visualizer_fifo_path = "/tmp/mpd.fifo"
 visualizer_output_name = "my_fifo"
-visualizer_sync_interval = "1"
+visualizer_sync_interval = "10"
 visualizer_type = "wave" (spectrum/wave)
 
 visualizer_look = "=="
