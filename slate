@@ -1,24 +1,17 @@
 # Slate settings.
 
 # App Bindings.
-bind g:a,ctrl focus 'Google Chrome'
 bind c:a,ctrl focus 'Chromium'
+bind e:a,ctrl focus 'Steam'
 bind f:a,ctrl focus 'Firefox'
-
-bind i:a,ctrl focus 'iTerm2'
-
-bind r:a,ctrl focus 'Finder'
-bind n:a,ctrl focus 'Notes'
-
-bind t:a,ctrl focus 'Tubbler'
-
-bind s:a,ctrl focus 'Skype'
+bind g:a,ctrl focus 'Google Chrome'
 bind h:a,ctrl focus 'HipChat'
+bind i:a,ctrl focus 'iTerm2'
 bind l:a,ctrl focus 'Slack'
-
-# bind d:a,ctrl focus 'dota_osx'    # This doesn't work anymore.
-bind e:a,ctrl focus 'Steam'         # We can't use t because it's conflicting with vimuim
-
+bind n:a,ctrl focus 'Notes'
+bind r:a,ctrl focus 'Finder'
+bind s:a,ctrl focus 'Skype'
+bind t:a,ctrl focus 'Tubbler'
 bind v:a,ctrl focus 'VLC'
 
 # Window Hints.
