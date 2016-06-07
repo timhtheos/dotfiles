@@ -1,0 +1,3 @@
+" Escape keys: jk and JK
+inoremap jk <esc>
+inoremap JK <esc>
