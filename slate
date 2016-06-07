@@ -19,6 +19,8 @@ bind l:a,ctrl focus 'Slack'
 # bind d:a,ctrl focus 'dota_osx'    # This doesn't work anymore.
 bind e:a,ctrl focus 'Steam'         # We can't use t because it's conflicting with vimuim
 
+bind v:a,ctrl focus 'VLC'
+
 # Window Hints.
 bind esc:cmd hint
 
