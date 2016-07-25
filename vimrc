@@ -311,3 +311,6 @@ hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
 " Set filetypes.
 autocmd BufNewFile,BufRead *.install set ft=php
 autocmd BufNewFile,BufRead *.md set ft=markdown
+
+" ctags.
+" set tags+=tags;$HOME
