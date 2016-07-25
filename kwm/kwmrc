@@ -259,7 +259,8 @@ kwmc rule properties={float="true"}
 # Unfloat some applications.
 kwmc rule owner="Google Chrome" properties={float="false"}
 kwmc rule owner="Firefox"       properties={float="false"}
-kwmc rule owner="Chromium"      properties={float="false"}
+# kwmc rule owner="Chromium"      properties={float="false"}
+kwmc rule owner="VLC"           properties={float="false"}
 
 # Assign apps to a different monitor if exists.
 kwmc rule owner="iTerm"         properties={display="1"}
