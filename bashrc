@@ -8,3 +8,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Set default shell editor
 export EDITOR='vim'
+source /usr/local/etc/bash_completion.d/password-store
+
+export PATH="$PATH:/Applications/DevDesktop/drush"
