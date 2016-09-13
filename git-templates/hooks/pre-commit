@@ -15,7 +15,7 @@ fi
 
 # This is the magic: 
 # Retrieve all files in staging area that are added, modified or renamed but no deletions etc.
-FILES=$( git diff-index --name-only --cached --diff-filter=ACMR $against -- );
+FILES=$(git diff-index --name-only --cached --diff-filter=ACMR $against --);
 
 if [[ "$FILES" == "" ]]; then
   exit 0;
