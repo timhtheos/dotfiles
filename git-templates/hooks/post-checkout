@@ -23,57 +23,60 @@
 #
 
 # Get params.
-head_prev=$1
-head_next=$2
-checkout_type=$3
+head_prev=$1;
+head_next=$2;
+checkout_type=$3;
 
 # Go to git root.
-cd $(git rev-parse --show-toplevel)
+cd $(git rev-parse --show-toplevel);
 
 # Get previous and next branches.
-if [[ "$head_prev" == "$head_next" ]]; then
-
+if [[ "$head_prev" == "$head_next" ]];
+then
   # The dirty way, if heads are of the same hash.
-  branch_next=$(git symbolic-ref --short HEAD)
-  branch_prev=$(git reflog | grep {0} | awk '{print $6}')
+  branch_next=$(git symbolic-ref --short HEAD);
+  branch_prev=$(git reflog | grep {0} | awk '{print $6}');
 else
-
   # Get previous and next branches.
-  branch_prev=$(echo $head_prev | xargs git name-rev --name-only)
-  branch_next=$(echo $head_next | xargs git name-rev --name-only)
+  branch_prev=$(echo $head_prev | xargs git name-rev --name-only);
+  branch_next=$(echo $head_next | xargs git name-rev --name-only);
 fi
 
 # Set time log directory.
-tld=".git/feature-logs"
+tld=".git/feature-logs";
 
 # Set time log files.
-tlf_prev=$tld/$branch_prev
-tlf_next=$tld/$branch_next
+tlf_prev=$tld/$branch_prev;
+tlf_next=$tld/$branch_next;
 
 # We only execute this hook if checkout type is a branch checkout.
-if [[ $checkout_type == "1" ]]; then
-
+if [[ $checkout_type == "1" ]];
+then
   # Create time log directory if not present.
-  if [[ ! -e "$tld" ]]; then
-    mkdir $tld
+  if [[ ! -e "$tld" ]];
+  then
+    mkdir $tld;
   fi
 
   # Create time log file if not present.
-  if [[ ! -e "$tlf_prev" ]]; then
-    touch $tlf_prev
+  if [[ ! -e "$tlf_prev" ]];
+  then
+    touch $tlf_prev;
   fi
 
-  if [[ ! -e "$tlf_next" ]]; then
-    touch $tlf_next
+  if [[ ! -e "$tlf_next" ]];
+  then
+    touch $tlf_next;
   fi
   
   # Log time-in and time-out; one line per log entry.
-  if [[ $(echo $branch_prev | sed -e 's/-/ /g' | sed -e 's/\// /g' | awk '{print $1}') == 'feature' ]]; then
-    echo "+$(date +%s)" >> $tlf_prev
+  if [[ $(echo $branch_prev | sed -e 's/-/ /g' | sed -e 's/\// /g' | awk '{print $1}') == 'feature' ]];
+  then
+    echo "+$(date +%s)" >> $tlf_prev;
   fi
 
-  if [[ $(echo $branch_next | sed -e 's/-/ /g' | sed -e 's/\// /g' | awk '{print $1}') == 'feature' ]]; then
-    echo "-$(date +%s)" >> $tlf_next
+  if [[ $(echo $branch_next | sed -e 's/-/ /g' | sed -e 's/\// /g' | awk '{print $1}') == 'feature' ]];
+  then
+    echo "-$(date +%s)" >> $tlf_next;
   fi
-
 fi
