@@ -1,3 +1,3 @@
 #!/bin/bash
 
-chmod -R a+x hooks
+chmod -R a+x hooks;
