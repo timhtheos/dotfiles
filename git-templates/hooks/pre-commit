@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PHPCS_BIN=phpcs;
+PHPCS_BIN="phpcs";
 TMP_STAGING=".tmp_staging";
 PHPCS_IGNORE="features.field_instance.inc";
 
@@ -17,12 +17,14 @@ fi
 # Retrieve all files in staging area that are added, modified or renamed but no deletions etc.
 FILES=$(git diff-index --name-only --cached --diff-filter=ACMR $against --);
 
-if [[ "$FILES" == "" ]]; then
+if [[ "$FILES" == "" ]];
+then
   exit 0;
 fi
 
 # Create temporary copy of staging area.
-if [ -e $TMP_STAGING ]; then
+if [ -e $TMP_STAGING ];
+then
   rm -rf $TMP_STAGING;
 fi
 
@@ -40,7 +42,8 @@ do
   fi
 done
 
-if [[ "$FILES_TO_CHECK" == "" ]]; then
+if [[ "$FILES_TO_CHECK" == "" ]];
+then
   exit 0;
 fi
 
