@@ -15,6 +15,8 @@ bind r:a,ctrl focus 'Finder'
 bind s:a,ctrl focus 'Skype'
 bind t:a,ctrl focus 'Tubbler'
 bind v:a,ctrl focus 'VLC'
+bind y:a,ctrl focus 'Goofy'
+bind z:a,ctrl focus 'Franz'
 
 # Window Hints.
 bind esc:cmd hint
@@ -24,3 +26,6 @@ bind u:a,ctrl undo
 
 # App switcher.
 # bind tab:cmd switch               # At some point, the switcher runs from 2nd to the last item.
+
+# Bind shortcut for grid tiling of window(s).
+bind d:a,ctrl grid padding:5 0:6,3 1:8,2
