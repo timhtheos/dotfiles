@@ -36,44 +36,63 @@ bind d:a,ctrl grid padding:5 0:6,6 1:8,2
 ##
 
 # Layout position aliases.
-alias position_full         move                screenOriginX;screenOriginY screenSizeX;screenSizeY
-alias position_left_half    move                screenOriginX;screenOriginY screenSizeX/2;screenSizeY
-alias position_right_half   move                screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
-alias position_main_left    move                screenOriginX;screenOriginY (screenSizeX/6)*5;screenSizeY
-alias position_more_right   move                screenOriginX+(screenSizeX/6)*2;screenOriginY (screenSizeX/6)*3;screenSizeY
+alias position_full           move                    screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias position_left_half      move                    screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias position_right_half     move                    screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias position_top_half       move                    screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias position_bottom_half    move                    screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+alias position_top_left       corner top-left         resize:screenSizeX/2;screenSizeY/2
+alias position_top_right      corner top-right        resize:screenSizeX/2;screenSizeY/2
+alias position_bottom_left    corner bottom-left      resize:screenSizeX/2;screenSizeY/2
+alias position_bottom_right   corner bottom-right     resize:screenSizeX/2;screenSizeY/2
 
-# Custom layout position for specific apps.
-alias position_vlc          corner bottom-right resize:screenSizeX/6;screenSizeY/6
-alias position_terminal     move                screenOriginX;screenOriginY+(screenSizeY/6)*4 (screenSizeX/6)*5;(screenSizeY/6)*2
+# Custom layout position aliases based on personal pref.
+alias position_main_left      move                    screenOriginX;screenOriginY (screenSizeX/6)*5;screenSizeY
+alias position_more_right     move                    screenOriginX+(screenSizeX/6)*2;screenOriginY (screenSizeX/6)*3;screenSizeY
+
+# Custom layout position aliases for specific apps.
+alias position_vlc            corner bottom-right     resize:screenSizeX/6;screenSizeY/6
+alias position_terminal       move                    screenOriginX;screenOriginY+(screenSizeY/6)*4 (screenSizeX/6)*5;(screenSizeY/6)*2
 
 # Layout: Full Screen.
-layout monitor_1_layout_full 'Google Chrome':REPEAT ${position_full}
-layout monitor_1_layout_full 'Chromium':REPEAT      ${position_full}
-layout monitor_1_layout_full 'Firefox':REPEAT       ${position_full}
-layout monitor_1_layout_full 'Safari':REPEAT        ${position_full}
-layout monitor_1_layout_full 'HipChat':REPEAT       ${position_full}
-layout monitor_1_layout_full 'Skype':REPEAT         ${position_full}
-layout monitor_1_layout_full 'Notes':REPEAT         ${position_full}
-layout monitor_1_layout_full 'Slack':REPEAT         ${position_full}
-layout monitor_1_layout_full 'VLC':REPEAT           ${position_full}
-layout monitor_1_layout_full 'Goofy':REPEAT         ${position_full}
-layout monitor_1_layout_full 'Calendar':REPEAT      ${position_full}
-layout monitor_1_layout_full 'Terminal':REPEAT      ${position_full}
+layout monitor_1_layout_full  'Google Chrome':REPEAT  ${position_full}
+layout monitor_1_layout_full  'Chromium':REPEAT       ${position_full}
+layout monitor_1_layout_full  'Firefox':REPEAT        ${position_full}
+layout monitor_1_layout_full  'Safari':REPEAT         ${position_full}
+layout monitor_1_layout_full  'HipChat':REPEAT        ${position_full}
+layout monitor_1_layout_full  'Skype':REPEAT          ${position_full}
+layout monitor_1_layout_full  'Notes':REPEAT          ${position_full}
+layout monitor_1_layout_full  'Slack':REPEAT          ${position_full}
+layout monitor_1_layout_full  'VLC':REPEAT            ${position_full}
+layout monitor_1_layout_full  'Goofy':REPEAT          ${position_full}
+layout monitor_1_layout_full  'Calendar':REPEAT       ${position_full}
+layout monitor_1_layout_full  'Terminal':REPEAT       ${position_full}
 
 # Layout: Main.
-layout monitor_1_layout_main 'Google Chrome':REPEAT ${position_main_left}
-layout monitor_1_layout_main 'Chromium':REPEAT      ${position_main_left}
-layout monitor_1_layout_main 'Firefox':REPEAT       ${position_main_left}
-layout monitor_1_layout_main 'Safari':REPEAT        ${position_main_left}
-layout monitor_1_layout_main 'HipChat':REPEAT       ${position_more_right}
-layout monitor_1_layout_main 'Skype':REPEAT         ${position_more_right}
-layout monitor_1_layout_main 'Notes':REPEAT         ${position_more_right}
-layout monitor_1_layout_main 'Slack':REPEAT         ${position_main_left}
-layout monitor_1_layout_main 'VLC':REPEAT           ${position_vlc}
-layout monitor_1_layout_main 'Goofy':REPEAT         ${position_more_right}
-layout monitor_1_layout_main 'Calendar':REPEAT      ${position_main_left}
-layout monitor_1_layout_main 'Terminal':REPEAT      ${position_terminal}
+layout monitor_1_layout_main  'Google Chrome':REPEAT  ${position_main_left}
+layout monitor_1_layout_main  'Chromium':REPEAT       ${position_main_left}
+layout monitor_1_layout_main  'Firefox':REPEAT        ${position_main_left}
+layout monitor_1_layout_main  'Safari':REPEAT         ${position_main_left}
+layout monitor_1_layout_main  'HipChat':REPEAT        ${position_more_right}
+layout monitor_1_layout_main  'Skype':REPEAT          ${position_more_right}
+layout monitor_1_layout_main  'Notes':REPEAT          ${position_more_right}
+layout monitor_1_layout_main  'Slack':REPEAT          ${position_main_left}
+layout monitor_1_layout_main  'VLC':REPEAT            ${position_vlc}
+layout monitor_1_layout_main  'Goofy':REPEAT          ${position_more_right}
+layout monitor_1_layout_main  'Calendar':REPEAT       ${position_main_left}
+layout monitor_1_layout_main  'Terminal':REPEAT       ${position_terminal}
 
 # Layout bindings.
 bind 1:a,ctrl layout monitor_1_layout_full
 bind 2:a,ctrl layout monitor_1_layout_main
+
+# Generic custom layout bindings.
+bind f:a,cmd ${position_full}
+bind h:a,cmd ${position_left_half}
+bind j:a,cmd ${position_bottom_half}
+bind k:a,cmd ${position_top_half}
+bind l:a,cmd ${position_right_half}
+bind u:a,cmd ${position_top_left}
+bind o:a,cmd ${position_top_right}
+bind n:a,cmd ${position_bottom_left}
+bind .:a,cmd ${position_bottom_right}
