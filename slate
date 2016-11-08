@@ -83,8 +83,8 @@ layout monitor_1_layout_main  'Calendar':REPEAT       ${position_main_left}
 layout monitor_1_layout_main  'Terminal':REPEAT       ${position_terminal}
 
 # Layout bindings.
-bind 1:a,ctrl layout monitor_1_layout_full
-bind 2:a,ctrl layout monitor_1_layout_main
+bind 1:a,cmd layout monitor_1_layout_full
+bind 2:a,cmd layout monitor_1_layout_main
 
 # Generic custom layout bindings.
 bind f:a,cmd ${position_full}
