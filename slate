@@ -83,18 +83,18 @@ layout monitor_1_layout_main  'Calendar':REPEAT       ${position_main_left}
 layout monitor_1_layout_main  'Terminal':REPEAT       ${position_terminal}
 
 # Layout bindings.
-bind 1:a,cmd layout monitor_1_layout_full
-bind 2:a,cmd layout monitor_1_layout_main
+bind 1:l,cmd layout monitor_1_layout_full
+bind 2:l,cmd layout monitor_1_layout_main
 
 # Generic custom layout bindings.
-bind f:a,cmd ${position_full}
-bind h:a,cmd ${position_left_half}
-bind j:a,cmd ${position_bottom_half}
-bind k:a,cmd ${position_top_half}
-bind l:a,cmd ${position_right_half}
-bind u:a,cmd ${position_top_left}
-bind o:a,cmd ${position_top_right}
-bind n:a,cmd ${position_bottom_left}
-bind .:a,cmd ${position_bottom_right}
-bind q:a,cmd ${position_main_left}
-bind p:a,cmd ${position_more_right}
+bind f:l,cmd ${position_full}
+bind h:l,cmd ${position_left_half}
+bind j:l,cmd ${position_bottom_half}
+bind k:l,cmd ${position_top_half}
+bind l:l,cmd ${position_right_half}
+bind u:l,cmd ${position_top_left}
+bind o:l,cmd ${position_top_right}
+bind n:l,cmd ${position_bottom_left}
+bind .:l,cmd ${position_bottom_right}
+bind q:l,cmd ${position_main_left}
+bind p:l,cmd ${position_more_right}
