@@ -96,3 +96,5 @@ bind u:a,cmd ${position_top_left}
 bind o:a,cmd ${position_top_right}
 bind n:a,cmd ${position_bottom_left}
 bind .:a,cmd ${position_bottom_right}
+bind q:a,cmd ${position_main_left}
+bind p:a,cmd ${position_more_right}
