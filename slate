@@ -17,6 +17,7 @@ bind t:a,ctrl focus 'Tubbler'
 bind v:a,ctrl focus 'VLC'
 bind y:a,ctrl focus 'Goofy'
 bind z:a,ctrl focus 'Franz'
+bind e:a,ctrl focus 'Calendar'
 
 # Window Hints.
 bind esc:cmd hint
@@ -28,4 +29,27 @@ bind u:a,ctrl undo
 # bind tab:cmd switch               # At some point, the switcher runs from 2nd to the last item.
 
 # Bind shortcut for grid tiling of window(s).
-bind d:a,ctrl grid padding:5 0:6,3 1:8,2
+bind d:a,ctrl grid padding:5 0:6,6 1:8,2
+
+# Aliases.
+alias position_full         move                screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias position_left_half    move                screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias position_right_half   move                screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias position_main_left    move                screenOriginX;screenOriginY (screenSizeX/6)*5;screenSizeY
+alias position_more_right   move                screenOriginX+(screenSizeX/6)*2;screenOriginY (screenSizeX/6)*3;screenSizeY
+alias position_vlc          corner bottom-right resize:screenSizeX/6;screenSizeY/6
+
+# Layouts.
+layout mainMonitor 'Google Chrome':REPEAT ${position_main_left}
+layout mainMonitor 'Chromium':REPEAT ${position_main_left}
+layout mainMonitor 'Firefox':REPEAT ${position_main_left}
+layout mainMonitor 'Safari':REPEAT ${position_main_left}
+layout mainMonitor 'HipChat':REPEAT ${position_more_right}
+layout mainMonitor 'Skype':REPEAT ${position_more_right}
+layout mainMonitor 'Notes':REPEAT ${position_more_right}
+layout mainMonitor 'Slack':REPEAT ${position_main_left}
+layout mainMonitor 'VLC':REPEAT ${position_vlc}
+layout mainMonitor 'Goofy':REPEAT ${position_more_right}
+layout mainMonitor 'Calendar':REPEAT ${position_main_left}
+
+bind 1:a,ctrl layout mainMonitor 
