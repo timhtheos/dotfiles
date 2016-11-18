@@ -16,7 +16,6 @@ bind s:a,ctrl focus 'Skype'
 bind t:a,ctrl focus 'Terminal'
 bind v:a,ctrl focus 'VLC'
 bind y:a,ctrl focus 'Goofy'
-bind z:a,ctrl focus 'Franz'
 bind d:a,ctrl focus 'Calendar'
 
 # Window Hints.
