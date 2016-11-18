@@ -8,7 +8,7 @@ bind f:a,ctrl focus 'Firefox'
 bind g:a,ctrl focus 'Google Chrome'
 bind h:a,ctrl focus 'HipChat'
 bind i:a,ctrl focus 'iTerm2'
-bind k:a,ctrl focus 'Yakyak'
+bind k:a,ctrl focus 'YakYak'
 bind l:a,ctrl focus 'Slack'
 bind n:a,ctrl focus 'Notes'
 bind o:a,ctrl focus 'Safari'
@@ -67,7 +67,7 @@ layout monitor_1_layout_full  'VLC':REPEAT            ${position_full}
 layout monitor_1_layout_full  'Goofy':REPEAT          ${position_full}
 layout monitor_1_layout_full  'Calendar':REPEAT       ${position_full}
 layout monitor_1_layout_full  'Terminal':REPEAT       ${position_full}
-layout monitor_1_layout_full  'Yakyak':REPEAT         ${position_full}
+layout monitor_1_layout_full  'YakYak':REPEAT         ${position_full}
 
 # Layout: Main.
 layout monitor_1_layout_main  'Google Chrome':REPEAT  ${position_main_left}
@@ -82,7 +82,7 @@ layout monitor_1_layout_main  'VLC':REPEAT            ${position_vlc}
 layout monitor_1_layout_main  'Goofy':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'Calendar':REPEAT       ${position_main_left}
 layout monitor_1_layout_main  'Terminal':REPEAT       ${position_terminal}
-layout monitor_1_layout_full  'Yakyak':REPEAT         ${position_more_right}
+layout monitor_1_layout_full  'YakYak':REPEAT         ${position_more_right}
 
 # Layout bindings.
 bind 1:a,alt layout monitor_1_layout_full
