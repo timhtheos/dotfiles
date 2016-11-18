@@ -17,7 +17,7 @@ bind t:a,ctrl focus 'Terminal'
 bind v:a,ctrl focus 'VLC'
 bind y:a,ctrl focus 'Goofy'
 bind z:a,ctrl focus 'Franz'
-bind e:a,ctrl focus 'Calendar'
+bind d:a,ctrl focus 'Calendar'
 
 # Window Hints.
 bind esc:cmd hint
@@ -29,7 +29,7 @@ bind u:a,ctrl undo
 # bind tab:cmd switch               # At some point, the switcher runs from 2nd to the last item.
 
 # Bind shortcut for grid tiling of window(s).
-bind d:a,ctrl grid padding:5 0:6,6 1:8,2
+bind d:a,alt grid padding:5 0:6,6 1:8,2
 
 ##
 # Layouts.
@@ -83,18 +83,18 @@ layout monitor_1_layout_main  'Calendar':REPEAT       ${position_main_left}
 layout monitor_1_layout_main  'Terminal':REPEAT       ${position_terminal}
 
 # Layout bindings.
-bind 1:l,cmd layout monitor_1_layout_full
-bind 2:l,cmd layout monitor_1_layout_main
+bind 1:a,alt layout monitor_1_layout_full
+bind 2:a,alt layout monitor_1_layout_main
 
 # Generic custom layout bindings.
-bind f:l,cmd ${position_full}
-bind h:l,cmd ${position_left_half}
-bind j:l,cmd ${position_bottom_half}
-bind k:l,cmd ${position_top_half}
-bind l:l,cmd ${position_right_half}
-bind u:l,cmd ${position_top_left}
-bind o:l,cmd ${position_top_right}
-bind n:l,cmd ${position_bottom_left}
-bind .:l,cmd ${position_bottom_right}
-bind q:l,cmd ${position_main_left}
-bind p:l,cmd ${position_more_right}
+bind f:a,alt ${position_full}
+bind h:a,alt ${position_left_half}
+bind j:a,alt ${position_bottom_half}
+bind k:a,alt ${position_top_half}
+bind l:a,alt ${position_right_half}
+bind u:a,alt ${position_top_left}
+bind o:a,alt ${position_top_right}
+bind n:a,alt ${position_bottom_left}
+bind .:a,alt ${position_bottom_right}
+bind y:a,alt ${position_main_left}
+bind p:a,alt ${position_more_right}
