@@ -126,3 +126,7 @@ compctl -g '~/.teamocil/*(:t:r)' teamocil
 ##
 # Export brew github api token.
 export HOMEBREW_GITHUB_API_TOKEN='b9a3635b81f2a573d94ca3ffdb8c6bdd41bdbede'
+
+export NVM_DIR="/Users/timothy/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
