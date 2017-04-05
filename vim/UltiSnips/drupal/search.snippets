@@ -1,0 +1,88 @@
+snippet hook_search_info "hook_search_info"
+/**
+ * Implements hook_search_info().
+ */
+function `!v expand('%:t:r:r')`_search_info() {
+  return array(
+    ${1}
+  );
+}
+endsnippet
+
+snippet hook_search_access "hook_search_access"
+/**
+ * Implements hook_search_access().
+ */
+function `!v expand('%:t:r:r')`_search_access() {
+  ${1}
+}
+endsnippet
+
+snippet hook_search_reset "hook_search_reset"
+/**
+ * Implements hook_search_reset().
+ */
+function `!v expand('%:t:r:r')`_search_reset() {
+  ${1}
+}
+endsnippet
+
+snippet hook_search_status "hook_search_status"
+/**
+ * Implements hook_search_status().
+ */
+function `!v expand('%:t:r:r')`_search_status() {
+  ${1}
+}
+endsnippet
+
+snippet hook_search_admin "hook_search_admin"
+/**
+ * Implements hook_search_admin().
+ */
+function `!v expand('%:t:r:r')`_search_admin() {
+  ${1}
+
+  return $form;
+}
+endsnippet
+
+snippet hook_search_execute "hook_search_execute"
+/**
+ * Implements hook_search_execute().
+ */
+function `!v expand('%:t:r:r')`_search_execute($keys = NULL, $conditions = NULL) {
+  ${1}
+
+  return $results;
+}
+endsnippet
+
+snippet hook_search_page "hook_search_page"
+/**
+ * Implements hook_search_page().
+ */
+function `!v expand('%:t:r:r')`_search_page($results) {
+  ${1}
+
+  return $output;
+}
+endsnippet
+
+snippet hook_search_preprocess "hook_search_preprocess"
+/**
+ * Implements hook_search_preprocess().
+ */
+function `!v expand('%:t:r:r')`_search_preprocess($text) {
+  ${1}
+}
+endsnippet
+
+snippet hook_update_index "hook_update_index"
+/**
+ * Implements hook_update_index().
+ */
+function `!v expand('%:t:r:r')`_update_index() {
+  ${1}
+}
+endsnippet

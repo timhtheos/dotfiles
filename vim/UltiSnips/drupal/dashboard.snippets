@@ -1,0 +1,20 @@
+# modules/dashboard/dashboard.api.php
+
+snippet hook_dashboard_regions "hook_dashboard_regions"
+/**
+ * Implements hook_dashboard_regions().
+ */
+function `!v expand('%:t:r:r')`_dashboard_regions() {
+  ${1}
+}
+endsnippet
+
+snippet hook_dashboard_regions_alter "hook_dashboard_regions_alter"
+/**
+ * Implements hook_dashboard_regions_alter().
+ */
+function `!v expand('%:t:r:r')`_dashboard_regions_alter($regions) {
+  // Remove the sidebar region defined by the core dashboard module.
+  unset($regions['dashboard_sidebar']);
+}
+endsnippet

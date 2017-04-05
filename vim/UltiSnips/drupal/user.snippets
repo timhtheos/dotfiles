@@ -1,0 +1,171 @@
+# modules/system/system.api.php
+
+snippet hook_user_load "hook_user_load"
+/**
+ * Implements hook_user_load().
+ */
+function `!v expand('%:t:r:r')`_user_load($users) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_delete "hook_user_delete"
+/**
+ * Implements hook_user_delete().
+ */
+function `!v expand('%:t:r:r')`_user_delete($account) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_cancel "hook_user_cancel"
+/**
+ * Implements hook_user_cancel().
+ */
+function `!v expand('%:t:r:r')`_user_cancel($edit, $account, $method) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_cancel_methods_alter "hook_user_cancel_methods_alter"
+/**
+ * Implements hook_user_cancel_methods_alter().
+ */
+function `!v expand('%:t:r:r')`_user_cancel_methods_alter(&$methods) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_operations "hook_user_operations"
+/**
+ * Implements hook_user_operations().
+ */
+function `!v expand('%:t:r:r')`_user_operations() {
+  $operations = array(
+    '${1}' => array(
+      ${2}
+    ),
+  );
+
+  return $operations;
+}
+endsnippet
+
+snippet hook_user_categories "hook_user_categories"
+/**
+ * Implements hook_user_categories().
+ */
+function `!v expand('%:t:r:r')`_user_categories() {
+  return array(array(
+    ${1}
+  ));
+}
+endsnippet
+
+snippet hook_user_presave "hook_user_presave"
+/**
+ * Implements hook_user_presave().
+ */
+function `!v expand('%:t:r:r')`_user_presave(&$edit, $account, $category) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_insert "hook_user_insert"
+/**
+ * Implements hook_user_insert().
+ */
+function `!v expand('%:t:r:r')`_user_insert(&$edit, $account, $category) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_update "hook_user_update"
+/**
+ * Implements hook_user_update().
+ */
+function `!v expand('%:t:r:r')`_user_update(&$edit, $account, $category) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_update "hook_user_update"
+/**
+ * Implements hook_user_update().
+ */
+function `!v expand('%:t:r:r')`_user_update(&$edit, $account, $category) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_login "hook_user_login"
+/**
+ * Implements hook_user_login().
+ */
+function `!v expand('%:t:r:r')`_user_login(&$edit, $account) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_logout "hook_user_logout"
+/**
+ * Implements hook_user_logout().
+ */
+function `!v expand('%:t:r:r')`_user_logout($account) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_view "hook_user_view"
+/**
+ * Implements hook_user_view().
+ */
+function `!v expand('%:t:r:r')`_user_view($account, $view_mode, $langcode) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_view_alter "hook_user_view_alter"
+/**
+ * Implements hook_user_view_alter().
+ */
+function `!v expand('%:t:r:r')`_user_view_alter(&$build) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_role_presave "hook_user_role_presave"
+/**
+ * Implements hook_user_role_presave().
+ */
+function `!v expand('%:t:r:r')`_user_role_presave($role) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_role_insert "hook_user_role_insert"
+/**
+ * Implements hook_user_role_insert().
+ */
+function `!v expand('%:t:r:r')`_user_role_insert($role) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_role_update "hook_user_role_update"
+/**
+ * Implements hook_user_role_update().
+ */
+function `!v expand('%:t:r:r')`_user_role_update($role) {
+  ${1}
+}
+endsnippet
+
+snippet hook_user_role_delete "hook_user_role_delete"
+/**
+ * Implements hook_user_role_delete().
+ */
+function `!v expand('%:t:r:r')`_user_role_delete($role) {
+  ${1}
+}
+endsnippet

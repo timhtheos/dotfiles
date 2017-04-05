@@ -1,0 +1,20 @@
+snippet hook_locale "hook_locale"
+/**
+ * Implements hook_locale().
+ */
+function `!v expand('%:t:r:r')`_locale($op = 'groups') {
+  switch ($op) {
+    case 'groups':
+      return array('custom' => t('Custom'));
+  }
+}
+endsnippet
+
+snippet hook_multilingual_settings_changed "hook_multilingual_settings_changed"
+/**
+ * Implements hook_multilingual_settings_changed().
+ */
+function `!v expand('%:t:r:r')`_multilingual_settings_changed() {
+  field_info_cache_clear();
+}
+endsnippet

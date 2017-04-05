@@ -1,0 +1,91 @@
+# modules/comment/comment.api.php
+
+snippet hook_comment_presave "hook_comment_presave"
+/**
+ * Implements hook_comment_presave().
+ */
+function `!v expand('%:t:r:r')`_comment_presave($comment) {
+  ${1}
+}
+endsnippet
+
+snippet hook_comment_insert "hook_comment_insert"
+/**
+ * Implements hook_comment_insert().
+ */
+function `!v Filename`_comment_insert($comment) {
+  ${1}
+}
+endsnippet
+
+snippet hook_comment_update "hook_comment_update"
+/**
+ * Implements hook_comment_update().
+ */
+function `!v Filename`_comment_update($comment) {
+  ${1}
+}
+endsnippet
+
+snippet hook_comment_load "hook_comment_load"
+/**
+ * Implements hook_comment_load().
+ */
+function `!v Filename`_comment_load($comments) {
+  ${1}
+}
+endsnippet
+
+snippet hook_comment_view "hook_comment_view"
+/**
+ * Implements hook_comment_view().
+ */
+function `!v Filename`_comment_view($comment, $view_mode, $langcode) {
+  ${1}
+}
+endsnippet
+
+snippet hook_comment_view_alter "hook_comment_view_alter"
+/**
+ * Implements hook_comment_view_alter().
+ */
+function `!v Filename`_comment_view_alter(&$build) {
+  ${1}
+}
+endsnippet
+
+snippet hook_comment_view_alter "hook_comment_view_alter"
+/**
+ * Implements hook_comment_view_alter().
+ */
+function `!v Filename`_comment_view_alter(&$build) {
+  ${1}
+}
+endsnippet
+
+snippet hook_comment_publish "hook_comment_publish"
+/**
+ * Implements hook_comment_publish().
+ */
+function `!v expand('%:t:r:r')`_comment_publish($comment) {
+  ${1}
+}
+endsnippet
+
+snippet hook_comment_unpublish "hook_comment_unpublish"
+/**
+ * Implements hook_comment_unpublish().
+ */
+function `!v expand('%:t:r:r')`_comment_unpublish($comment) {
+  ${1}
+}
+endsnippet
+
+snippet hook_comment_delete "hook_comment_delete"
+/**
+ * Implements hook_comment_delete().
+ */
+function `!v expand('%:t:r:r')`_comment_delete($comment) {
+  ${1}
+}
+endsnippet

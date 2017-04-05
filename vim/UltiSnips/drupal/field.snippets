@@ -1,0 +1,725 @@
+# modules/field/field.api.php
+
+snippet hook_field_extra_fields "hook_field_extra_fields"
+/**
+ * Implements hook_field_extra_fields().
+ */
+function `!v expand('%:t:r:r')`_field_extra_fields() {
+  ${1}
+
+  return $extra;
+}
+endsnippet
+
+snippet hook_field_extra_fields_alter "hook_field_extra_fields_alter"
+/**
+ * Implements hook_field_extra_fields_alter().
+ */
+function `!v expand('%:t:r:r')`_field_extra_fields_alter(&$info) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_info "hook_field_info"
+/**
+ * Implements hook_field_info().
+ */
+function `!v expand('%:t:r:r')`_field_info() {
+  return array(
+    ${1}
+  );
+}
+endsnippet
+
+snippet hook_field_info_alter "hook_field_info_alter"
+/**
+ * Implements hook_field_info_alter().
+ */
+function `!v expand('%:t:r:r')`_field_info_alter(&$info) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_schema "hook_field_schema"
+/**
+ * Implements hook_field_schema().
+ */
+function `!v expand('%:t:r:r')`_field_schema($field) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_load "hook_field_load"
+/**
+ * Implements hook_field_load().
+ */
+function `!v expand('%:t:r:r')`_field_load($entity_type, $entities, $field, $instances, $langcode, &$items, $age) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_prepare_view "hook_field_prepare_view"
+/**
+ * Implements hook_field_prepare_view().
+ */
+function `!v expand('%:t:r:r')`_field_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_validate "hook_field_validate"
+/**
+ * Implements hook_field_validate().
+ */
+function `!v expand('%:t:r:r')`_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_presave "hook_field_presave"
+/**
+ * Implements hook_field_presave().
+ */
+function `!v expand('%:t:r:r')`_field_presave($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_insert "hook_field_insert"
+/**
+ * Implements hook_field_insert().
+ */
+function `!v expand('%:t:r:r')`_field_insert($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_update "hook_field_update"
+/**
+ * Implements hook_field_update().
+ */
+function `!v expand('%:t:r:r')`_field_update($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_update_field "hook_field_storage_update_field"
+/**
+ * Implements hook_field_storage_update_field().
+ */
+function `!v expand('%:t:r:r')`_field_storage_update_field($field, $prior_field, $has_data) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_delete "hook_field_delete"
+/**
+ * Implements hook_field_delete().
+ */
+function `!v expand('%:t:r:r')`_field_delete($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_delete_revision "hook_field_delete_revision"
+/**
+ * Implements hook_field_delete_revision().
+ */
+function `!v expand('%:t:r:r')`_field_delete_revision($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_prepare_translation "hook_field_prepare_translation"
+/**
+ * Implements hook_field_prepare_translation().
+ */
+function `!v expand('%:t:r:r')`_field_prepare_translation($entity_type, $entity, $field, $instance, $langcode, &$items, $source_entity, $source_langcode) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_is_empty "hook_field_is_empty"
+/**
+ * Implements hook_field_is_empty().
+ */
+function `!v expand('%:t:r:r')`_field_is_empty($item, $field) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_widget_info "hook_field_widget_info"
+/**
+ * Implements hook_field_widget_info().
+ */
+function `!v expand('%:t:r:r')`_field_widget_info() {
+  return array(
+    ${1}
+  );
+}
+endsnippet
+
+snippet hook_field_widget_info_alter "hook_field_widget_info_alter"
+/**
+ * Implements hook_field_widget_info_alter().
+ */
+function `!v expand('%:t:r:r')`_field_widget_info_alter(&$info) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_widget_form "hook_field_widget_form"
+/**
+ * Implements hook_field_widget_form().
+ */
+function `!v expand('%:t:r:r')`_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  ${1}
+
+  return $element;
+}
+endsnippet
+
+snippet hook_field_widget_form_alter "hook_field_widget_form_alter"
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function `!v expand('%:t:r:r')`_field_widget_form_alter(&$element, &$form_state, $context) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_widget_widget_type_form_alter "hook_field_widget_widget_type_form_alter"
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function `!v expand('%:t:r:r')`_field_widget_${1}_form_alter(&$element, &$form_state, $context) {
+  ${2}
+}
+endsnippet
+
+snippet hook_field_widget_properties_alter "hook_field_widget_properties_alter"
+/**
+ * Implements hook_field_widget_properties_alter().
+ */
+function `!v expand('%:t:r:r')`_field_widget_properties_alter(&$widget, $context) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_widget_error "hook_field_widget_error"
+/**
+ * Implements hook_field_widget_error().
+ */
+function `!v expand('%:t:r:r')`_field_widget_error($element, $error, $form, &$form_state) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_formatter_info "hook_field_formatter_info"
+/**
+ * Implements hook_field_formatter_info().
+ */
+function `!v expand('%:t:r:r')`_field_formatter_info() {
+  return array(
+    ${1}
+  );
+}
+endsnippet
+
+snippet hook_field_formatter_prepare_view "hook_field_formatter_prepare_view"
+/**
+ * Implements hook_field_formatter_prepare_view().
+ */
+function `!v expand('%:t:r:r')`_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_formatter_view "hook_field_formatter_view"
+/**
+ * Implements hook_field_formatter_view().
+ */
+function `!v expand('%:t:r:r')`_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  ${1}
+
+  return $element;
+}
+endsnippet
+
+snippet hook_field_attach_form "hook_field_attach_form"
+/**
+ * Implements hook_field_attach_form().
+ */
+function `!v expand('%:t:r:r')`_field_attach_form($entity_type, $entity, &$form, &$form_state, $langcode) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_load "hook_field_attach_load"
+/**
+ * Implements hook_field_attach_load().
+ */
+function `!v expand('%:t:r:r')`_field_attach_load($entity_type, $entities, $age, $options) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_validate "hook_field_attach_validate"
+/**
+ * Implements hook_field_attach_validate().
+ */
+function `!v expand('%:t:r:r')`_field_attach_validate($entity_type, $entity, &$errors) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_submit "hook_field_attach_submit"
+/**
+ * Implements hook_field_attach_submit().
+ */
+function `!v expand('%:t:r:r')`_field_attach_submit($entity_type, $entity, $form, &$form_state) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_presave "hook_field_attach_presave"
+/**
+ * Implements hook_field_attach_presave().
+ */
+function `!v expand('%:t:r:r')`_field_attach_presave($entity_type, $entity) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_insert "hook_field_attach_insert"
+function `!v expand('%:t:r:r')`_field_attach_insert($entity_type, $entity) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_update "hook_field_attach_update"
+/**
+ * Implements hook_field_attach_update().
+ */
+function `!v expand('%:t:r:r')`_field_attach_update($entity_type, $entity) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_preprocess_alter "hook_field_attach_preprocess_alter"
+/**
+ * Implements hook_field_attach_preprocess_alter().
+ */
+function `!v expand('%:t:r:r')`_field_attach_preprocess_alter(&$variables, $context) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_delete "hook_field_attach_delete"
+/**
+ * Implements hook_field_attach_delete().
+ */
+function `!v expand('%:t:r:r')`_field_attach_delete($entity_type, $entity) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_delete_revision "hook_field_attach_delete_revision"
+/**
+ * Implements hook_field_attach_delete_revision().
+ */
+function `!v expand('%:t:r:r')`_field_attach_delete_revision($entity_type, $entity) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_purge "hook_field_attach_purge"
+/**
+ * Implements hook_field_attach_purge().
+ */
+function `!v expand('%:t:r:r')`_field_attach_purge($entity_type, $entity, $field, $instance) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_view_alter "hook_field_attach_view_alter"
+/**
+ * Implements hook_field_attach_view_alter().
+ */
+function `!v expand('%:t:r:r')`_field_attach_view_alter(&$output, $context) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_prepare_translation_alter "hook_field_attach_prepare_translation_alter"
+/**
+ * Implements hook_field_attach_prepare_translation_alter().
+ */
+function `!v expand('%:t:r:r')`_field_attach_prepare_translation_alter(&$entity, $context) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_language_alter "hook_field_language_alter"
+/**
+ * Implements hook_field_language_alter().
+ */
+function `!v expand('%:t:r:r')`_field_language_alter(&$display_language, $context) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_available_languages_alter "hook_field_available_languages_alter"
+/**
+ * Implements hook_field_available_languages_alter().
+ */
+function `!v expand('%:t:r:r')`_field_available_languages_alter(&$languages, $context) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_create_bundle "hook_field_attach_create_bundle"
+/**
+ * Implements hook_field_attach_create_bundle().
+ */
+function `!v expand('%:t:r:r')`_field_attach_create_bundle($entity_type, $bundle) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_rename_bundle "hook_field_attach_rename_bundle"
+/**
+ * Implements hook_field_attach_rename_bundle().
+ */
+function `!v expand('%:t:r:r')`_field_attach_rename_bundle($entity_type, $bundle_old, $bundle_new) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_attach_delete_bundle "hook_field_attach_delete_bundle"
+/**
+ * Implements hook_field_attach_delete_bundle().
+ */
+function `!v expand('%:t:r:r')`_field_attach_delete_bundle($entity_type, $bundle, $instances) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_info "hook_field_storage_info"
+/**
+ * Implements hook_field_storage_info().
+ */
+function `!v expand('%:t:r:r')`_field_storage_info() {
+  return array(
+    ${1}
+  );
+}
+endsnippet
+
+snippet hook_field_storage_info_alter "hook_field_storage_info_alter"
+/**
+ * Implements hook_field_storage_info_alter().
+ */
+function `!v expand('%:t:r:r')`_field_storage_info_alter(&$info) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_details "hook_field_storage_details"
+/**
+ * Implements hook_field_storage_details().
+ */
+function `!v expand('%:t:r:r')`_field_storage_details($field) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_details_alter "hook_field_storage_details_alter"
+/**
+ * Implements hook_field_storage_details_alter().
+ */
+function `!v expand('%:t:r:r')`_field_storage_details_alter(&$details, $field) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_load "hook_field_storage_load"
+/**
+ * Implements hook_field_storage_load().
+ */
+function `!v expand('%:t:r:r')`_field_storage_load($entity_type, $entities, $age, $fields, $options) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_write "hook_field_storage_write"
+/**
+ * Implements hook_field_storage_write().
+ */
+function `!v expand('%:t:r:r')`_field_storage_write($entity_type, $entity, $op, $fields) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_delete "hook_field_storage_delete"
+/**
+ * Implements hook_field_storage_delete().
+ */
+function `!v expand('%:t:r:r')`_field_storage_delete($entity_type, $entity, $fields) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_delete_revision "hook_field_storage_delete_revision"
+/**
+ * Implements hook_field_storage_delete_revision().
+ */
+function `!v expand('%:t:r:r')`_field_storage_delete_revision($entity_type, $entity, $fields) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_query "hook_field_storage_query"
+/**
+ * Implements hook_field_storage_query().
+ */
+function `!v expand('%:t:r:r')`_field_storage_query($query) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_create_field "hook_field_storage_create_field"
+/**
+ * Implements hook_field_storage_create_field().
+ */
+function `!v expand('%:t:r:r')`_field_storage_create_field($field) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_delete_field "hook_field_storage_delete_field"
+/**
+ * Implements hook_field_storage_delete_field().
+ */
+function `!v expand('%:t:r:r')`_field_storage_delete_field($field) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_delete_instance "hook_field_storage_delete_instance"
+/**
+ * Implements hook_field_storage_delete_instance().
+ */
+function `!v expand('%:t:r:r')`_field_storage_delete_instance($instance) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_pre_load "hook_field_storage_pre_load"
+/**
+ * Implements hook_field_storage_pre_load().
+ */
+function `!v expand('%:t:r:r')`_field_storage_pre_load($entity_type, $entities, $age, &$skip_fields, $options) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_pre_insert "hook_field_storage_pre_insert"
+/**
+ * Implements hook_field_storage_pre_insert().
+ */
+function `!v expand('%:t:r:r')`_field_storage_pre_insert($entity_type, $entity, &$skip_fields) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_pre_update "hook_field_storage_pre_update"
+/**
+ * Implements hook_field_storage_pre_update().
+ */
+function `!v expand('%:t:r:r')`_field_storage_pre_update($entity_type, $entity, &$skip_fields) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_info_max_weight "hook_field_info_max_weight"
+/**
+ * Implements hook_field_info_max_weight().
+ */
+function `!v expand('%:t:r:r')`_field_info_max_weight($entity_type, $bundle, $context) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_display_alter "hook_field_display_alter"
+/**
+ * Implements hook_field_display_alter().
+ */
+function `!v expand('%:t:r:r')`_field_display_alter(&$display, $context) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_display_entity_type_alter "hook_field_display_entity_type_alter"
+/**
+ * Implements hook_field_display_ENTITY_TYPE_alter().
+ */
+function `!v expand('%:t:r:r')`_field_display_${1}_alter(&$display, $context) {
+  ${2}
+}
+endsnippet
+
+snippet hook_field_extra_fields_display_alter "hook_field_extra_fields_display_alter"
+/**
+ * Implements hook_field_extra_fields_display_alter().
+ */
+function `!v expand('%:t:r:r')`_field_extra_fields_display_alter(&$displays, $context) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_widget_properties_entity_type_alter "hook_field_widget_properties_entity_type_alter"
+/**
+ * Implements hook_field_widget_properties_ENTITY_TYPE_alter().
+ */
+function `!v expand('%:t:r:r')`_field_widget_properties_${1}_alter(&$widget, $context) {
+  ${2}
+}
+endsnippet
+
+snippet hook_field_create_field "hook_field_create_field"
+/**
+ * Implements hook_field_create_field().
+ */
+function `!v expand('%:t:r:r')`_field_create_field($field) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_create_instance "hook_field_create_instance"
+/**
+ * Implements hook_field_create_instance().
+ */
+function `!v expand('%:t:r:r')`_field_create_instance($instance) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_update_forbid "hook_field_update_forbid"
+/**
+ * Implements hook_field_update_forbid().
+ */
+function `!v expand('%:t:r:r')`_field_update_forbid($field, $prior_field, $has_data) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_update_field "hook_field_update_field"
+/**
+ * Implements hook_field_update_field().
+ */
+function `!v expand('%:t:r:r')`_field_update_field($field, $prior_field, $has_data) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_delete_field "hook_field_delete_field"
+/**
+ * Implements hook_field_delete_field().
+ */
+function `!v expand('%:t:r:r')`_field_delete_field($field) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_update_instance "hook_field_update_instance"
+/**
+ * Implements hook_field_update_instance().
+ */
+function `!v expand('%:t:r:r')`_field_update_instance($instance, $prior_instance) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_delete_instance "hook_field_delete_instance"
+/**
+ * Implements hook_field_delete_instance().
+ */
+function `!v expand('%:t:r:r')`_field_delete_instance($instance) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_read_field "hook_field_read_field"
+/**
+ * Implements hook_field_read_field().
+ */
+function `!v expand('%:t:r:r')`_field_read_field($field) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_read_instance "hook_field_read_instance"
+/**
+ * Implements hook_field_read_instance().
+ */
+function `!v expand('%:t:r:r')`_field_read_instance($instance) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_purge_field "hook_field_purge_field"
+/**
+ * Implements hook_field_purge_field().
+ */
+function `!v expand('%:t:r:r')`_field_purge_field($field) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_purge_instance "hook_field_purge_instance"
+/**
+ * Implements hook_field_purge_instance().
+ */
+function `!v expand('%:t:r:r')`_field_purge_instance($instance) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_purge_field "hook_field_storage_purge_field"
+/**
+ * Implements hook_field_storage_purge_field().
+ */
+function `!v expand('%:t:r:r')`_field_storage_purge_field($field) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_purge_field_instance "hook_field_storage_purge_field_instance"
+/**
+ * Implements hook_field_storage_purge_field_instance().
+ */
+function `!v expand('%:t:r:r')`_field_storage_purge_field_instance($instance) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_storage_purge "hook_field_storage_purge"
+/**
+ * Implements hook_field_storage_purge().
+ */
+function `!v expand('%:t:r:r')`_field_storage_purge($entity_type, $entity, $field, $instance) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_access "hook_field_access"
+/**
+ * Implements hook_field_access().
+ */
+function `!v expand('%:t:r:r')`_field_access($op, $field, $entity_type, $entity, $account) {
+  ${1}
+}
+endsnippet

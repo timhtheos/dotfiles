@@ -1,0 +1,12 @@
+# modules/field/modules/options/options.api.php
+
+snippet hook_options_list "hook_options_list"
+/**
+ * Implements hook_options_list().
+ */
+function `!v expand('%:t:r:r')`_options_list($field, $instance, $entity_type, $entity) {
+  $options = array();
+
+  return $options;
+}
+endsnippet

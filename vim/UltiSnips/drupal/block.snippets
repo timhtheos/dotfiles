@@ -1,0 +1,86 @@
+# modules/block/block.api.php
+
+snippet hook_block_info "hook_block_info"
+/**
+ * Implements hook_block_info().
+ */
+function `!v expand('%:t:r:r')`_block_info() {
+  $blocks['${1}'] = array(
+    ${2}
+  );
+
+  return $blocks;
+}
+endsnippet
+
+snippet hook_block_info_alter "hook_block_info_alter"
+/**
+ * Implements hook_block_info_alter().
+ */
+function `!v expand('%:t:r:r')`_block_info_alter(&$blocks, $theme, $code_blocks) {
+  ${1}
+}
+endsnippet
+
+snippet hook_block_configure "hook_block_configure"
+/**
+ * Implements hook_block_configure().
+ */
+function `!v expand('%:t:r:r')`_block_configure($delta = '') {
+  $form = array();
+
+  ${1}
+
+  return $form;
+}
+endsnippet
+
+snippet hook_block_save "hook_block_save"
+/**
+ * Implements hook_block_save().
+ */
+function `!v expand('%:t:r:r')`_block_save($delta = '', $edit = array()) {
+  ${1}
+}
+endsnippet
+
+snippet hook_block_view "hook_block_view"
+/**
+ * Implements hook_block_view().
+ */
+function `!v expand('%:t:r:r')`_block_view($delta = '') {
+  $block = array();
+
+  ${1}
+
+  return $block;
+}
+endsnippet
+
+snippet hook_block_view_alter "hook_block_view_alter"
+/**
+ * Implements hook_block_view_alter().
+ */
+function `!v expand('%:t:r:r')`_block_view_alter(&$data, $block) {
+  ${1}
+}
+endsnippet
+
+snippet hook_block_view_module_delta_alter "hook_block_view_module_delta_alter"
+/**
+ * Implements hook_block_view_module_delta_alter().
+ */
+function `!v expand('%:t:r:r')`_block_view_${1:module_delta}_alter(&$data, $block) {
+  ${2}
+}
+endsnippet
+
+snippet hook_block_list_alter "hook_block_list_alter"
+/**
+ * Implements hook_block_list_alter().
+ */
+function `!v expand('%:t:r:r')`_block_list_alter(&$blocks) {
+  ${1}
+}
+endsnippet
+

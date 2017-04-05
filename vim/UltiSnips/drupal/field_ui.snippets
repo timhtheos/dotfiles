@@ -1,0 +1,46 @@
+# modules/field_ui/field_ui.api.php
+
+snippet hook_field_settings_form "hook_field_settings_form"
+/**
+ * Implements hook_field_settings_form().
+ */
+function `!v expand('%:t:r:r')`_field_settings_form($field, $instance, $has_data) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_instance_settings_form "hook_field_instance_settings_form"
+/**
+ * Implements hook_field_instance_settings_form().
+ */
+function `!v expand('%:t:r:r')`_field_instance_settings_form($field, $instance) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_widget_settings_form "hook_field_widget_settings_form"
+/**
+ * Implements hook_field_widget_settings_form().
+ */
+function `!v expand('%:t:r:r')`_field_widget_settings_form($field, $instance) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_formatter_settings_form "hook_field_formatter_settings_form"
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function `!v expand('%:t:r:r')`_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  ${1}
+}
+endsnippet
+
+snippet hook_field_formatter_settings_summary "hook_field_formatter_settings_summary"
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function `!v expand('%:t:r:r')`_field_formatter_settings_summary($field, $instance, $view_mode) {
+  ${1}
+}
+endsnippet

@@ -1,0 +1,19 @@
+# modules/file/file.api.php
+
+snippet hook_file_download_access "hook_file_download_access"
+/**
+ * Implements hook_file_download_access().
+ */
+function `!v expand('%:t:r:r')`_file_download_access($file_item, $entity_type, $entity) {
+  ${1}
+}
+endsnippet
+
+snippet hook_file_download_access_alter "hook_file_download_access_alter"
+/**
+ * Implements hook_file_download_access_alter().
+ */
+function `!v expand('%:t:r:r')`_file_download_access_alter(&$grants, $file_item, $entity_type, $entity) {
+  ${1}
+}
+endsnippet

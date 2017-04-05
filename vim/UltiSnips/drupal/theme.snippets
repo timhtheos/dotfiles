@@ -1,0 +1,62 @@
+snippet hook_form_system_theme_settings_alter "hook_form_system_theme_settings_alter"
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function `!v expand('%:t:r:r')`_form_system_theme_settings_alter(&$form, &$form_state) {
+  ${1}
+}
+endsnippet
+
+snippet hook_preprocess "hook_preprocess"
+/**
+ * Implements hook_preprocess().
+ */
+function `!v expand('%:t:r:r')`_preprocess(&$variables, $hook) {
+  ${1}
+}
+endsnippet
+
+snippet hook_preprocess_HOOK "hook_preprocess_HOOK"
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function `!v expand('%:t:r:r')`_preprocess_`!v expand('%:t:r:r')`(&$variables) {
+  ${1}
+}
+endsnippet
+
+snippet hook_process "hook_process"
+/**
+ * Implements hook_process().
+ */
+function `!v expand('%:t:r:r')`_process(&$variables, $`!v expand('%:t:r:r')`) {
+  ${1}
+}
+endsnippet
+
+snippet hook_process_HOOK "hook_process_HOOK"
+/**
+ * Implements hook_process_HOOK().
+ */
+function `!v expand('%:t:r:r')`_process_${1}(&$variables) {
+  ${2}
+}
+endsnippet
+
+snippet hook_themes_enabled "hook_themes_enabled"
+/**
+ * Implements hook_themes_enabled().
+ */
+function `!v expand('%:t:r:r')`_themes_enabled($theme_list) {
+  ${1}
+}
+endsnippet
+
+snippet hook_themes_disabled "hook_themes_disabled"
+/**
+ * Implements hook_themes_disabled().
+ */
+function `!v expand('%:t:r:r')`_themes_disabled($theme_list) {
+  ${1}
+}
+endsnippet

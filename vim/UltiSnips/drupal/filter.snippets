@@ -1,0 +1,82 @@
+# modules/filter/filter.api.php
+
+snippet hook_filter_info "hook_filter_info"
+/**
+ * Implements hook_filter_info().
+ */
+function `!v expand('%:t:r:r')`_filter_info() {
+  ${1}
+}
+endsnippet
+
+snippet hook_filter_info_alter "hook_filter_info_alter"
+/**
+ * Implements hook_filter_info_alter().
+ */
+function `!v expand('%:t:r:r')`_filter_info_alter(&$info) {
+  ${1}
+}
+endsnippet
+
+snippet hook_filter_FILTER_settings "hook_filter_FILTER_settings"
+/**
+ * Implements hook_filter_FILTER_settings().
+ */
+function `!v expand('%:t:r:r')`_filter_${1}_settings($form, &$form_state, $filter, $format, $defaults, $filters) {
+  ${2}
+}
+endsnippet
+
+snippet hook_filter_FILTER_prepare "hook_filter_FILTER_prepare"
+/**
+ * Implements hook_filter_FILTER_prepare().
+ */
+function `!v expand('%:t:r:r')`_filter_${1}_prepare($text, $filter, $format, $langcode, $cache, $cache_id) {
+  ${2}
+}
+endsnippet
+
+snippet hook_filter_FILTER_process "hook_filter_FILTER_process"
+/**
+ * Implements hook_filter_FILTER_process().
+ */
+function `!v expand('%:t:r:r')`_filter_${1}_process($text, $filter, $format, $langcode, $cache, $cache_id) {
+  ${2}
+}
+endsnippet
+
+snippet hook_filter_FILTER_tips "hook_filter_FILTER_tips"
+/**
+ * Implements hook_filter_FILTER_tips().
+ */
+function `!v expand('%:t:r:r')`_filter_${1}_tips($filter, $format, $long) {
+  ${2}
+}
+endsnippet
+
+snippet hook_filter_format_insert "hook_filter_format_insert"
+/**
+ * Implements hook_filter_format_insert().
+ */
+function `!v expand('%:t:r:r')`_filter_format_insert($format) {
+  ${1}
+}
+endsnippet
+
+snippet hook_filter_format_update "hook_filter_format_update"
+/**
+ * Implements hook_filter_format_update().
+ */
+function `!v expand('%:t:r:r')`_filter_format_update($format) {
+  ${1}
+}
+endsnippet
+
+snippet hook_filter_format_disable "hook_filter_format_disable"
+/**
+ * Implements hook_filter_format_disable().
+ */
+function `!v expand('%:t:r:r')`_filter_format_disable($format) {
+  ${1}
+}
+endsnippet
