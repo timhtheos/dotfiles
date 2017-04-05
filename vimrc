@@ -314,3 +314,7 @@ autocmd BufNewFile,BufRead *.md set ft=markdown
 
 " ctags.
 " set tags+=tags;$HOME
+
+" Ultisnips.
+" Setup by @dsdeiz.
+let g:UltiSnipsExpandTrigger="<c-j>"
