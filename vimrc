@@ -267,6 +267,7 @@ endfunction
 
 " Yank to clipboard
 " Source: http://superuser.com/a/901526
+" Install this: brew install reattach-to-user-namespace
 if has('clipboard')
   if has('unnamedplus')
     " When possible use + register for copy-paste
