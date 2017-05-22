@@ -154,9 +154,8 @@ load-nvmrc() {
   fi
 }
 
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
+# add-zsh-hook chpwd load-nvmrc
+# load-nvmrc
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
