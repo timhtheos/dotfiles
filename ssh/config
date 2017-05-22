@@ -18,3 +18,7 @@ GSSAPIAuthentication no
 
 # To stop active connection do
 # ssh -O stop <host>
+
+Host lcm
+Hostname idex-lcmeter.prometdev.com
+User timothy

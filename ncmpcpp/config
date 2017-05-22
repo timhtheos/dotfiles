@@ -3,30 +3,47 @@ mpd_port = "6600"
 mpd_music_dir = "~/Music"
 mpd_connection_timeout = "5"
 
-visualizer_fifo_path = "/tmp/mpd.fifo"
-visualizer_output_name = "my_fifo"
-visualizer_sync_interval = "10"
-visualizer_type = "wave" (spectrum/wave)
 
-visualizer_look = "=="
+/* visualizer_fifo_path = "/tmp/mpd.fifo" */
+/* visualizer_output_name = "my_fifo" */
+/* visualizer_sync_interval = "10" */
+/* visualizer_type = "wave" (spectrum/wave) */
 
-playlist_disable_highlight_delay = "2"
+/* visualizer_look = "==" */
 
-song_list_format = "$1 %n │ $5%a$1 │ $8%t $7(%l)$1 $R$6%b $7(%y)$1 $9"
+/* playlist_disable_highlight_delay = "2" */
 
-selected_item_prefix = "$8"
-selected_item_suffix = "$9"
+/* song_list_format = "$1 %n │ $5%a$1 │ $8%t $7(%l)$1 $R$6%b $7(%y)$1 $9" */
 
-song_columns_list_format = " (5)[black]{n} (6)[magenta]{lr} (35)[blue]{t} (30)[cyan]{a} (20)[green]{bEr} (4)[white]{yE}"
+/* selected_item_prefix = "$8" */
+/* selected_item_suffix = "$9" */
 
-#playlist_display_mode = "classic" (classic/columns)
+/* song_columns_list_format = " (5)[black]{n} (6)[magenta]{lr} (35)[blue]{t} (30)[cyan]{a} (20)[green]{bEr} (4)[white]{yE}" */
 
-progressbar_look = "─░─"
+/* #playlist_display_mode = "classic" (classic/columns) */
 
-user_interface = "alternative" (classic/alternative)
+/* # progressbar_look = "─░─" */
+/* progressbar_look = ",/," */
 
-header_visibility = "yes"
+/* progressbar_boldness = "yes" */
 
-display_volume_level = "yes"
+/* user_interface = "alternative" (classic/alternative) */
 
-execute_on_song_change = ~/.bin/ncmpcpp.sh
+/* header_visibility = "yes" */
+
+/* display_volume_level = "yes" */
+
+/* execute_on_song_change = ~/.bin/ncmpcpp.sh */
+
+/* statusbar_visibility = "yes" */
+/* titles_visibility = "yes" */
+
+/* store_lyrics_in_song_dir = "yes" */
+/* fetch_lyrics_for_current_song_in_background = "yes" */
+
+/* jump_to_now_playing_song_at_start = "yes" */
+
+/* clock_display_seconds = "yes" */
+/* display_bitrate = "yes" */
+
+/* display_remaining_time = "yes" */
