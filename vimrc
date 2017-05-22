@@ -72,6 +72,23 @@ Bundle 'FuzzyFinder'
 " You complete me 
 Bundle "Valloric/YouCompleteMe"
 
+" Error:
+" YouCompleteMe unavailable: No module named builtins
+" Install `future` via pip: pip install future
+"
+" Then, the following error:
+" YouCompleteMe unavailable: No module named frozendict
+"
+" Not sure about builtins and future, but the following may solve other issues
+" as well, including frozendict.
+"
+" Src: https://github.com/Valloric/YouCompleteMe/issues/582
+"
+" cd ~/.vim/bundle/YouCompleteMe
+" git submodule update --init --recursive
+"
+" And, so it did fix it.  Installation of future via pip may not be needed.
+
 " Gist vim
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
