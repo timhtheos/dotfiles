@@ -6,6 +6,10 @@ filetype off
 " Leader to comma
 let mapleader = ","
 
+" Fix: E353: Nothing in register *
+" Src: http://stackoverflow.com/questions/25684945/pasting-in-vim-on-tmux-returns-this-error-e353-nothing-in-register
+set clipboard=unnamed
+
 " Set line numbers
 set number
 " set relativenumber
@@ -76,11 +80,11 @@ let g:gist_post_private = 1
 let g:gist_show_privates = 1
 
 " Vim Notes
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-notes'
+" Bundle 'xolox/vim-misc'
+" Bundle 'xolox/vim-notes'
 
 " Vim twig
-Bundle 'evidens/vim-twig'
+" Bundle 'evidens/vim-twig'
 
 " Set colors in css, sass, and sass variables
 " Bundle 'gorodinskiy/vim-coloresque'
@@ -99,12 +103,15 @@ Bundle 'evidens/vim-twig'
 " :setl isk+=-
 " :setl isk+=#
 " :setl isk+=.
-" Vim gitgutter
 
-Bundle 'vim-gitgutter'
+" Vim gitgutter
+Bundle 'airblade/vim-gitgutter'
 
 " VimAwesome: Lightline
 Bundle 'itchyny/lightline.vim'
+
+" Vim Gundo.
+Bundle 'sjl/gundo.vim'
 
 " End vundle plugins
 call vundle#end()
@@ -146,6 +153,13 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
+" CTRL hjkl mappings to navigate between splits.
+" Source: https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " Other custom settings
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8  " saving and encoding
 set nobackup nowritebackup noswapfile autoread            " no backup or swap
@@ -153,19 +167,20 @@ set hlsearch incsearch ignorecase smartcase               " search
 set wildmenu                                              " completion
 set backspace=indent,eol,start                            " sane backspace
 set ruler 						                                    " cursor position in status bar
-set scrolloff=10 					                                " window scroll allowance
+" set scrolloff=10 					                              " window scroll allowance
+set scrolloff=999 					                              " window scroll allowance
 set nowrap						                                    " default: wrap
 
 " map: nowrap, wrap, use <F9>
-function ToggleWrap()
-  if (&wrap == 1)
-    set nowrap
-  else
-    set wrap
-  endif
-endfunction
-map <F9> :call ToggleWrap()<CR>
-map! <F9> ^[:call ToggleWrap()<CR>]
+" function ToggleWrap()
+"   if (&wrap == 1)
+"     set nowrap
+"   else
+"     set wrap
+"   endif
+" endfunction
+" map <F9> :call ToggleWrap()<CR>
+" map! <F9> ^[:call ToggleWrap()<CR>]
 
 " Set cursorlines, cursorcolumns
 set cursorline
@@ -267,17 +282,17 @@ set spell
 windo set spelllang=en_gb,en_us
 
 " Make Ctrl-P plugin a lot faster for git repositories
-let g:ctrlp_use_caching = 0
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
+" let g:ctrlp_use_caching = 0
+" if executable('ag')
+"     set grepprg=ag\ --nogroup\ --nocolor
 
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
-endif
+"     let g:ctrlp_user_command = 'ag %s --color'
+" else
+"   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+"   let g:ctrlp_prompt_mappings = {
+"     \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+"     \ }
+" endif
 
 " Ctrl-P settings
 let g:ctrlp_follow_symlinks = 1
@@ -300,11 +315,25 @@ let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn ctermbg=234
 
 " Vim-gitgutter: Disable all mappings for now
-let g:gitgutter_map_keys = 0
+" let g:gitgutter_map_keys = 0
 
 " Vim-gitgutter: performance settings
 "let g:gitgutter_realtime = 0
 "let g:gitgutter_eager = 0
+"
+" Vim-gitgutter: Turn on line highlighting.
+" let g:gitgutter_highlight_lines = 1
+
+" Vim-gitgutter: mappings for stage, undo, preview
+nmap ghs <Plug>GitGutterStageHunk
+" nmap ghu <Plug>GitGutterUndoHunk
+nmap ghp <Plug>GitGutterPreviewHunk
+
+" Vim-gitgutter: Next and previous changed hunk.
+nmap gn <Plug>GitGutterNextHunk
+nmap ga <Plug>GitGutterPrevHunk
+
+" au CursorMoved * call gitgutter#preview_hunk()
 
 hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
 
@@ -314,6 +343,13 @@ autocmd BufNewFile,BufRead *.md set ft=markdown
 
 " ctags.
 " set tags+=tags;$HOME
+
+" Gundo.
+nnoremap ge :GundoToggle<CR>
+nnoremap gr :GundoShow<CR>:GundoHide<CR>:GundoRenderGraph<CR>
+
+" Nerdtree map: ctrl n
+" map <gp> :hardcopy<CR>
 
 " Ultisnips.
 " Setup by @dsdeiz.

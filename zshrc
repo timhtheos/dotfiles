@@ -51,6 +51,9 @@ plugins=(
 
   # Set python path (for use in mopidy).
   export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
+  # export PYTHONPATH=$(brew --prefix)/lib/python3.5/site-packages:$PYTHONPATH
+
+  # pip3 issue: https://github.com/Homebrew/legacy-homebrew/issues/33897#issuecomment-61595231
 
 ##
 # Source Oh My Zsh.
@@ -126,6 +129,7 @@ compctl -g '~/.teamocil/*(:t:r)' teamocil
 ##
 # Export brew github api token.
 export HOMEBREW_GITHUB_API_TOKEN='b9a3635b81f2a573d94ca3ffdb8c6bdd41bdbede'
+export HOMEBREW_CASK_OPTS='--caskroom=/opt/homebrew-cask/Caskroom'
 
 export NVM_DIR="/Users/timothy/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -152,3 +156,14 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+# from
+# http://stackoverflow.com/questions/20098862/how-to-install-gtk-on-osx-for-use-with-g-gcc-compiler
+export PKG_CONFIG_PATH=/usr/local/Cellar/cairo/1.12.16/lib/pkgconfig/
+export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig
+
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# From
+# https://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/
+# PHP CLI binary
+export PATH="/usr/local/sbin:$PATH"

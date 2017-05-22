@@ -6,3 +6,6 @@ Vagrantfile
 adminer.php
 .vagrant
 tags
+
+ansible/site.retry
+node_modules

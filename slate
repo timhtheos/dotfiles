@@ -52,7 +52,7 @@ alias position_more_right     move                    screenOriginX+(screenSizeX
 
 # Custom layout position aliases for specific apps.
 alias position_vlc            corner bottom-right     resize:screenSizeX/6;screenSizeY/6
-alias position_terminal       move                    screenOriginX;screenOriginY+(screenSizeY/6)*4 (screenSizeX/6)*5;(screenSizeY/6)*2
+alias position_terminal       move                    screenOriginX;screenOriginY+(screenSizeY/8)*5 (screenSizeX/6)*5;(screenSizeY/8)*3
 
 # Layout: Full Screen.
 layout monitor_1_layout_full  'Google Chrome':REPEAT  ${position_full}
@@ -77,7 +77,7 @@ layout monitor_1_layout_main  'Safari':REPEAT         ${position_main_left}
 layout monitor_1_layout_main  'HipChat':REPEAT        ${position_more_right}
 layout monitor_1_layout_main  'Skype':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'Notes':REPEAT          ${position_more_right}
-layout monitor_1_layout_main  'Slack':REPEAT          ${position_main_left}
+layout monitor_1_layout_main  'Slack':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'VLC':REPEAT            ${position_vlc}
 layout monitor_1_layout_main  'Goofy':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'Calendar':REPEAT       ${position_main_left}
@@ -100,3 +100,10 @@ bind n:a,alt ${position_bottom_left}
 bind .:a,alt ${position_bottom_right}
 bind y:a,alt ${position_main_left}
 bind p:a,alt ${position_more_right}
+
+# Throwing focused app/window to other monitors.
+bind j:ctrl,cmd throw 0
+bind k:ctrl,cmd throw 1
+bind l:ctrl,cmd throw 2
+
+# bind 1:ctrl hint QWERTYUIOP

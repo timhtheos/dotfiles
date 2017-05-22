@@ -10,4 +10,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export EDITOR='vim'
 source /usr/local/etc/bash_completion.d/password-store
 
-export PATH="$PATH:/Applications/DevDesktop/drush"
+
+export PATH="$PATH:/Applications/DevDesktop/tools"
