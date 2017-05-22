@@ -30,6 +30,7 @@ plugins=(
   history-substring-search
   rvm
   ruby
+  iterm2-touchbar
 )
 
 ##
