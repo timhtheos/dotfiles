@@ -33583,11 +33583,15 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>976 309 445 77 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>250 315 796 473 0 0 1920 1200 </string>
+	<string>250 315 796 473 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 723 570 452 0 0 1920 1177 </string>
+	<string>0 0 1920 1200 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>785 284 585 452 0 0 1920 1177 </string>
+	<key>NeverWarnAboutShortLivedSessions_2781A602-C594-415A-A407-7A51F47614F7</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_2781A602-C594-415A-A407-7A51F47614F7_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
