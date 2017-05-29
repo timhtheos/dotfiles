@@ -1,5 +1,6 @@
 {
     "require": {
+        "drush/drush": "^8.1",
         "squizlabs/php_codesniffer": "*",
         "drupal/coder": "^8.2",
         "hirak/prestissimo": "^0.3.5"
