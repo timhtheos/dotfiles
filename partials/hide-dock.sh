@@ -4,6 +4,9 @@
 # Hide dock.
 # 
 # Works and tested with Yosemite, and Sierra.
+#
+# Reference:
+#   https://www.quora.com/How-can-I-completely-hide-or-remove-the-Dock-in-Mac-OS-X-Yosemite
 ##
 
 # To set the Dock to automatically hide, check the System Preferences > Dock >
