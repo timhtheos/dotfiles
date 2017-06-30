@@ -115,11 +115,15 @@ alias clock3='while true; do tput clear; date +" %l : %M : %S %p" | toilet -F me
 
 ##
 # Export docker environments.
-source ~/.docker-exports
+if [[ -d "~/.docker-exports" ]]; then
+  source ~/.docker-exports
+fi
 
 ##
 # Set github hub alias.
-eval "$(hub alias -s)"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  eval "$(hub alias -s)"
+fi
 
 ##
 # Start mpd automatically, if not yet running.
@@ -161,8 +165,10 @@ load-nvmrc() {
 
 # add-zsh-hook chpwd load-nvmrc
 # load-nvmrc
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+if [[ -d "$HOME/.nvm" ]] && [[ -d "/usr/local/opt/nvm/nvm.sh" ]]; then
+  export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
+fi
 
 # from
 # http://stackoverflow.com/questions/20098862/how-to-install-gtk-on-osx-for-use-with-g-gcc-compiler
