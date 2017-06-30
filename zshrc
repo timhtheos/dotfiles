@@ -51,8 +51,10 @@ plugins=(
   export PATH=~/.git-bin:$PATH
 
   # Set python path (for use in mopidy).
-  export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
-  # export PYTHONPATH=$(brew --prefix)/lib/python3.5/site-packages:$PYTHONPATH
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
+    # export PYTHONPATH=$(brew --prefix)/lib/python3.5/site-packages:$PYTHONPATH
+  fi
 
   # pip3 issue: https://github.com/Homebrew/legacy-homebrew/issues/33897#issuecomment-61595231
 
