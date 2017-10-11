@@ -1,0 +1,62 @@
+#!/bin/bash
+
+echo "";
+
+# Current dir.
+path_current=$(pwd);
+
+# Check if current dir is an instance of git.
+if ! git rev-parse --show-toplevel &> /dev/null; then
+  echo "You are not inside any known jekyll project.";
+  exit 0;
+fi
+
+# Check for command.
+if [[ -z $1 ]]; then
+  echo "Command not found. Please use the following available command(s)."
+  echo "  new - Create new post.";
+  echo "The commands can be executed anywhere in the project tree."
+  exit 0;
+fi
+
+# Get root of git.
+path_git=$(git rev-parse --show-toplevel);
+
+cd $path_git;
+cd _posts;
+cd $(date +%Y);
+cd $(date +%m-%b);
+
+echo "Input the title of the post below:";
+read title
+
+title=$title
+title_safe=$(echo $title | sed -e 's/[^A-Za-z0-9._-]/_/g');
+title_file=${title_safe//_/-};
+title_file=${title_file//--/-};
+title_file=${title_file//--/-};
+title_file=${title_file//--/-};
+title_file=${title_file//--/-};
+title_file=${title_file//--/-};
+title_file=$(echo $title_file | sed 's/^-*//');
+title_file=$(echo $title_file | sed -e 's/\(-\)*$//g');
+title_lower=$(echo "$title_file" | tr '[:upper:]' '[:lower:]');
+
+post_file=$(date +%Y-%m-%d)-$title_lower.md;
+
+touch $post_file;
+echo "";
+echo "The post file has been created in:";
+echo "$(pwd)/$post_file";
+
+echo "---" >> $post_file;
+echo "layout: default" >> $post_file;
+echo "title:  $title" >> $post_file;
+echo "date: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $post_file;
+echo "categories:" >> $post_file;
+echo "  - front" >> $post_file;
+echo "permalink: entry/$title_lower" >> $post_file;
+echo "---" >> $post_file;
+echo "" >> $post_file;
+
+vim $post_file;
