@@ -9,3 +9,9 @@ tags
 
 ansible/site.retry
 node_modules
+
+sites/sites.php
+
+.css.map
+
+pull.sh

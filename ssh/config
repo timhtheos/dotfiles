@@ -22,3 +22,67 @@ GSSAPIAuthentication no
 Host lcm
 Hostname idex-lcmeter.prometdev.com
 User timothy
+
+Host pme
+Hostname 188.166.184.26
+User root
+
+Host thehive
+Hostname 45.76.102.17
+User root
+
+Host vultr
+Hostname 108.61.99.205
+User root
+
+Host jd
+Hostname 45.32.114.240
+User root
+
+Host james
+Hostname 202.91.163.189
+User james-admin
+
+Host projects.monilab.net
+User git
+Hostname projects.monilab.net
+IdentityFile ~/.ssh/lkftv-repo.pem
+
+Host carltoncity
+Hostname carltoncity.monilab.net
+User carltoncity
+IdentityFile ~/.ssh/carltoncity.pem
+
+Host dev
+Hostname dev.monilab.net
+
+Host holiday
+User singaporeorchard
+Hostname dev-magento.monilab.net
+IdentityFile ~/.ssh/holiday.pem
+
+# Host mail
+# User root
+# Hostname 45.77.175.242
+
+Host timhtheos
+User root
+Hostname 207.148.65.24
+
+Host cloud
+User root
+Hostname 45.77.245.237
+
+Host rivertech
+User root
+Hostname 45.76.145.176
+
+host icsaigon
+hostname icsaigon.monilab.net
+User icsaigon
+IdentityFile ~/.ssh/icsaigon-dev.pem
+
+host icsaigon-prod
+hostname 13.228.174.21
+User centos
+IdentityFile ~/.ssh/icsaigon-prod.pem

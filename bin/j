@@ -7,7 +7,19 @@ path_current=$(pwd);
 
 # Check if current dir is an instance of git.
 if ! git rev-parse --show-toplevel &> /dev/null; then
-  echo "You are not inside any known jekyll project.";
+  echo "You are not inside a git instance.";
+  exit 0;
+fi
+
+# Get root of git.
+path_git=$(git rev-parse --show-toplevel);
+
+# Go to git root.
+cd $path_git;
+
+# Check if current dir is a jekyll root dir.
+if [[ ! -f "_config.yml" ]]; then
+  echo "You are not inside a git of jekyll instance.";
   exit 0;
 fi
 
@@ -19,13 +31,22 @@ if [[ -z $1 ]]; then
   exit 0;
 fi
 
-# Get root of git.
-path_git=$(git rev-parse --show-toplevel);
-
-cd $path_git;
 cd _posts;
-cd $(date +%Y);
-cd $(date +%m-%b);
+
+dir_y=$(date +%Y);
+dir_m=$(date +%m-%b);
+
+if [[ ! -d $dir_y ]]; then
+  mkdir $dir_y;
+fi
+
+cd $dir_y;
+
+if [[ ! -d $dir_m ]]; then
+  mkdir $dir_m;
+fi
+
+cd $dir_m;
 
 echo "Input the title of the post below:";
 read title
@@ -55,7 +76,7 @@ echo "title:  $title" >> $post_file;
 echo "date: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $post_file;
 echo "categories:" >> $post_file;
 echo "  - front" >> $post_file;
-echo "permalink: entry/$title_lower" >> $post_file;
+echo "permalink: entry/$(date -u +'%Y-%m-%d')/$title_lower" >> $post_file;
 echo "---" >> $post_file;
 echo "" >> $post_file;
 

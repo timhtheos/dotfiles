@@ -42,10 +42,15 @@ plugins=(
   export PATH="/usr/local/sbin:$PATH"
   
   # Export user/personal bin.
-  export PATH=~/.bin:$PATH
+  # export PATH=~/.bin:$PATH
+  export PATH=$(find ~/.bin -type d | tr '\n' ':' | sed 's/:$//'):$PATH
   
   # Export rvm bin.
   export PATH="$PATH:$HOME/.rvm/bin"
+
+  if [[ -s $HOME/.rvm/scripts/rvm ]]; then
+    source $HOME/.rvm/scripts/rvm;
+  fi
   
   # Export user/personal git bin.
   export PATH=~/.git-bin:$PATH
@@ -104,6 +109,9 @@ alias bored="fortune | cowsay -f $(ls /usr/local/Cellar/cowsay/3.04/share/cows |
 alias clock1='while true; do tput clear; date +"                                                                                                         %l : %M : %S %p" | figlet -c | toilet -F gay -f term; sleep 1; done'
 alias clock2='while true; do tput clear; date +" %l : %M : %S %p" | toilet -F gay -f smmono9; sleep 1; done'
 alias clock3='while true; do tput clear; date +" %l : %M : %S %p" | toilet -F metal -f smmono9; sleep 1; done'
+alias count="ls -l | grep -v ^l | wc -l"
+#alias apache_stop="sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist"
+alias james="echo aUh2x7*4";
 
 ##
 # Set the fuck.
@@ -171,3 +179,26 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 # https://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/
 # PHP CLI binary
 export PATH="/usr/local/sbin:$PATH"
+
+# PHP 70.
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+
+# Include project's git path.
+export PATH="/vw/sites/jamesdeakin.dev/build:$PATH"
+
+function countdown(){
+  date1=$((`date +%s` + $1)); 
+  while [ "$date1" -ge `date +%s` ]; do 
+    echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+    sleep 0.1
+  done
+}
+function stopwatch(){
+  date1=`date +%s`; 
+  while true; do 
+    echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"; 
+    sleep 0.1
+  done
+}
+
+export PATH="$PATH:$HOME/coder/vendor/bin";

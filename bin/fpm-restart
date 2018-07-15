@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Stopping php-fpm..."
+launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php*.plist
+
+echo "Starting php-fpm..."
+launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php*.plist
+
+echo "php-fpm restarted"
+exit 0
