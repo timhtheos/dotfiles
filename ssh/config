@@ -86,3 +86,11 @@ host icsaigon-prod
 hostname 13.228.174.21
 User centos
 IdentityFile ~/.ssh/icsaigon-prod.pem
+
+host piggyx-root
+hostname 149.28.168.124
+User root
+
+host piggyx
+hostname 149.28.168.124
+User piggyx
