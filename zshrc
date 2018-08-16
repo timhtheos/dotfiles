@@ -60,6 +60,18 @@ plugins=(
   # export PYTHONPATH=$(brew --prefix)/lib/python3.5/site-packages:$PYTHONPATH
 
   # pip3 issue: https://github.com/Homebrew/legacy-homebrew/issues/33897#issuecomment-61595231
+  #export PYTHONPATH=$(brew --prefix)/lib/python3.7/site-packages:$PYTHONPATH
+
+
+#$ python --version                                                                                                                                                                                                                12:52:34 PM
+#Python 2.7.15
+#
+#timothy@timothy:/Users/timothy
+#$ which python                                                                                                                                                                                                                    12:52:40 PM
+#/usr/local/bin/python
+export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
+
+  # export PYTHONPATH=$(brew --prefix)/lib/python3.7/site-packages:$PYTHONPATH
 
 ##
 # Source Oh My Zsh.
@@ -140,33 +152,33 @@ compctl -g '~/.teamocil/*(:t:r)' teamocil
 export HOMEBREW_GITHUB_API_TOKEN='b9a3635b81f2a573d94ca3ffdb8c6bdd41bdbede'
 export HOMEBREW_CASK_OPTS='--caskroom=/opt/homebrew-cask/Caskroom'
 
-export NVM_DIR="/Users/timothy/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# From: https://github.com/creationix/nvm#zsh
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-
-# add-zsh-hook chpwd load-nvmrc
-# load-nvmrc
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+# export NVM_DIR="/Users/timothy/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# 
+# # From: https://github.com/creationix/nvm#zsh
+# autoload -U add-zsh-hook
+# load-nvmrc() {
+#   local node_version="$(nvm version)"
+#   local nvmrc_path="$(nvm_find_nvmrc)"
+# 
+#   if [ -n "$nvmrc_path" ]; then
+#     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+# 
+#     if [ "$nvmrc_node_version" = "N/A" ]; then
+#       nvm install
+#     elif [ "$nvmrc_node_version" != "$node_version" ]; then
+#       nvm use
+#     fi
+#   elif [ "$node_version" != "$(nvm version default)" ]; then
+#     echo "Reverting to nvm default version"
+#     nvm use default
+#   fi
+# }
+# 
+# # add-zsh-hook chpwd load-nvmrc
+# # load-nvmrc
+# export NVM_DIR="$HOME/.nvm"
+# . "/usr/local/opt/nvm/nvm.sh"
 
 # from
 # http://stackoverflow.com/questions/20098862/how-to-install-gtk-on-osx-for-use-with-g-gcc-compiler
@@ -181,7 +193,8 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export PATH="/usr/local/sbin:$PATH"
 
 # PHP 70.
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+# export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+# export PATH="$(brew --prefix homebrew/php/php72)/bin:$PATH"
 
 # Include project's git path.
 export PATH="/vw/sites/jamesdeakin.dev/build:$PATH"
@@ -202,3 +215,9 @@ function stopwatch(){
 }
 
 export PATH="$PATH:$HOME/coder/vendor/bin";
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
+

@@ -1,10 +1,12 @@
 " Be iMproved
 " required
+
 set nocompatible
 filetype off
 
 " Leader to comma
 let mapleader = ","
+
 
 " Fix: E353: Nothing in register *
 " Src: http://stackoverflow.com/questions/25684945/pasting-in-vim-on-tmux-returns-this-error-e353-nothing-in-register
@@ -48,7 +50,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
-Bundle 'SirVer/ultisnips'
+"Bundle 'SirVer/ultisnips'
 " Bundle 'joonty/vdebug'
 
 Bundle 'altercation/vim-colors-solarized'
@@ -58,7 +60,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-repeat'
 Bundle 'derekwyatt/vim-scala'
-Bundle 'tpope/vim-sensible'
+" Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 Bundle 'mattn/emmet-vim'
 
@@ -74,7 +76,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 
 " You complete me 
-Bundle "Valloric/YouCompleteMe"
+" Bundle "Valloric/YouCompleteMe"
 "
 " Error:    YouCompleteMe unavailable: No module named builtins
 " Solution: Install `future` via pip: pip install future
@@ -92,6 +94,9 @@ Bundle "Valloric/YouCompleteMe"
 " Src:      https://github.com/Valloric/YouCompleteMe/issues/582
 "
 " Fixed.
+
+Bundle "ajh17/VimCompletesMe"
+"Bundle "maralla/completor.vim"
 
 " Gist vim
 Bundle 'mattn/webapi-vim'
@@ -224,7 +229,7 @@ set rtp+=~/.fzf
 " Either set syntax enable or syntax on
 " set t_Co=256
 let g:solarized_termcolors=256
-syntax enable
+"syntax enable
 set background=dark
 colorscheme solarized
 
@@ -323,7 +328,9 @@ let g:ctrlp_working_path_mode = ''
 
 " Ctrl-P: Ignore .vendor, .git, .svn
 "let g:ctrlp_custom_ignore = '\v[\/]\.(vendor|git|svn)$'
-let g:ctrlp_custom_ignore = '\v[\/](vendor)|(\.(git|svn))$'
+"let g:ctrlp_custom_ignore = '\v[\/](vendor)|(\.(git|svn))$|DS_Store\|\v[\/](node_modules)\|www/core\|www/profiles\|www/sites/default/files'
+let g:ctrlp_custom_ignore = '\v[\/](vendor|node_modules|www/core|www/profiles|www/sites/default/files|www/modules/contrib|www/themes/contrib|docroot/core|docroot/profiles|docroot/sites/default/files|docroot/modules/contrib|docroot/themes/contrib)|(\.(git|svn))$|DS_Store'
+
 
 " Set backup file(s) of vim buffer(s)
 set backup
@@ -375,7 +382,7 @@ nnoremap gr :GundoShow<CR>:GundoHide<CR>:GundoRenderGraph<CR>
 
 " Ultisnips.
 " Setup by @dsdeiz.
-let g:UltiSnipsExpandTrigger="<c-j>"
+"let g:UltiSnipsExpandTrigger="<c-j>"
 
 " XML formatter
 function! DoFormatXML() range
