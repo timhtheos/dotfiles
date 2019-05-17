@@ -15,3 +15,7 @@ sites/sites.php
 .css.map
 
 pull.sh
+
+drush
+html
+nginx-sites-available

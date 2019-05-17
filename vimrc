@@ -76,7 +76,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 
 " You complete me 
-" Bundle "Valloric/YouCompleteMe"
+"Bundle "Valloric/YouCompleteMe"
 "
 " Error:    YouCompleteMe unavailable: No module named builtins
 " Solution: Install `future` via pip: pip install future
@@ -110,7 +110,7 @@ let g:gist_show_privates = 1
 " Bundle 'xolox/vim-notes'
 
 " Vim twig
-" Bundle 'evidens/vim-twig'
+Bundle 'lumiliet/vim-twig'
 
 " Set colors in css, sass, and sass variables
 " Bundle 'gorodinskiy/vim-coloresque'
@@ -236,7 +236,10 @@ colorscheme solarized
 " Tagbar conf
 let g:tagbar_width=30
 " let g:tagbar_ctags_bin
-nmap <F8> :TagbarToggle<CR>
+nmap <C-T> :TagbarToggle<CR>
+let g:tagbar_autofocus=1
+let g:tagbar_left=1
+let g:tagbar_sort=0
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -438,3 +441,7 @@ command! -range=% FormatXML <line1>,<line2>call DoFormatXML()
 
 nmap <silent> <leader>x :%FormatXML<CR>
 vmap <silent> <leader>x :FormatXML<CR>
+
+" Fix Python Path (for YCM)
+"let g:ycm_path_to_python_interpreter="/usr/local/bin/python"
+let g:ycm_path_to_python_interpreter="/usr/local/bin/python3"

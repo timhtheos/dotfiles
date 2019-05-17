@@ -94,3 +94,20 @@ User root
 host piggyx
 hostname 149.28.168.124
 User piggyx
+
+# host fumiyam
+# hostname 139.180.205.148
+# User root
+# 
+# host layf
+# hostname 139.180.205.148
+# User root
+
+host layf
+hostname 139.180.205.148
+User timothy
+
+host github.com.layf
+hostname github.com
+User git
+IdentityFile ~/.ssh/id_rsa_layf
