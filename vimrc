@@ -107,6 +107,7 @@ Bundle "Valloric/YouCompleteMe"
 " Src:      https://github.com/Valloric/YouCompleteMe/issues/582
 "
 " Fixed.
+Bundle 'maralla/comletor.vim'
 
 " Gist vim and settings.
 Bundle 'mattn/webapi-vim'
