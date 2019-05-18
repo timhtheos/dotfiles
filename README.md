@@ -213,3 +213,10 @@ brew cask install caprine
 brew cask install iterm2
 brew cask install vlc
 ```
+
+Asciiquarium
+=====
+
+```
+brew install asciiquarium
+```
