@@ -136,13 +136,14 @@ Bundle 'lumiliet/vim-twig'
 " :setl isk+=#
 " :setl isk+=.
 
-" Vim gitgutter
+" Vim gitgutter.
 Bundle 'airblade/vim-gitgutter'
 
-" VimAwesome: Lightline
+" VimAwesome: Lightline.
 Bundle 'itchyny/lightline.vim'
 
 " Vim Gundo.
+" Visualize your Vim undo tree.
 Bundle 'sjl/gundo.vim'
 
 " End vundle plugins
@@ -450,4 +451,4 @@ vmap <silent> <leader>x :FormatXML<CR>
 
 " Fix Python Path (for YCM)
 "let g:ycm_path_to_python_interpreter="/usr/local/bin/python"
-let g:ycm_path_to_python_interpreter="/usr/local/bin/python3"
+"let g:ycm_path_to_python_interpreter="/usr/local/bin/python3"
