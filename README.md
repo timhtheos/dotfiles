@@ -16,6 +16,31 @@ Cask:
 brew install cask
 ```
 
+Install miscellaneous stuffs
+=====
+
+```
+brew install coreutils
+brew install gawk
+brew install cowsay
+brew install figlet
+brew install toilet
+brew install git
+brew install hub
+brew install wget
+brew install speedtest-cli
+brew install youtube-dl
+```
+
+Install dotfiles
+=====
+
+```
+cd ~
+git clone git@github.com:timhtheos/dotfiles.git
+ln -s dotfiles .dotfiles
+```
+
 RCM
 =====
 
@@ -119,22 +144,37 @@ prefix + I
 
 where `I` is capital `i` as in `I`nstall.
 
-
-
-Install miscs.
+Z shell
 =====
 
 ```
-brew install coreutils
-brew install gawk
-brew install cowsay
-brew install figlet
-brew install toilet
-brew install git
-brew install hub
-brew install wget
-brew install speedtest-cli
-brew install youtube-dl
+brew install zsh
+brew install zsh-completions
+```
+
+Additional steps are needed for zsh-completions. To check these steps, execute `brew info zsh-completions`.
+
+Oh My Zsh:
+
+```
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/.zshrc ~/.zshrc.orig
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+chsh -s /bin/zsh
+```
+
+Exit from terminal and log back. Check with `echo $SHELL` for your current shell.
+If it does not return ZSH, re-execute the last command above, with `sudo`:
+
+```
+sudo chsh -s /bin/zsh
+```
+
+Re-init RCM:
+
+```
+rcdn
+rcup
 ```
 
 Music
@@ -143,13 +183,6 @@ Music
 ```
 brew install mpd
 brew install ncmpcpp
-```
-
-Shell
-=====
-
-```
-brew install zsh
 ```
 
 FZF
