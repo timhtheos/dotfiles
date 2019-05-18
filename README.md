@@ -28,14 +28,12 @@ brew install rcm
 
 Commands:
 
-`rcup` - install, update dotfiles.
-
-`rcdn` - opposite of `rcup`.
-
-`mkrc <dotfile/dotdir>` - make rc file/dir.
-
-`lsrc` - list rc files/dirs.
-
+```
+rcup
+rcdn
+mkrc
+lsrc
+```
 
 Install composer
 =====
