@@ -130,6 +130,12 @@ brew install tmux
 brew install tmux-mem-cpu-load
 ```
 
+Tmate:
+
+```
+brew install tmate
+```
+
 Tmux plugin manager:
 
 ```
@@ -190,4 +196,20 @@ FZF
 
 ```
 brew install fzf
+```
+
+Apps
+=====
+
+```
+brew cask install google-chrome
+brew cask install firefox
+brew cask install deluge
+brew cask install slate
+brew cask install bitbar
+brew cask install skype
+brew cask install steam
+brew cask install caprine
+brew cask install iterm2
+brew cask install vlc
 ```
