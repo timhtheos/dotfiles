@@ -108,18 +108,14 @@ Bundle "Valloric/YouCompleteMe"
 "
 " Fixed.
 
-" Gist vim
+" Gist vim and settings.
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 let g:gist_clip_command = 'pbcopy'
 let g:gist_post_private = 1
 let g:gist_show_privates = 1
 
-" Vim Notes
-" Bundle 'xolox/vim-misc'
-" Bundle 'xolox/vim-notes'
-
-" Vim twig
+" Vim twig.
 Bundle 'lumiliet/vim-twig'
 
 " Set colors in css, sass, and sass variables
