@@ -69,7 +69,7 @@ brew install cmake
 brew install macvim
 ```
 
-Complete installation with Vundle.
+Complete installation with Vundle (see below).
 
 Compile YouCompleteMe with semantic support for C-family languages through libclang:
 
@@ -77,6 +77,47 @@ Compile YouCompleteMe with semantic support for C-family languages through libcl
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 ```
+
+Vundle
+=====
+
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+Install plugins inside vim:
+
+```
+:PluginInstall
+```
+
+Or, from command line:
+
+```
+vim +PluginInstall +qall
+```
+
+Tmux
+=====
+
+```
+brew install tmux
+brew install tmux-mem-cpu-load
+```
+
+Tmux plugin manager:
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Install other tmux plugins, launch tmux and:
+
+```
+prefix + I
+```
+
+where `I` is capital `i` as in `I`nstall.
 
 
 
@@ -109,20 +150,6 @@ Shell
 
 ```
 brew install zsh
-```
-
-Tmux
-=====
-
-```
-brew install tmux
-brew install tmux-mem-cpu-load
-```
-
-YouCompleteMe
-
-```
-brew install cmake
 ```
 
 FZF
