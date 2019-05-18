@@ -22,7 +22,8 @@ bind s:a,ctrl focus 'Skype'
 bind t:a,ctrl focus 'Terminal'
 bind v:a,ctrl focus 'VLC'
 # bind y:a,ctrl focus 'Goofy'
-bind y:a,ctrl focus 'Messenger for Desktop'
+# bind y:a,ctrl focus 'Messenger for Desktop'
+bind y:a,ctrl focus 'Caprine'
 bind u:a,ctrl focus 'Upwork'
 
 # Window Hints.
@@ -71,7 +72,8 @@ layout monitor_1_layout_full  'Notes':REPEAT          ${position_full}
 layout monitor_1_layout_full  'Slack':REPEAT          ${position_full}
 layout monitor_1_layout_full  'VLC':REPEAT            ${position_full}
 layout monitor_1_layout_full  'Goofy':REPEAT          ${position_full}
-layout monitor_1_layout_full  'Messenger for Desktop':REPEAT          ${position_full}
+#layout monitor_1_layout_full  'Messenger for Desktop':REPEAT          ${position_full}
+layout monitor_1_layout_full  'Caprine':REPEAT          ${position_full}
 layout monitor_1_layout_full  'Calendar':REPEAT       ${position_full}
 layout monitor_1_layout_full  'Terminal':REPEAT       ${position_full}
 layout monitor_1_layout_full  'YakYak':REPEAT         ${position_full}
@@ -88,7 +90,8 @@ layout monitor_1_layout_main  'Notes':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'Slack':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'VLC':REPEAT            ${position_vlc}
 layout monitor_1_layout_main  'Goofy':REPEAT          ${position_more_right}
-layout monitor_1_layout_main  'Messenger for Desktop':REPEAT          ${position_more_right}
+#layout monitor_1_layout_main  'Messenger for Desktop':REPEAT          ${position_more_right}
+layout monitor_1_layout_main  'Caprine':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'Calendar':REPEAT       ${position_main_left}
 layout monitor_1_layout_main  'Terminal':REPEAT       ${position_terminal}
 layout monitor_1_layout_main  'YakYak':REPEAT         ${position_more_right}
