@@ -331,39 +331,38 @@ windo set spelllang=en_gb,en_us
 "     \ }
 " endif
 
-" Ctrl-P settings
+" Ctrl-P settings.
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_prompt_mappings = { 'PrtExit()': ['<esc>', '<c-c>', '<c-g>'] }
 let g:ctrlp_working_path_mode = ''
 
 " Ctrl-P: Ignore .vendor, .git, .svn
-"let g:ctrlp_custom_ignore = '\v[\/]\.(vendor|git|svn)$'
-"let g:ctrlp_custom_ignore = '\v[\/](vendor)|(\.(git|svn))$|DS_Store\|\v[\/](node_modules)\|www/core\|www/profiles\|www/sites/default/files'
+" let g:ctrlp_custom_ignore = '\v[\/]\.(vendor|git|svn)$'
+" let g:ctrlp_custom_ignore = '\v[\/](vendor)|(\.(git|svn))$|DS_Store\|\v[\/](node_modules)\|www/core\|www/profiles\|www/sites/default/files'
 let g:ctrlp_custom_ignore = '\v[\/](vendor|node_modules|www/core|www/profiles|www/sites/default/files|www/modules/contrib|www/themes/contrib|docroot/core|docroot/profiles|docroot/sites/default/files|docroot/modules/contrib|docroot/themes/contrib)|(\.(git|svn))$|DS_Store'
 
-
-" Set backup file(s) of vim buffer(s)
+" Set backup file(s) of vim buffer(s).
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
-" Settings for vim-gitgutter
+" Settings for vim-gitgutter.
 let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn ctermbg=234
 
-" Vim-gitgutter: Disable all mappings for now
+" Vim-gitgutter: Disable all mappings for now.
 " let g:gitgutter_map_keys = 0
 
 " Vim-gitgutter: performance settings
-"let g:gitgutter_realtime = 0
-"let g:gitgutter_eager = 0
+" let g:gitgutter_realtime = 0
+" let g:gitgutter_eager = 0
 "
 " Vim-gitgutter: Turn on line highlighting.
 " let g:gitgutter_highlight_lines = 1
 
-" Vim-gitgutter: mappings for stage, undo, preview
+" Vim-gitgutter: mappings for stage, undo, preview.
 nmap ghs <Plug>GitGutterStageHunk
 " nmap ghu <Plug>GitGutterUndoHunk
 nmap ghp <Plug>GitGutterPreviewHunk
@@ -387,14 +386,14 @@ autocmd BufNewFile,BufRead *.md set ft=markdown
 nnoremap ge :GundoToggle<CR>
 nnoremap gr :GundoShow<CR>:GundoHide<CR>:GundoRenderGraph<CR>
 
-" Nerdtree map: ctrl n
+" Discovery: for map <gp>. Originally, this is in one hunk with nerdtree.
 " map <gp> :hardcopy<CR>
 
 " Ultisnips.
 " Setup by @dsdeiz.
 "let g:UltiSnipsExpandTrigger="<c-j>"
 
-" XML formatter
+" XML formatter.
 function! DoFormatXML() range
 	" Save the file type
 	let l:origft = &ft
@@ -450,5 +449,5 @@ nmap <silent> <leader>x :%FormatXML<CR>
 vmap <silent> <leader>x :FormatXML<CR>
 
 " Fix Python Path (for YCM)
-"let g:ycm_path_to_python_interpreter="/usr/local/bin/python"
-"let g:ycm_path_to_python_interpreter="/usr/local/bin/python3"
+" let g:ycm_path_to_python_interpreter="/usr/local/bin/python"
+" let g:ycm_path_to_python_interpreter="/usr/local/bin/python3"
