@@ -1,20 +1,19 @@
 " Be iMproved
-" required
+" Required.
 
 set nocompatible
 filetype off
 
-" Leader to comma
+" Leader to comma.
 let mapleader = ","
-
 
 " Fix: E353: Nothing in register *
 " Src: http://stackoverflow.com/questions/25684945/pasting-in-vim-on-tmux-returns-this-error-e353-nothing-in-register
 set clipboard=unnamed
 
-" Set line numbers
-set number
+" Set line numbers.
 " set relativenumber
+set number
 
 " Show tabline.
 set showtabline=2
@@ -23,18 +22,17 @@ set showtabline=2
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Add vundle.vim itself so that it does not uninstall itself when we do PluginClean.
-Bundle 'Vundle.vim'
+" Let Vundle manage Vundle.
+" Required.
+" Formerly known as 'gmarik/vundle'.
+Bundle 'VundleVim/Vundle.vim'
 
-" Let Vundle manage Vundle
-" required
-Bundle 'gmarik/vundle'
-
-" lorem ipsum
+" Lorem ipsum.
 Bundle 'vim-scripts/loremipsum'
 
-" Vim wiki
-Bundle 'vim-scripts/vimwiki.git'
+" Vim wiki.
+" As of May 2019, not using.
+"Bundle 'vim-scripts/vimwiki.git'
 
 " From Github
 Bundle 'tpope/vim-fugitive'
