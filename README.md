@@ -41,7 +41,7 @@ git clone git@github.com:timhtheos/dotfiles.git
 ln -s dotfiles .dotfiles
 ```
 
-RCM
+Rcm
 =====
 
 To install:
@@ -191,11 +191,18 @@ brew install mpd
 brew install ncmpcpp
 ```
 
-FZF
+Fzf
 =====
 
 ```
 brew install fzf
+```
+
+Mutt
+=====
+
+```
+brew install mutt
 ```
 
 Apps
