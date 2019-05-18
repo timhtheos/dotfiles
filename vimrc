@@ -88,8 +88,8 @@ Bundle 'L9'
 " Scripts src: http://vim-scripts.org/vim/scripts.html
 Bundle 'FuzzyFinder'
 
-" You complete me 
-"Bundle "Valloric/YouCompleteMe"
+" You complete me.
+Bundle "Valloric/YouCompleteMe"
 "
 " Error:    YouCompleteMe unavailable: No module named builtins
 " Solution: Install `future` via pip: pip install future
@@ -107,9 +107,6 @@ Bundle 'FuzzyFinder'
 " Src:      https://github.com/Valloric/YouCompleteMe/issues/582
 "
 " Fixed.
-
-Bundle "ajh17/VimCompletesMe"
-"Bundle "maralla/completor.vim"
 
 " Gist vim
 Bundle 'mattn/webapi-vim'
