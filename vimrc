@@ -46,13 +46,24 @@ Bundle 'Lokaltog/vim-easymotion'
 " Syntax checking hacks for vim.
 " Bundle 'scrooloose/syntastic'
 
+" Search with ack (like grep) within vim.
+" Seldom use as of May 2019.
 Bundle 'mileszs/ack.vim'
+
+" CTRL-P.
 Bundle 'kien/ctrlp.vim'
+
+" Provides insert mode auto-completion for quotes, parens, brackets, etc.
 Bundle 'Raimondi/delimitMate'
+
+" Improved PHP omni-completion. Based on the default phpcomplete.vim.
 Bundle 'shawncplus/phpcomplete.vim'
+
+" For text filtering and alignment.
 Bundle 'godlygeek/tabular'
+
 Bundle 'majutsushi/tagbar'
-"Bundle 'SirVer/ultisnips'
+" Bundle 'SirVer/ultisnips'
 " Bundle 'joonty/vdebug'
 
 Bundle 'altercation/vim-colors-solarized'
