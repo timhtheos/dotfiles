@@ -35,20 +35,50 @@ mkrc
 lsrc
 ```
 
-Install composer
+Composer
 =====
 
 ```
 brew install composer
 ```
 
-Install macvim for YouCompleteMe
+Drush, drupal console, php_codesniffer, coder:
+
+```
+composer global require drush/drush
+composer global require drupal/console
+composer global require squizlabs/php_codesniffer
+composer global require drupal/coder
+```
+
+Or, simply (as composer.json is part of this dotfiles):
+
+```
+cd ~/.composer
+composer install
+```
+
+YouCompleteMe
 =====
+
+Macvim is required for YouCompleteMe, not vim shipped with OSX or MacOS, neither brew's vim.
 
 ```
 brew unlink vim
+brew install cmake
 brew install macvim
 ```
+
+Complete installation with Vundle.
+
+Compile YouCompleteMe with semantic support for C-family languages through libclang:
+
+```
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer
+```
+
+
 
 Install miscs.
 =====
