@@ -34,12 +34,16 @@ Bundle 'vim-scripts/loremipsum'
 " As of May 2019, not using.
 "Bundle 'vim-scripts/vimwiki.git'
 
-" From Github
+" Vim fugitive.
+" A Git wrapper so awesome, it should be illegal.
 Bundle 'tpope/vim-fugitive'
-"Bundle 'sjl/splice' " alt to fugitive; previously called threesome
+
+" Vim easymotion.
+" Vim motions on speed.
 Bundle 'Lokaltog/vim-easymotion'
 
-" Bundle 'scrooloose/nerdtree'
+" Syntastic.
+" Syntax checking hacks for vim.
 " Bundle 'scrooloose/syntastic'
 
 Bundle 'mileszs/ack.vim'
