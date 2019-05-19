@@ -90,7 +90,6 @@ Macvim is required for YouCompleteMe, not vim shipped with OSX or MacOS, neither
 
 ```
 brew unlink vim
-brew install cmake
 brew install macvim
 ```
 
@@ -99,6 +98,7 @@ Complete installation with Vundle (see below).
 Compile YouCompleteMe with semantic support for C-family languages through libclang:
 
 ```
+brew install cmake
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 ```
@@ -205,6 +205,14 @@ Mutt
 brew install mutt
 ```
 
+Vagrant
+=====
+
+```
+brew cask install vagrant
+brew cask install virtualbox
+```
+
 Apps
 =====
 
@@ -219,8 +227,6 @@ brew cask install steam
 brew cask install caprine
 brew cask install iterm2
 brew cask install vlc
-brew cask install vagrant
-brew cask install virtualbox
 ```
 
 Asciiquarium
