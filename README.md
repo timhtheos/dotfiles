@@ -243,3 +243,14 @@ Asciiquarium
 ```
 brew install asciiquarium
 ```
+
+Remind
+=====
+
+(Deprecated)
+
+```
+brew install remind
+brew install wyrd
+```
+
