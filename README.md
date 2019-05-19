@@ -213,6 +213,14 @@ brew cask install vagrant
 brew cask install virtualbox
 ```
 
+Docker
+=====
+
+```
+brew install docker
+brew install docker-compose
+```
+
 Apps
 =====
 
