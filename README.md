@@ -219,6 +219,8 @@ brew cask install steam
 brew cask install caprine
 brew cask install iterm2
 brew cask install vlc
+brew cask install vagrant
+brew cask install virtualbox
 ```
 
 Asciiquarium
