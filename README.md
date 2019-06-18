@@ -83,7 +83,7 @@ cd ~/.composer
 composer install
 ```
 
-YouCompleteMe
+YouCompleteMe (YCM)
 =====
 
 Macvim is required for YouCompleteMe, not vim shipped with OSX or MacOS, neither brew's vim.
@@ -211,6 +211,13 @@ Vagrant
 ```
 brew cask install vagrant
 brew cask install virtualbox
+```
+
+Erorr `Command: ["hostonlyif", "create"]`
+
+```
+sudo "/Library/Application Support/VirtualBox/LaunchDaemons/VirtualBoxStartup.sh" restart
+
 ```
 
 Docker
