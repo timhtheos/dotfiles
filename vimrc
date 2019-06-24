@@ -107,7 +107,7 @@ Bundle "Valloric/YouCompleteMe"
 " Src:      https://github.com/Valloric/YouCompleteMe/issues/582
 "
 " Fixed.
-Bundle 'maralla/comletor.vim'
+Bundle 'maralla/completor.vim'
 
 " Gist vim and settings.
 Bundle 'mattn/webapi-vim'
@@ -118,6 +118,9 @@ let g:gist_show_privates = 1
 
 " Vim twig.
 Bundle 'lumiliet/vim-twig'
+
+" Vim php.
+Bundle 'StanAngeloff/php.vim'
 
 " Set colors in css, sass, and sass variables
 " Bundle 'gorodinskiy/vim-coloresque'
