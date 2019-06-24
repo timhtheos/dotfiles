@@ -1,7 +1,7 @@
 # Mutt sidebar config.
 set sidebar_width   = 40
 set sidebar_visible = no
-set sidebar_sort    = yes
+#set sidebar_sort    = yes
 
 # Sidebar bindings.
 # `sidebar-open` does not seem to function.
