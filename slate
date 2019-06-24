@@ -1,7 +1,8 @@
 # Slate settings.
 
 # App Bindings.
-bind a:a,ctrl focus 'BlueStacks'
+# bind a:a,ctrl focus 'BlueStacks'
+bind a:a,ctrl focus 'Brave Browser'
 bind b:a,ctrl focus 'Viber'
 bind c:a,ctrl focus 'Chromium'
 bind d:a,ctrl focus 'Calendar'
@@ -24,7 +25,7 @@ bind v:a,ctrl focus 'VLC'
 # bind y:a,ctrl focus 'Goofy'
 # bind y:a,ctrl focus 'Messenger for Desktop'
 bind y:a,ctrl focus 'Caprine'
-bind u:a,ctrl focus 'Upwork'
+bind u:a,ctrl focus 'Chat'
 
 # Window Hints.
 bind esc:cmd hint
@@ -63,6 +64,7 @@ alias position_terminal       move                    screenOriginX;screenOrigin
 
 # Layout: Full Screen.
 layout monitor_1_layout_full  'Google Chrome':REPEAT  ${position_full}
+layout monitor_1_layout_full  'Brave Browser':REPEAT  ${position_full}
 layout monitor_1_layout_full  'Chromium':REPEAT       ${position_full}
 layout monitor_1_layout_full  'Firefox':REPEAT        ${position_full}
 layout monitor_1_layout_full  'Safari':REPEAT         ${position_full}
@@ -74,6 +76,7 @@ layout monitor_1_layout_full  'VLC':REPEAT            ${position_full}
 layout monitor_1_layout_full  'Goofy':REPEAT          ${position_full}
 #layout monitor_1_layout_full  'Messenger for Desktop':REPEAT          ${position_full}
 layout monitor_1_layout_full  'Caprine':REPEAT          ${position_full}
+layout monitor_1_layout_full  'Chat':REPEAT          ${position_full}
 layout monitor_1_layout_full  'Calendar':REPEAT       ${position_full}
 layout monitor_1_layout_full  'Terminal':REPEAT       ${position_full}
 layout monitor_1_layout_full  'YakYak':REPEAT         ${position_full}
@@ -81,6 +84,7 @@ layout monitor_1_layout_full  'Viber':REPEAT         ${position_full}
 
 # Layout: Main.
 layout monitor_1_layout_main  'Google Chrome':REPEAT  ${position_main_left}
+layout monitor_1_layout_main  'Brave Browser':REPEAT  ${position_main_left}
 layout monitor_1_layout_main  'Chromium':REPEAT       ${position_main_left}
 layout monitor_1_layout_main  'Firefox':REPEAT        ${position_main_left}
 layout monitor_1_layout_main  'Safari':REPEAT         ${position_main_left}
@@ -92,6 +96,7 @@ layout monitor_1_layout_main  'VLC':REPEAT            ${position_vlc}
 layout monitor_1_layout_main  'Goofy':REPEAT          ${position_more_right}
 #layout monitor_1_layout_main  'Messenger for Desktop':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'Caprine':REPEAT          ${position_more_right}
+layout monitor_1_layout_main  'Chat':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'Calendar':REPEAT       ${position_main_left}
 layout monitor_1_layout_main  'Terminal':REPEAT       ${position_terminal}
 layout monitor_1_layout_main  'YakYak':REPEAT         ${position_more_right}
