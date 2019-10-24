@@ -169,6 +169,11 @@ Additional steps are needed for zsh-completions. To check these steps, execute `
 
 Oh My Zsh:
 
+(Optional)
+```
+rm -rf ~/.oh-my-zsh
+```
+
 ```
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.zshrc ~/.zshrc.orig
