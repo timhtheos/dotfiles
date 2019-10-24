@@ -149,6 +149,12 @@ Tmux plugin manager:
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+Reattach to user namespace:
+
+```
+brew install reattach-to-user-namespace
+```
+
 Install other tmux plugins, launch tmux and:
 
 ```
