@@ -19,3 +19,6 @@ pull.sh
 drush
 html
 nginx-sites-available
+
+.sql
+*.sql

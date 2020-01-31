@@ -366,14 +366,17 @@ highlight SignColumn ctermbg=234
 " Vim-gitgutter: Turn on line highlighting.
 " let g:gitgutter_highlight_lines = 1
 
+" As of 12 Nov. 2019, Tuesday.
+" vim-gitgutter: please change your map <Plug>GitGutterNextHunk to <Plug>(GitGutterNextHunk)
+
 " Vim-gitgutter: mappings for stage, undo, preview.
-nmap ghs <Plug>GitGutterStageHunk
-" nmap ghu <Plug>GitGutterUndoHunk
-nmap ghp <Plug>GitGutterPreviewHunk
+nmap ghs <Plug>(GitGutterStageHunk)
+" nmap ghu <Plug>(GitGutterUndoHunk)
+nmap ghp <Plug>(GitGutterPreviewHunk)
 
 " Vim-gitgutter: Next and previous changed hunk.
-nmap gn <Plug>GitGutterNextHunk
-nmap ga <Plug>GitGutterPrevHunk
+nmap gn <Plug>(GitGutterNextHunk)
+nmap ga <Plug>(GitGutterPrevHunk)
 
 " au CursorMoved * call gitgutter#preview_hunk()
 

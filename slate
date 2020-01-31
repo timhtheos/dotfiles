@@ -12,8 +12,10 @@ bind g:a,ctrl focus 'Google Chrome'
 # bind h:a,ctrl focus 'HipChat'
 bind h:a,ctrl focus 'Slack'
 bind i:a,ctrl focus 'iTerm2'
-bind k:a,ctrl focus 'YakYak'
+# bind k:a,ctrl focus 'YakYak'
+bind k:a,ctrl focus 'Skype for Business'
 # bind l:a,ctrl focus 'Slack'
+bind m:a,ctrl focus 'Microsoft Teams'
 bind n:a,ctrl focus 'Notes'
 bind o:a,ctrl focus 'Safari'
 # bind p:a,ctrl focus 'Adobe Photoshop CC'
@@ -70,6 +72,7 @@ layout monitor_1_layout_full  'Firefox':REPEAT        ${position_full}
 layout monitor_1_layout_full  'Safari':REPEAT         ${position_full}
 layout monitor_1_layout_full  'HipChat':REPEAT        ${position_full}
 layout monitor_1_layout_full  'Skype':REPEAT          ${position_full}
+layout monitor_1_layout_full  'Skype for Business':REPEAT          ${position_full}
 layout monitor_1_layout_full  'Notes':REPEAT          ${position_full}
 layout monitor_1_layout_full  'Slack':REPEAT          ${position_full}
 layout monitor_1_layout_full  'VLC':REPEAT            ${position_full}
@@ -81,6 +84,7 @@ layout monitor_1_layout_full  'Calendar':REPEAT       ${position_full}
 layout monitor_1_layout_full  'Terminal':REPEAT       ${position_full}
 layout monitor_1_layout_full  'YakYak':REPEAT         ${position_full}
 layout monitor_1_layout_full  'Viber':REPEAT         ${position_full}
+layout monitor_1_layout_full  'Microsoft Teams':REPEAT         ${position_full}
 
 # Layout: Main.
 layout monitor_1_layout_main  'Google Chrome':REPEAT  ${position_main_left}
@@ -90,6 +94,7 @@ layout monitor_1_layout_main  'Firefox':REPEAT        ${position_main_left}
 layout monitor_1_layout_main  'Safari':REPEAT         ${position_main_left}
 layout monitor_1_layout_main  'HipChat':REPEAT        ${position_more_right}
 layout monitor_1_layout_main  'Skype':REPEAT          ${position_more_right}
+layout monitor_1_layout_main  'Skype for Business':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'Notes':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'Slack':REPEAT          ${position_more_right}
 layout monitor_1_layout_main  'VLC':REPEAT            ${position_vlc}
@@ -101,6 +106,7 @@ layout monitor_1_layout_main  'Calendar':REPEAT       ${position_main_left}
 layout monitor_1_layout_main  'Terminal':REPEAT       ${position_terminal}
 layout monitor_1_layout_main  'YakYak':REPEAT         ${position_more_right}
 layout monitor_1_layout_main  'Viber':REPEAT         ${position_more_right}
+layout monitor_1_layout_main  'Microsoft Teams':REPEAT         ${position_more_right}
 
 # Layout bindings.
 bind 1:a,alt layout monitor_1_layout_full
