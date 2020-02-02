@@ -32,6 +32,7 @@ brew install gawk
 brew install cowsay
 brew install figlet
 brew install toilet
+brew cask install xquartz
 brew install git
 brew install hub
 brew install wget
