@@ -94,26 +94,12 @@ composer install
 Vim
 =====
 
-Do not install vim via brew. Use Macvim. This is required when using YCM.
-
-YouCompleteMe (YCM)
-=====
-
-Macvim is required for YouCompleteMe, not vim shipped with OSX or MacOS, neither brew's vim.
+MacOS is shipped with `git`. Do not use git shipped with MacOS, neither brew's vim.
+Use MacVim. It is required for YouCompleteMe (YCM).
 
 ```
 brew unlink vim
 brew install macvim
-```
-
-Complete installation with Vundle (see below).
-
-Compile YouCompleteMe with semantic support for C-family languages through libclang:
-
-```
-brew install cmake
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
 ```
 
 Vundle
@@ -133,6 +119,17 @@ Or, from command line:
 
 ```
 vim +PluginInstall +qall
+```
+
+YouCompleteMe (YCM)
+=====
+
+Compile YouCompleteMe with semantic support for C-family languages through libclang:
+
+```
+brew install cmake
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer
 ```
 
 Tmux
