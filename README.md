@@ -91,6 +91,11 @@ cd ~/.composer
 composer install
 ```
 
+Vim
+=====
+
+Do not install vim via brew. Use Macvim. This is required when using YCM.
+
 YouCompleteMe (YCM)
 =====
 
