@@ -213,6 +213,7 @@ Music
 ```
 brew install mpd
 brew install ncmpcpp
+brew install mpc
 ```
 
 Fzf
