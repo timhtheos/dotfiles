@@ -248,6 +248,7 @@ Docker
 ```
 brew install docker
 brew install docker-compose
+brew cask install docker
 ```
 
 Apps
